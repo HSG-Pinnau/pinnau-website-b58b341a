@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-yellow-50 to-blue-50">
+    <section id="contact" className="py-20 bg-gradient-to-br from-yellow-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Kontakt</h2>
@@ -19,8 +19,8 @@ const Contact = () => {
             
             <div className="space-y-6">
               <div className="flex items-start">
-                <div className="bg-blue-100 p-3 rounded-full mr-4 border-2 border-blue-200">
-                  <MapPin className="text-blue-600" size={24} />
+                <div className="bg-red-100 p-3 rounded-full mr-4 border-2 border-red-200">
+                  <MapPin className="text-red-600" size={24} />
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Trainingsstandorte</h4>
@@ -43,12 +43,16 @@ const Contact = () => {
               </div>
 
               <div className="flex items-start">
-                <div className="bg-blue-100 p-3 rounded-full mr-4 border-2 border-blue-200">
-                  <Mail className="text-blue-600" size={24} />
+                <div className="bg-red-100 p-3 rounded-full mr-4 border-2 border-red-200">
+                  <Mail className="text-red-600" size={24} />
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">E-Mail</h4>
-                  <p className="text-gray-600">info@hsg-pinnau.de</p>
+                  <p className="text-gray-600">
+                    <a href="mailto:vorstand@hsg-pinnau.de" className="hover:underline">
+                      vorstand@hsg-pinnau.de
+                    </a>
+                  </p>
                 </div>
               </div>
 
@@ -80,7 +84,7 @@ const Contact = () => {
                   <input
                     type="text"
                     id="firstName"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors duration-200"
                     placeholder="Ihr Vorname"
                   />
                 </div>
@@ -92,7 +96,7 @@ const Contact = () => {
                   <input
                     type="text"
                     id="lastName"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors duration-200"
                     placeholder="Ihr Nachname"
                   />
                 </div>
@@ -105,7 +109,7 @@ const Contact = () => {
                 <input
                   type="email"
                   id="email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors duration-200"
                   placeholder="ihre.email@beispiel.de"
                 />
               </div>
@@ -117,7 +121,7 @@ const Contact = () => {
                 <input
                   type="text"
                   id="subject"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors duration-200"
                   placeholder="Worum geht es?"
                 />
               </div>
@@ -129,14 +133,14 @@ const Contact = () => {
                 <textarea
                   id="message"
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200 resize-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors duration-200 resize-none"
                   placeholder="Ihre Nachricht hier..."
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 hover:scale-105"
+                className="w-full bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 hover:scale-105"
               >
                 <Send size={20} />
                 Nachricht senden
