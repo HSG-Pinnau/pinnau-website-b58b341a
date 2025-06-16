@@ -10,19 +10,19 @@ const Footer = () => {
           {/* Club Info */}
           <div>
             <h3 className="text-xl font-bold mb-4">
-              <span className="text-red-400">HSG</span> <span className="text-yellow-400">Pinnau</span>
+              <span className="text-blue-400">HSG</span> <span className="text-yellow-400">Pinnau</span>
             </h3>
             <p className="text-gray-300 mb-4">
               Leidenschaft für Handball seit 2011. Spielgemeinschaft aus TSV Prisdorf und VfL Pinneberg.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-red-400 transition-colors duration-200">
+              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
                 <Facebook size={20} />
               </a>
               <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors duration-200">
                 <Twitter size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-red-400 transition-colors duration-200">
+              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
                 <Instagram size={20} />
               </a>
             </div>
@@ -57,7 +57,7 @@ const Footer = () => {
 
           {/* Teams */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-red-400">Unsere Teams</h3>
+            <h3 className="text-lg font-semibold mb-4 text-blue-400">Unsere Teams</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/teams/damen1" className="text-gray-300 hover:text-white transition-colors duration-200">

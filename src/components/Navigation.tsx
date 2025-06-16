@@ -42,7 +42,7 @@ const Navigation = () => {
                 className="h-10 w-auto mr-3"
               />
               <h1 className="text-xl font-bold">
-                <span className="text-red-600">HSG</span> <span className="text-yellow-600">Pinnau</span>
+                <span className="text-blue-600">HSG</span> <span className="text-yellow-600">Pinnau</span>
               </h1>
             </Link>
           </div>
@@ -54,7 +54,7 @@ const Navigation = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 hover:text-red-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-yellow-50"
+                  className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-yellow-50"
                 >
                   <item.icon size={16} />
                   {item.name}
@@ -63,7 +63,7 @@ const Navigation = () => {
               
               {/* Teams Dropdown */}
               <div className="relative group">
-                <button className="text-gray-700 hover:text-red-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-yellow-50">
+                <button className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-yellow-50">
                   <Users size={16} />
                   Teams
                 </button>
@@ -72,7 +72,7 @@ const Navigation = () => {
                     <Link
                       key={team.name}
                       to={team.href}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-red-600 transition-colors duration-200"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-50 hover:text-blue-600 transition-colors duration-200"
                     >
                       {team.name}
                     </Link>
@@ -86,7 +86,7 @@ const Navigation = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-red-600 hover:bg-yellow-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-yellow-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -102,7 +102,7 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-red-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 flex items-center gap-2 hover:bg-yellow-50"
+                className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 flex items-center gap-2 hover:bg-yellow-50"
                 onClick={() => setIsOpen(false)}
               >
                 <item.icon size={20} />
@@ -115,7 +115,7 @@ const Navigation = () => {
                 <Link
                   key={team.name}
                   to={team.href}
-                  className="text-gray-700 hover:text-red-600 block px-6 py-2 rounded-md text-base font-medium transition-colors duration-200 hover:bg-yellow-50"
+                  className="text-gray-700 hover:text-blue-600 block px-6 py-2 rounded-md text-base font-medium transition-colors duration-200 hover:bg-yellow-50"
                   onClick={() => setIsOpen(false)}
                 >
                   {team.name}

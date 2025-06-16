@@ -8,7 +8,7 @@ const Programs = () => {
       icon: Users,
       title: "Damen-Mannschaften",
       description: "Drei starke Damen-Teams in verschiedenen Spielklassen für alle Leistungsstufen.",
-      color: "red",
+      color: "blue",
       teams: [
         { name: "Damen 1", href: "/teams/damen1" },
         { name: "Damen 2", href: "/teams/damen2" },
@@ -30,7 +30,7 @@ const Programs = () => {
       icon: Target,
       title: "A-Jugend",
       description: "Nachwuchsförderung auf höchstem Niveau für unsere ältesten Jugendlichen.",
-      color: "red",
+      color: "blue",
       teams: [
         { name: "A-Jugend", href: "/teams/a-jugend" }
       ]
@@ -51,7 +51,7 @@ const Programs = () => {
       icon: Heart,
       title: "Minis",
       description: "Spielerischer Einstieg in den Handball für unsere jüngsten Talente.",
-      color: "red",
+      color: "blue",
       teams: [
         { name: "Minis", href: "/teams/minis" }
       ]
@@ -66,14 +66,14 @@ const Programs = () => {
 
   const getColorClasses = (color: string) => {
     const colorMap = {
-      red: "bg-red-100 text-red-600 border-red-200",
+      blue: "bg-blue-100 text-blue-600 border-blue-200",
       yellow: "bg-yellow-100 text-yellow-600 border-yellow-200"
     };
     return colorMap[color as keyof typeof colorMap] || "bg-gray-100 text-gray-600 border-gray-200";
   };
 
   return (
-    <section id="teams" className="py-20 bg-gradient-to-br from-red-50 to-yellow-50">
+    <section id="teams" className="py-20 bg-gradient-to-br from-blue-50 to-yellow-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Unsere Teams</h2>
@@ -86,7 +86,7 @@ const Programs = () => {
           {programs.map((program, index) => (
             <div 
               key={index}
-              className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-t-4 ${program.color === 'red' ? 'border-red-500' : 'border-yellow-500'}`}
+              className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-t-4 ${program.color === 'blue' ? 'border-blue-500' : 'border-yellow-500'}`}
             >
               <div className="flex items-center justify-center mb-4">
                 <div className={`w-16 h-16 rounded-full flex items-center justify-center border-2 ${getColorClasses(program.color)}`}>
@@ -103,8 +103,8 @@ const Programs = () => {
                       key={team.name}
                       to={team.href}
                       className={`px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200 ${
-                        program.color === 'red' 
-                          ? 'bg-red-100 text-red-700 hover:bg-red-200' 
+                        program.color === 'blue' 
+                          ? 'bg-blue-100 text-blue-700 hover:bg-blue-200' 
                           : 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200'
                       }`}
                     >
@@ -118,7 +118,7 @@ const Programs = () => {
         </div>
 
         <div className="text-center mt-12">
-          <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 mr-4">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 mr-4">
             Training besuchen
           </button>
           <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105">

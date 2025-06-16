@@ -3,7 +3,7 @@ import { ArrowRight, Award, Users, Calendar } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-red-50 via-yellow-50 to-red-100 pt-16">
+    <section id="home" className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-blue-100 pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
           <div className="flex justify-center mb-8">
@@ -15,7 +15,7 @@ const Hero = () => {
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 animate-fade-in">
-            HSG <span className="text-red-600">Pinnau</span>
+            HSG <span className="text-blue-600">Pinnau</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto animate-fade-in">
             Leidenschaft für Handball seit 2011
@@ -26,7 +26,7 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in">
-            <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 hover:scale-105">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 hover:scale-105">
               Mehr erfahren
               <ArrowRight size={20} />
             </button>
@@ -37,10 +37,10 @@ const Hero = () => {
 
           {/* Stats Section */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-t-4 border-red-500">
+            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-t-4 border-blue-500">
               <div className="flex items-center justify-center mb-4">
-                <div className="bg-red-100 p-3 rounded-full">
-                  <Users className="text-red-600" size={32} />
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <Users className="text-blue-600" size={32} />
                 </div>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">6</h3>
@@ -57,10 +57,10 @@ const Hero = () => {
               <p className="text-gray-600">Jahre Erfahrung</p>
             </div>
             
-            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-t-4 border-red-500">
+            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-t-4 border-blue-500">
               <div className="flex items-center justify-center mb-4">
-                <div className="bg-red-100 p-3 rounded-full">
-                  <Calendar className="text-red-600" size={32} />
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <Calendar className="text-blue-600" size={32} />
                 </div>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">2</h3>
