@@ -1,65 +1,61 @@
 
-import { BookOpen, Users, Globe, Microscope, Palette, Music } from 'lucide-react';
+import { Users, Trophy, Clock, Target, Star, Heart } from 'lucide-react';
 
 const Programs = () => {
   const programs = [
     {
-      icon: BookOpen,
-      title: "Academic Excellence",
-      description: "Comprehensive curriculum designed to challenge and inspire students across all disciplines.",
+      icon: Users,
+      title: "Damen-Mannschaften",
+      description: "Drei starke Damen-Teams in verschiedenen Spielklassen für alle Leistungsstufen.",
       color: "blue"
     },
     {
-      icon: Globe,
-      title: "International Programs",
-      description: "Global perspectives through exchange programs and international partnerships.",
-      color: "green"
+      icon: Trophy,
+      title: "Herren-Mannschaften", 
+      description: "Drei Herren-Teams mit Leidenschaft und Teamgeist für spannende Spiele.",
+      color: "yellow"
     },
     {
-      icon: Microscope,
-      title: "STEM Innovation",
-      description: "Cutting-edge science, technology, engineering, and mathematics programs.",
-      color: "purple"
+      icon: Target,
+      title: "A-Jugend",
+      description: "Nachwuchsförderung auf höchstem Niveau für unsere ältesten Jugendlichen.",
+      color: "blue"
     },
     {
-      icon: Palette,
-      title: "Arts & Creativity",
-      description: "Fostering artistic expression through visual arts, drama, and creative writing.",
-      color: "pink"
+      icon: Star,
+      title: "Jugendmannschaften",
+      description: "Alle Altersgruppen von B-Jugend bis E-Jugend - für jeden das passende Team.",
+      color: "yellow"
     },
     {
-      icon: Music,
-      title: "Music & Performance",
-      description: "Comprehensive music education from beginner to advanced performance levels.",
-      color: "indigo"
+      icon: Heart,
+      title: "Minis",
+      description: "Spielerischer Einstieg in den Handball für unsere jüngsten Talente.",
+      color: "blue"
     },
     {
-      icon: Users,
-      title: "Community Service",
-      description: "Building character through meaningful community engagement and service learning.",
-      color: "orange"
+      icon: Clock,
+      title: "Training für alle",
+      description: "Altersgerechtes Training mit erfahrenen Trainern in familiärer Atmosphäre.",
+      color: "yellow"
     }
   ];
 
   const getColorClasses = (color: string) => {
     const colorMap = {
-      blue: "bg-blue-100 text-blue-600",
-      green: "bg-green-100 text-green-600",
-      purple: "bg-purple-100 text-purple-600",
-      pink: "bg-pink-100 text-pink-600",
-      indigo: "bg-indigo-100 text-indigo-600",
-      orange: "bg-orange-100 text-orange-600"
+      blue: "bg-blue-100 text-blue-600 border-blue-200",
+      yellow: "bg-yellow-100 text-yellow-600 border-yellow-200"
     };
-    return colorMap[color as keyof typeof colorMap] || "bg-gray-100 text-gray-600";
+    return colorMap[color as keyof typeof colorMap] || "bg-gray-100 text-gray-600 border-gray-200";
   };
 
   return (
-    <section id="programs" className="py-20 bg-gray-50">
+    <section id="teams" className="py-20 bg-gradient-to-br from-blue-50 to-yellow-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Programs</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Unsere Teams</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover our comprehensive range of programs designed to nurture every aspect of student development
+            Von den Minis bis zu den Erwachsenen - Handball für alle Altersgruppen
           </p>
         </div>
 
@@ -67,10 +63,10 @@ const Programs = () => {
           {programs.map((program, index) => (
             <div 
               key={index}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+              className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-t-4 ${program.color === 'blue' ? 'border-blue-500' : 'border-yellow-500'}`}
             >
               <div className="flex items-center justify-center mb-4">
-                <div className={`w-16 h-16 rounded-full flex items-center justify-center ${getColorClasses(program.color)}`}>
+                <div className={`w-16 h-16 rounded-full flex items-center justify-center border-2 ${getColorClasses(program.color)}`}>
                   <program.icon size={32} />
                 </div>
               </div>
@@ -81,8 +77,11 @@ const Programs = () => {
         </div>
 
         <div className="text-center mt-12">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105">
-            Explore All Programs
+          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 mr-4">
+            Training besuchen
+          </button>
+          <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105">
+            Mannschaften kennenlernen
           </button>
         </div>
       </div>
