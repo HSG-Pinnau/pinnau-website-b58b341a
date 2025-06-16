@@ -19,7 +19,12 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 flex items-center">
+              <img 
+                src="/lovable-uploads/bf51c967-183e-4af8-a13d-0f2057a13892.png" 
+                alt="HSG Pinnau Logo" 
+                className="h-10 w-auto mr-3"
+              />
               <h1 className="text-xl font-bold">
                 <span className="text-blue-600">HSG</span> <span className="text-yellow-600">Pinnau</span>
               </h1>
