@@ -29,7 +29,7 @@ const TeamPage = () => {
     // This would normally fetch from an API, but for now we'll use static data
     const teams: Record<string, TeamData> = {
       'damen1': {
-        name: 'Damen 1',
+        name: 'Damen 1XXX',
         category: 'Erwachsene',
         description: 'Unser erstes Damenteam spielt in der Verbandsliga und setzt sich aus erfahrenen Spielerinnen zusammen, die mit Leidenschaft und Engagement jedes Spiel angehen.',
         goals: 'Unser Ziel ist es, in der Verbandsliga eine starke Rolle zu spielen und als Team zusammenzuwachsen. Wir möchten junge Talente fördern und gleichzeitig erfolgreichen Handball spielen.',
