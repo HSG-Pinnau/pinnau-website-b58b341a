@@ -1,7 +1,13 @@
-
 import { useState } from 'react';
-import { Menu, X, Home, Info, Users, Calendar, Phone, Trophy, ShoppingBag } from 'lucide-react';
+import { Menu, X, Home, Info, Users, Calendar, Phone, Trophy, ShoppingBag, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,7 +58,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-lg border-b-2 border-yellow-400">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-lg border-b-2 border-primary-accent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
@@ -63,153 +69,154 @@ const Navigation = () => {
                 className="h-10 w-auto mr-3"
               />
               <h1 className="text-xl font-bold">
-                <span className="text-blue-600">HSG</span> <span className="text-yellow-600">Pinnau</span>
+                <span className="text-primary">HSG</span> <span className="text-primary-accent">Pinnau</span>
               </h1>
             </Link>
           </div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {/* Home Link */}
-              <a
-                href="/"
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-yellow-50"
-              >
-                <Home size={16} />
-                Home
-              </a>
-              
-              {/* Mannschaften Dropdown */}
-              <div className="relative group">
-                <button className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-yellow-50">
-                  <Users size={16} />
-                  Mannschaften
-                </button>
-                <div className="absolute top-full left-0 mt-1 w-80 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-200 z-50">
-                  <div className="p-2">
-                    {/* Erwachsene */}
-                    <div className="mb-3">
-                      <h3 className="font-semibold text-gray-800 px-2 py-1 border-b border-gray-200">Erwachsene</h3>
-                      <div className="grid grid-cols-2 gap-2 mt-2">
-                        <div>
-                          <h4 className="font-medium text-sm text-gray-600 px-2 py-1">Damen</h4>
-                          {teamStructure.erwachsene.damen.map((team) => (
-                            <Link
-                              key={team.name}
-                              to={team.href}
-                              className="block px-3 py-1 text-sm text-gray-700 hover:bg-yellow-50 hover:text-blue-600 transition-colors duration-200 rounded"
-                            >
-                              {team.name}
-                            </Link>
-                          ))}
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-sm text-gray-600 px-2 py-1">Herren</h4>
-                          {teamStructure.erwachsene.herren.map((team) => (
-                            <Link
-                              key={team.name}
-                              to={team.href}
-                              className="block px-3 py-1 text-sm text-gray-700 hover:bg-yellow-50 hover:text-blue-600 transition-colors duration-200 rounded"
-                            >
-                              {team.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Jugend */}
-                    <div className="mb-3">
-                      <h3 className="font-semibold text-gray-800 px-2 py-1 border-b border-gray-200">Jugend</h3>
-                      <div className="grid grid-cols-2 gap-2 mt-2">
-                        <div>
-                          <h4 className="font-medium text-sm text-gray-600 px-2 py-1">Männlich</h4>
-                          {teamStructure.jugend.maennlich.map((team) => (
-                            <Link
-                              key={team.name}
-                              to={team.href}
-                              className="block px-3 py-1 text-sm text-gray-700 hover:bg-yellow-50 hover:text-blue-600 transition-colors duration-200 rounded"
-                            >
-                              {team.name}
-                            </Link>
-                          ))}
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-sm text-gray-600 px-2 py-1">Weiblich</h4>
-                          {teamStructure.jugend.weiblich.map((team) => (
-                            <Link
-                              key={team.name}
-                              to={team.href}
-                              className="block px-3 py-1 text-sm text-gray-700 hover:bg-yellow-50 hover:text-blue-600 transition-colors duration-200 rounded"
-                            >
-                              {team.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Minis and Toppis */}
-                    <div>
-                      <h3 className="font-semibold text-gray-800 px-2 py-1 border-b border-gray-200">Weitere Teams</h3>
-                      <div className="mt-2">
-                        {teamStructure.minis.map((team) => (
-                          <Link
-                            key={team.name}
-                            to={team.href}
-                            className="block px-3 py-1 text-sm text-gray-700 hover:bg-yellow-50 hover:text-blue-600 transition-colors duration-200 rounded"
-                          >
-                            {team.name}
-                          </Link>
-                        ))}
-                        {teamStructure.toppis.map((team) => (
-                          <Link
-                            key={team.name}
-                            to={team.href}
-                            className="block px-3 py-1 text-sm text-gray-700 hover:bg-yellow-50 hover:text-blue-600 transition-colors duration-200 rounded"
-                          >
-                            {team.name} - Handball für Kinder mit Handicap
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Other Nav Items */}
-              {navItems.slice(1).map((item) => (
-                item.internal ? (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-yellow-50"
+            <NavigationMenu>
+              <NavigationMenuList className="flex items-baseline space-x-4">
+                {/* Home Link */}
+                <NavigationMenuItem>
+                  <Link
+                    to="/"
+                    className="text-text hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-primary-accent/10"
                   >
-                    <item.icon size={16} />
-                    {item.name}
-                  </a>
-                ) : (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-yellow-50"
-                  >
-                    <item.icon size={16} />
-                    {item.name}
-                  </a>
-                )
-              ))}
-            </div>
+                    <Home size={16} />
+                    Home
+                  </Link>
+                </NavigationMenuItem>
+                
+                {/* Mannschaften with nested structure */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-text hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-primary-accent/10 bg-transparent">
+                    <Users size={16} />
+                    Mannschaften
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent className="bg-white border border-gray-200 shadow-lg rounded-md p-2 min-w-[250px]">
+                    <div className="space-y-1">
+                      {/* Erwachsene */}
+                      <div className="group relative">
+                        <div className="flex items-center justify-between px-3 py-2 text-sm font-medium text-text hover:bg-primary-accent/10 rounded cursor-pointer">
+                          <span>Erwachsene</span>
+                          <ChevronRight size={16} />
+                        </div>
+                        <div className="absolute left-full top-0 ml-1 hidden group-hover:block bg-white border border-gray-200 shadow-lg rounded-md p-2 min-w-[200px] z-50">
+                          <div className="space-y-1">
+                            <div className="px-3 py-1 text-xs font-semibold text-gray-500 border-b border-gray-100">Damen</div>
+                            {teamStructure.erwachsene.damen.map((team) => (
+                              <Link
+                                key={team.name}
+                                to={team.href}
+                                className="block px-3 py-2 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors"
+                              >
+                                {team.name}
+                              </Link>
+                            ))}
+                            <div className="px-3 py-1 text-xs font-semibold text-gray-500 border-b border-gray-100 mt-2">Herren</div>
+                            {teamStructure.erwachsene.herren.map((team) => (
+                              <Link
+                                key={team.name}
+                                to={team.href}
+                                className="block px-3 py-2 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors"
+                              >
+                                {team.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Jugend */}
+                      <div className="group relative">
+                        <div className="flex items-center justify-between px-3 py-2 text-sm font-medium text-text hover:bg-primary-accent/10 rounded cursor-pointer">
+                          <span>Jugend</span>
+                          <ChevronRight size={16} />
+                        </div>
+                        <div className="absolute left-full top-0 ml-1 hidden group-hover:block bg-white border border-gray-200 shadow-lg rounded-md p-2 min-w-[200px] z-50">
+                          <div className="space-y-1">
+                            <div className="px-3 py-1 text-xs font-semibold text-gray-500 border-b border-gray-100">Männlich</div>
+                            {teamStructure.jugend.maennlich.map((team) => (
+                              <Link
+                                key={team.name}
+                                to={team.href}
+                                className="block px-3 py-2 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors"
+                              >
+                                {team.name}
+                              </Link>
+                            ))}
+                            <div className="px-3 py-1 text-xs font-semibold text-gray-500 border-b border-gray-100 mt-2">Weiblich</div>
+                            {teamStructure.jugend.weiblich.map((team) => (
+                              <Link
+                                key={team.name}
+                                to={team.href}
+                                className="block px-3 py-2 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors"
+                              >
+                                {team.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Direct teams */}
+                      {teamStructure.minis.map((team) => (
+                        <Link
+                          key={team.name}
+                          to={team.href}
+                          className="block px-3 py-2 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors"
+                        >
+                          {team.name}
+                        </Link>
+                      ))}
+                      {teamStructure.toppis.map((team) => (
+                        <Link
+                          key={team.name}
+                          to={team.href}
+                          className="block px-3 py-2 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors"
+                        >
+                          {team.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                
+                {/* Other Nav Items */}
+                {navItems.slice(1).map((item) => (
+                  <NavigationMenuItem key={item.name}>
+                    {item.internal ? (
+                      <Link
+                        to={item.href}
+                        className="text-text hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-primary-accent/10"
+                      >
+                        <item.icon size={16} />
+                        {item.name}
+                      </Link>
+                    ) : (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-text hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-primary-accent/10"
+                      >
+                        <item.icon size={16} />
+                        {item.name}
+                      </a>
+                    )}
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-yellow-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+              className="inline-flex items-center justify-center p-2 rounded-md text-text hover:text-primary hover:bg-primary-accent/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -220,25 +227,25 @@ const Navigation = () => {
       {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg border-t border-yellow-200">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg border-t border-primary-accent/20">
             {navItems.map((item) => (
               item.internal ? (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
-                  className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 flex items-center gap-2 hover:bg-yellow-50"
+                  to={item.href}
+                  className="text-text hover:text-primary block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 flex items-center gap-2 hover:bg-primary-accent/10"
                   onClick={() => setIsOpen(false)}
                 >
                   <item.icon size={20} />
                   {item.name}
-                </a>
+                </Link>
               ) : (
                 <a
                   key={item.name}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 flex items-center gap-2 hover:bg-yellow-50"
+                  className="text-text hover:text-primary block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 flex items-center gap-2 hover:bg-primary-accent/10"
                   onClick={() => setIsOpen(false)}
                 >
                   <item.icon size={20} />
@@ -246,19 +253,21 @@ const Navigation = () => {
                 </a>
               )
             ))}
-            <div className="border-t border-gray-200 pt-2">
+            
+            {/* Mobile Teams Section */}
+            <div className="border-t border-primary-accent/20 pt-2">
               <p className="px-3 py-1 text-sm font-medium text-gray-500">Mannschaften</p>
               
-              {/* Erwachsene Mobile */}
+              {/* Mobile Erwachsene */}
               <div className="mb-2">
-                <h4 className="px-3 py-1 text-sm font-medium text-gray-600">Erwachsene</h4>
+                <h4 className="px-3 py-1 text-sm font-medium text-text">Erwachsene</h4>
                 <div className="ml-3">
                   <p className="px-3 py-1 text-xs font-medium text-gray-500">Damen</p>
                   {teamStructure.erwachsene.damen.map((team) => (
                     <Link
                       key={team.name}
                       to={team.href}
-                      className="text-gray-700 hover:text-blue-600 block px-6 py-1 rounded-md text-sm transition-colors duration-200 hover:bg-yellow-50"
+                      className="text-text hover:text-primary block px-6 py-1 rounded-md text-sm transition-colors duration-200 hover:bg-primary-accent/10"
                       onClick={() => setIsOpen(false)}
                     >
                       {team.name}
@@ -269,7 +278,7 @@ const Navigation = () => {
                     <Link
                       key={team.name}
                       to={team.href}
-                      className="text-gray-700 hover:text-blue-600 block px-6 py-1 rounded-md text-sm transition-colors duration-200 hover:bg-yellow-50"
+                      className="text-text hover:text-primary block px-6 py-1 rounded-md text-sm transition-colors duration-200 hover:bg-primary-accent/10"
                       onClick={() => setIsOpen(false)}
                     >
                       {team.name}
@@ -278,16 +287,16 @@ const Navigation = () => {
                 </div>
               </div>
               
-              {/* Jugend Mobile */}
+              {/* Mobile Jugend */}
               <div className="mb-2">
-                <h4 className="px-3 py-1 text-sm font-medium text-gray-600">Jugend</h4>
+                <h4 className="px-3 py-1 text-sm font-medium text-text">Jugend</h4>
                 <div className="ml-3">
                   <p className="px-3 py-1 text-xs font-medium text-gray-500">Männlich</p>
                   {teamStructure.jugend.maennlich.map((team) => (
                     <Link
                       key={team.name}
                       to={team.href}
-                      className="text-gray-700 hover:text-blue-600 block px-6 py-1 rounded-md text-sm transition-colors duration-200 hover:bg-yellow-50"
+                      className="text-text hover:text-primary block px-6 py-1 rounded-md text-sm transition-colors duration-200 hover:bg-primary-accent/10"
                       onClick={() => setIsOpen(false)}
                     >
                       {team.name}
@@ -298,7 +307,7 @@ const Navigation = () => {
                     <Link
                       key={team.name}
                       to={team.href}
-                      className="text-gray-700 hover:text-blue-600 block px-6 py-1 rounded-md text-sm transition-colors duration-200 hover:bg-yellow-50"
+                      className="text-text hover:text-primary block px-6 py-1 rounded-md text-sm transition-colors duration-200 hover:bg-primary-accent/10"
                       onClick={() => setIsOpen(false)}
                     >
                       {team.name}
@@ -307,15 +316,15 @@ const Navigation = () => {
                 </div>
               </div>
               
-              {/* Weitere Teams Mobile */}
+              {/* Mobile Other Teams */}
               <div>
-                <h4 className="px-3 py-1 text-sm font-medium text-gray-600">Weitere Teams</h4>
+                <h4 className="px-3 py-1 text-sm font-medium text-text">Weitere Teams</h4>
                 <div className="ml-3">
                   {teamStructure.minis.map((team) => (
                     <Link
                       key={team.name}
                       to={team.href}
-                      className="text-gray-700 hover:text-blue-600 block px-6 py-1 rounded-md text-sm transition-colors duration-200 hover:bg-yellow-50"
+                      className="text-text hover:text-primary block px-6 py-1 rounded-md text-sm transition-colors duration-200 hover:bg-primary-accent/10"
                       onClick={() => setIsOpen(false)}
                     >
                       {team.name}
@@ -325,7 +334,7 @@ const Navigation = () => {
                     <Link
                       key={team.name}
                       to={team.href}
-                      className="text-gray-700 hover:text-blue-600 block px-6 py-1 rounded-md text-sm transition-colors duration-200 hover:bg-yellow-50"
+                      className="text-text hover:text-primary block px-6 py-1 rounded-md text-sm transition-colors duration-200 hover:bg-primary-accent/10"
                       onClick={() => setIsOpen(false)}
                     >
                       {team.name}
