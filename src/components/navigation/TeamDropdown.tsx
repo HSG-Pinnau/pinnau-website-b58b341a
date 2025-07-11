@@ -1,11 +1,12 @@
 
-import { Users, ChevronDown } from 'lucide-react';
+import { Users, ChevronDown, Eye } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuPortal,
+  DropdownMenuSeparator,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
@@ -22,6 +23,17 @@ const TeamDropdown = () => {
         <ChevronDown size={16} />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 bg-white border border-gray-200 shadow-lg">
+        {/* Teams Overview Link */}
+        <DropdownMenuItem className="p-0">
+          <Link
+            to="/mannschaften"
+            className="w-full px-3 py-2 text-sm font-semibold text-primary hover:bg-primary-accent/10 rounded transition-colors flex items-center gap-2"
+          >
+            <Eye size={16} />
+            Alle Mannschaften
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
         {/* Erwachsene Sub-menu */}
         <DropdownMenuSub>
           <DropdownMenuSubTrigger className="flex items-center justify-between">
