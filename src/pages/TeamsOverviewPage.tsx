@@ -92,12 +92,12 @@ const TeamsOverviewPage = () => {
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case 'Regionalliga': return 'bg-green-100 text-green-800 border-green-200';
-      case 'Oberliga': return 'bg-blue-100 text-blue-800 border-blue-200';
-      case 'Landesliga': return 'bg-purple-100 text-purple-800 border-purple-200';
-      case 'Bezirksliga': return 'bg-orange-100 text-orange-800 border-orange-200';
-      case 'Spielgruppe': return 'bg-pink-100 text-pink-800 border-pink-200';
-      case 'Inklusion': return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+      case 'Regionalliga': return 'bg-primary/20 text-primary border-primary/30';
+      case 'Oberliga': return 'bg-primary/15 text-primary border-primary/25';
+      case 'Landesliga': return 'bg-accent/20 text-accent-foreground border-accent/30';
+      case 'Bezirksliga': return 'bg-accent/15 text-accent-foreground border-accent/25';
+      case 'Spielgruppe': return 'bg-muted/60 text-muted-foreground border-muted-foreground/30';
+      case 'Inklusion': return 'bg-primary/10 text-primary border-primary/20';
       default: return 'bg-muted text-muted-foreground border-border';
     }
   };
