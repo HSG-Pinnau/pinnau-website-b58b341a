@@ -1,10 +1,10 @@
 
-import { ArrowRight, Award, Users, Calendar } from 'lucide-react';
+import { ArrowRight, Award, Users, Calendar, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-blue-100 pt-16">
+    <section id="home" className="min-h-screen bg-gradient-to-br from-accent/5 via-accent/10 to-primary/10 pt-16 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
           <div className="flex justify-center mb-8">
@@ -72,6 +72,17 @@ const Hero = () => {
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-2">2</h3>
               <p className="text-muted-foreground">Stammvereine</p>
+            </div>
+          </div>
+          
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div className="flex flex-col items-center">
+              <span className="text-muted-foreground text-sm mb-2 opacity-70">Scroll down</span>
+              <ChevronDown 
+                className="text-primary animate-pulse" 
+                size={32}
+              />
             </div>
           </div>
         </div>
