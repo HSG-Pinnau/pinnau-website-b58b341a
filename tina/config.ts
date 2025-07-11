@@ -194,6 +194,12 @@ export default defineConfig({
             name: "email",
             label: "E-Mail",
           },
+          {
+            type: "boolean",
+            name: "hauptVorstand",
+            label: "Hauptvorstand",
+            description: "Ist diese Person im Hauptvorstand?",
+          }
         ]
       }
     ],

@@ -1,5 +1,6 @@
 {
   "name": "Sven Dreher",
   "rolle": "Beisitz",
-  "email": "sven@hsg-pinnau.de"
+  "email": "sven@hsg-pinnau.de",
+  "hauptVorstand": false
 }

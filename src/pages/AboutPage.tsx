@@ -2,59 +2,53 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Users, Heart, Target, Award, Mail, Phone, Calendar, Shield } from 'lucide-react';
+import { client } from '../../tina/__generated__/client';
+import React, { useEffect, useState } from 'react';
 
 const AboutPage = () => {
-  const boardMembers = [
-    {
-      title: "1. Vorsitzender",
-      name: "Marco Bretz",
-      email: "marco@hsg-pinnau.de",
-      icon: Shield
-    },
-    {
-      title: "2. Vorsitzender", 
-      name: "Dominik Stolz",
-      email: "dominik@hsg-pinnau.de",
-      icon: Shield
-    },
-    {
-      title: "Spielwart Erwachsene",
-      name: "Dominik Stolz",
-      icon: Users
-    },
-    {
-      title: "Spielwartin Jugend",
-      name: "Lisa Moritz",
-      email: "lisa@hsg-pinnau.de",
-      icon: Heart
-    },
-    {
-      title: "Kassenwartin",
-      name: "Vera da Graca", 
-      email: "vera@hsg-pinnau.de",
-      icon: Target
-    },
-    {
-      title: "Pressewartin / Social Media",
-      name: "Julia Festersen",
-      email: "julia@hsg-pinnau.de",
-      icon: Award
-    }
-  ];
+  const [boardMembers, setBoardMembers] = useState([]);
+  const [supportTeam, setSupportTeam] = useState([]);
 
-  const supportTeam = [
-    { title: "Protokollführer", name: "Mario da Graca", email: "mario@hsg-pinnau.de" },
-    { title: "Beisitz", name: "Sven Dreher", email: "sven@hsg-pinnau.de" },
-    { title: "Beisitz", name: "Julia Festersen" },
-    { title: "Beisitz", name: "Laura Schneider" },
-    { title: "Beisitz", name: "Philipp Kunau" },
-    { title: "Schiedsrichterwart", name: "Marco Bretz" },
-    { title: "Mitgliederverwaltung", name: "Sven Dreher" },
-    { title: "Passverwaltung", name: "Julia Festersen" },
-    { title: "IT Admin", name: "Julia Festersen" },
-    { title: "Homepage", name: "Julia Festersen, Sven Dreher, Mario da Graca, Dominik Stolz" },
-    { title: "Eventplanung", name: "Lisa Moritz, Julia Festersen" }
-  ];
+  // dictionary for rolle to icon mapping
+  const roleIcons = {
+    "1. Vorsitzender": Shield,
+    "2. Vorsitzender": Shield,
+    "Spielwart Erwachsene": Users,
+    "Spielwart Jugend": Heart,
+    "Kassenwart": Target,
+    "Pressewart / Social Media": Award
+  };
+
+  useEffect(() => {
+    const fetchVorstand = async () => {
+      const vorstandResponse = await client.queries.vorstandConnection();
+      const vorstand = vorstandResponse.data.vorstandConnection.edges.map(edge => edge.node);
+      // Sort board members according to the order in roleIcons
+      const roleOrder = Object.keys(roleIcons);
+      const sortedBoardMembers = vorstand
+        .filter(member => member.hauptVorstand)
+        .map(member => {
+          return { title: member.rolle, name: member.name, email: member.email, icon: roleIcons[member.rolle] || Users };
+        })
+        .sort((a, b) => {
+          const aIndex = roleOrder.indexOf(a.title);
+          const bIndex = roleOrder.indexOf(b.title);
+          if (aIndex === -1 && bIndex === -1) return 0;
+          if (aIndex === -1) return 1;
+          if (bIndex === -1) return -1;
+          return aIndex - bIndex;
+        });
+      setBoardMembers(sortedBoardMembers);
+      setSupportTeam(
+        vorstand
+          .filter(member => !member.hauptVorstand)
+          .map(member => {
+            return { title: member.rolle, name: member.name, email: member.email };
+          })
+      );
+    };
+    fetchVorstand();
+  }, []);
 
   const values = [
     {

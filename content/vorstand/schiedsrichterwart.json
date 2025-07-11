@@ -1,5 +1,6 @@
 {
   "name": "Marco Bretz",
   "rolle": "Schiedsrichterwart",
-  "email": "marco@hsg-pinnau.de"
+  "email": "marco@hsg-pinnau.de",
+  "hauptVorstand": false
 }

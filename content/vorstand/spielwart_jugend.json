@@ -1,5 +1,6 @@
 {
   "name": "Lisa Moritz",
   "rolle": "Spielwart Jugend",
-  "email": "lisa@hsg-pinnau.de"
+  "email": "lisa@hsg-pinnau.de",
+  "hauptVorstand": true
 }

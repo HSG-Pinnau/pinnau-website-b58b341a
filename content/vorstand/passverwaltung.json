@@ -1,5 +1,6 @@
 {
   "name": "Mario da Graca",
   "rolle": "Passverwaltung",
-  "email": "mario@hsg-pinnau.de"
+  "email": "mario@hsg-pinnau.de",
+  "hauptVorstand": false
 }

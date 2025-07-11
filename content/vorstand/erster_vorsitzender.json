@@ -1,5 +1,6 @@
 {
   "name": "Marco Bretz",
   "rolle": "1. Vorsitzender",
-  "email": "marco@hsg-pinnau.de"
+  "email": "marco@hsg-pinnau.de",
+  "hauptVorstand": true
 }

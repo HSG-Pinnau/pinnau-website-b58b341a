@@ -1,5 +1,6 @@
 {
   "name": "Dominik Stolz",
   "rolle": "Spielwart Erwachsene",
-  "email": "dominik@hsg-pinnau.de"
+  "email": "dominik@hsg-pinnau.de",
+  "hauptVorstand": true
 }

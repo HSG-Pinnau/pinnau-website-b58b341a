@@ -14,30 +14,14 @@ const ContactPage = () => {
       ]
     },
     {
-      icon: Phone,
-      title: "Telefon",
-      items: [
-        { label: "Vereinstelefon", value: "+49 (0) 4101 123 456", link: "tel:+494101123456" }
-      ]
-    },
-    {
       icon: MapPin,
       title: "Adresse",
       items: [
         { 
-          label: "Vereinsadresse", 
-          value: "HSG Pinnau e.V.\nSportzentrum Pinneberg\nMusterstraße 123\n25421 Pinneberg",
+          label: "Haupthalle", 
+          value: "Fahltskamp 36, 25421 Pinneberg",
           multiline: true
         }
-      ]
-    },
-    {
-      icon: Clock,
-      title: "Geschäftszeiten",
-      items: [
-        { label: "Montag - Freitag", value: "18:00 - 21:00 Uhr" },
-        { label: "Samstag", value: "09:00 - 17:00 Uhr" },
-        { label: "Sonntag", value: "Nach Vereinbarung" }
       ]
     }
   ];
@@ -279,36 +263,6 @@ const ContactPage = () => {
                 </Card>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Quick Actions CTA */}
-        <section className="py-16 bg-gradient-to-br from-primary/5 via-primary/10 to-accent/5">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Card className="bg-white/80 backdrop-blur-sm border-t-4 border-primary">
-              <CardContent className="p-12 text-center">
-                <h2 className="text-2xl font-bold text-foreground mb-4">Schnell und direkt</h2>
-                <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                  Für dringende Anliegen oder schnelle Fragen können Sie uns auch direkt kontaktieren
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a
-                    href="mailto:info@hsg-pinnau.de"
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 inline-flex items-center justify-center gap-2 shadow-lg"
-                  >
-                    <Mail size={20} />
-                    E-Mail schreiben
-                  </a>
-                  <a
-                    href="tel:+494101123456"
-                    className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 inline-flex items-center justify-center gap-2 shadow-lg"
-                  >
-                    <Phone size={20} />
-                    Anrufen
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </section>
       </main>
