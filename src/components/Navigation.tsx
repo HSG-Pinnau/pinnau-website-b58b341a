@@ -19,8 +19,8 @@ const Navigation = () => {
                 alt="HSG Pinnau Logo" 
                 className="h-10 w-auto mr-3"
               />
-              <h1 className="text-xl font-bold">
-                <span className="text-primary">HSG</span> <span className="text-primary-accent">Pinnau</span>
+              <h1 className="text-xl font-bold text-foreground">
+                HSG Pinnau
               </h1>
             </Link>
           </div>

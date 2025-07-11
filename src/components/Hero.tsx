@@ -16,7 +16,7 @@ const Hero = () => {
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in">
-            HSG <span className="text-primary">Pinnau</span>
+            HSG Pinnau
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in">
             Leidenschaft für Handball seit 2011
