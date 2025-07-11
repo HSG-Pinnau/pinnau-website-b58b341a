@@ -1,161 +1,65 @@
 
-import { Target, Eye, Heart, Star, Users, Calendar, Mail } from 'lucide-react';
+import { Target, Eye, Heart, Star, Users, Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
-  const boardMembers = [
-    {
-      title: "1. Vorsitzender",
-      name: "Marco Bretz",
-      email: "marco@hsg-pinnau.de"
-    },
-    {
-      title: "2. Vorsitzender",
-      name: "Dominik Stolz",
-      email: "dominik@hsg-pinnau.de"
-    },
-    {
-      title: "Spielwart Erwachsene",
-      name: "Dominik Stolz",
-      email: ""
-    },
-    {
-      title: "Spielwartin Jugend",
-      name: "Lisa Moritz",
-      email: "lisa@hsg-pinnau.de"
-    },
-    {
-      title: "Kassenwartin",
-      name: "Vera da Graca",
-      email: "vera@hsg-pinnau.de"
-    },
-    {
-      title: "Pressewartin / Social Media",
-      name: "Julia Festersen",
-      email: "julia@hsg-pinnau.de"
-    }
-  ];
-
-  const supportMembers = [
-    { title: "Protokollführer", name: "Mario da Graca", email: "mario@hsg-pinnau.de" },
-    { title: "Beisitz", name: "Sven Dreher", email: "sven@hsg-pinnau.de" },
-    { title: "Beisitz", name: "Julia Festersen", email: "" },
-    { title: "Beisitz", name: "Laura Schneider", email: "" },
-    { title: "Beisitz", name: "Philipp Kunau", email: "" },
-    { title: "Schiedsrichterwart", name: "Marco Bretz", email: "" },
-    { title: "Mitgliederverwaltung", name: "Sven Dreher", email: "" },
-    { title: "Passverwaltung", name: "Julia Festersen", email: "" },
-    { title: "IT Admin", name: "Julia Festersen", email: "" },
-    { title: "Homepage", name: "Julia Festersen, Sven Dreher, Mario da Graca, Dominik Stolz", email: "" },
-    { title: "Eventplanung", name: "Lisa Moritz, Julia Festersen", email: "" }
-  ];
-
   return (
     <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Über HSG Pinnau</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Über die HSG Pinnau
+          </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Eine starke Spielgemeinschaft aus zwei traditionsreichen Vereinen
+            Seit 2011 vereinen wir als Spielgemeinschaft die Handballvereine TSV Prisdorf und VfL Pinneberg
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Unsere Geschichte</h3>
-            <p className="text-gray-600 mb-4">
-              Die HSG Pinnau besteht seit März 2011 als Spielgemeinschaft zwischen dem 
-              TSV Prisdorf und dem VfL Pinneberg. Zwei Vereine, ein Ziel: 
-              Leidenschaftlicher Handball für alle Altersgruppen.
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Unsere Mission</h3>
+            <p className="text-lg text-gray-600 mb-6">
+              Die HSG Pinnau steht für Teamgeist, Fairplay und sportliche Exzellenz. 
+              Wir bieten Handball für alle Altersklassen - von den Minis bis zu den Erwachsenen.
             </p>
-            <p className="text-gray-600 mb-4">
-              Aktuell umfasst unsere Spielgemeinschaft drei Damen- sowie drei Herren-Mannschaften. 
-              Im Jugendbereich sind fast alle Altersgruppen von der A-Jugend bis zu den 
-              Minis vertreten - ein lebendiger Beweis für unsere erfolgreiche Nachwuchsarbeit.
+            <p className="text-lg text-gray-600 mb-8">
+              Mit modernen Trainingsmethoden und einer starken Vereinsgemeinschaft 
+              schaffen wir optimale Bedingungen für alle Handball-Begeisterten.
             </p>
-            <p className="text-gray-600">
-              Unser Erfolg basiert auf dem starken Zusammenhalt zwischen den beiden 
-              Stammvereinen und der gemeinsamen Vision, Handball in der Region zu fördern 
-              und dabei Werte wie Teamgeist, Fairplay und Freude am Sport zu vermitteln.
-            </p>
-          </div>
-          
-          <div className="bg-gradient-to-br from-blue-50 via-yellow-50 to-blue-100 rounded-2xl p-8">
-            <div className="grid grid-cols-2 gap-6">
-              <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-blue-200">
-                  <Users className="text-blue-600" size={32} />
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Stammvereine</h4>
-                <p className="text-sm text-gray-600">TSV Prisdorf & VfL Pinneberg</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-yellow-200">
-                  <Calendar className="text-yellow-600" size={32} />
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Gegründet</h4>
-                <p className="text-sm text-gray-600">März 2011</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-blue-200">
-                  <Heart className="text-blue-600" size={32} />
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Werte</h4>
-                <p className="text-sm text-gray-600">Teamgeist & Fairplay</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-yellow-200">
-                  <Star className="text-yellow-600" size={32} />
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Mission</h4>
-                <p className="text-sm text-gray-600">Handball für alle</p>
-              </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                to="/uber-uns"
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 text-center"
+              >
+                Mehr über uns erfahren
+              </Link>
+              <Link
+                to="/mannschaften"
+                className="bg-yellow-500 text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-200 text-center"
+              >
+                Unsere Mannschaften
+              </Link>
             </div>
           </div>
-        </div>
 
-        {/* Board Section */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Vorstand</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {boardMembers.map((member, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-blue-500">
-                <h4 className="font-bold text-gray-900 mb-2">{member.title}</h4>
-                <p className="text-gray-700 font-medium mb-2">{member.name}</p>
-                {member.email && (
-                  <div className="flex items-center text-blue-600">
-                    <Mail size={16} className="mr-2" />
-                    <a href={`mailto:${member.email}`} className="text-sm hover:underline">
-                      {member.email}
-                    </a>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <h4 className="text-xl font-bold text-gray-900 mb-6 text-center">Weitere Unterstützung</h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {supportMembers.map((member, index) => (
-              <div key={index} className="bg-yellow-50 rounded-lg p-4 border-l-4 border-yellow-500">
-                <h5 className="font-semibold text-gray-900 text-sm mb-1">{member.title}</h5>
-                <p className="text-gray-700 mb-1">{member.name}</p>
-                {member.email && (
-                  <a href={`mailto:${member.email}`} className="text-xs text-yellow-700 hover:underline">
-                    {member.email}
-                  </a>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-8 p-6 bg-gradient-to-r from-blue-500 to-yellow-500 rounded-xl">
-            <p className="text-white font-medium mb-2">Allgemeine Anfragen</p>
-            <a href="mailto:vorstand@hsg-pinnau.de" className="text-white text-lg font-bold hover:underline">
-              vorstand@hsg-pinnau.de
-            </a>
+          <div className="grid grid-cols-2 gap-6">
+            <div className="bg-blue-50 p-6 rounded-lg text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-2">6</div>
+              <div className="text-gray-600">Erwachsenen-teams</div>
+            </div>
+            <div className="bg-yellow-50 p-6 rounded-lg text-center">
+              <div className="text-3xl font-bold text-yellow-600 mb-2">12+</div>
+              <div className="text-gray-600">Jugendteams</div>
+            </div>
+            <div className="bg-blue-50 p-6 rounded-lg text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-2">300+</div>
+              <div className="text-gray-600">Mitglieder</div>
+            </div>
+            <div className="bg-yellow-50 p-6 rounded-lg text-center">
+              <div className="text-3xl font-bold text-yellow-600 mb-2">2</div>
+              <div className="text-gray-600">Stammvereine</div>
+            </div>
           </div>
         </div>
       </div>

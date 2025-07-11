@@ -7,6 +7,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import TeamPage from "./pages/TeamPage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+import TeamsOverviewPage from "./pages/TeamsOverviewPage";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 
@@ -18,14 +21,15 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Navigation />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/uber-uns" element={<AboutPage />} />
+          <Route path="/kontakt" element={<ContactPage />} />
+          <Route path="/mannschaften" element={<TeamsOverviewPage />} />
           <Route path="/teams/:teamId" element={<TeamPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <Footer />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

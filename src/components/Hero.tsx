@@ -1,5 +1,6 @@
 
 import { ArrowRight, Award, Users, Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -26,13 +27,19 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 hover:scale-105">
-              Mehr erfahren
+            <Link
+              to="/mannschaften"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 hover:scale-105"
+            >
+              Mannschaften entdecken
               <ArrowRight size={20} />
-            </button>
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105">
+            </Link>
+            <Link
+              to="/kontakt"
+              className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
+            >
               Kontakt
-            </button>
+            </Link>
           </div>
 
           {/* Stats Section */}
