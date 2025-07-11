@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Home, Info, Users, Calendar, Phone, Trophy, ShoppingBag, ChevronRight } from 'lucide-react';
+import { Menu, X, Home, Info, Users, Calendar, Phone, Trophy, ShoppingBag, ChevronRight, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
   NavigationMenu,
@@ -8,6 +8,16 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuPortal,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -76,140 +86,143 @@ const Navigation = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <NavigationMenu>
-              <NavigationMenuList className="flex items-baseline space-x-4">
-                {/* Home Link */}
-                <NavigationMenuItem>
+            <div className="flex items-baseline space-x-4">
+              {/* Home Link */}
+              <Link
+                to="/"
+                className="text-text hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-primary-accent/10"
+              >
+                <Home size={16} />
+                Home
+              </Link>
+              
+              {/* Mannschaften with Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="text-text hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-primary-accent/10 bg-transparent border-none outline-none">
+                  <Users size={16} />
+                  Mannschaften
+                  <ChevronDown size={16} />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56 bg-white border border-gray-200 shadow-lg">
+                  {/* Erwachsene Sub-menu */}
+                  <DropdownMenuSub>
+                    <DropdownMenuSubTrigger className="flex items-center justify-between">
+                      <span>Erwachsene</span>
+                    </DropdownMenuSubTrigger>
+                    <DropdownMenuPortal>
+                      <DropdownMenuSubContent className="w-48 bg-white border border-gray-200 shadow-lg">
+                        <div className="p-2">
+                          <div className="text-xs font-semibold text-gray-500 px-2 py-1 border-b border-gray-100">Damen</div>
+                          {teamStructure.erwachsene.damen.map((team) => (
+                            <DropdownMenuItem key={team.name} className="p-0">
+                              <Link
+                                to={team.href}
+                                className="w-full px-2 py-1 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors block"
+                              >
+                                {team.name}
+                              </Link>
+                            </DropdownMenuItem>
+                          ))}
+                          <div className="text-xs font-semibold text-gray-500 px-2 py-1 border-b border-gray-100 mt-2">Herren</div>
+                          {teamStructure.erwachsene.herren.map((team) => (
+                            <DropdownMenuItem key={team.name} className="p-0">
+                              <Link
+                                to={team.href}
+                                className="w-full px-2 py-1 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors block"
+                              >
+                                {team.name}
+                              </Link>
+                            </DropdownMenuItem>
+                          ))}
+                        </div>
+                      </DropdownMenuSubContent>
+                    </DropdownMenuPortal>
+                  </DropdownMenuSub>
+
+                  {/* Jugend Sub-menu */}
+                  <DropdownMenuSub>
+                    <DropdownMenuSubTrigger className="flex items-center justify-between">
+                      <span>Jugend</span>
+                    </DropdownMenuSubTrigger>
+                    <DropdownMenuPortal>
+                      <DropdownMenuSubContent className="w-48 bg-white border border-gray-200 shadow-lg">
+                        <div className="p-2">
+                          <div className="text-xs font-semibold text-gray-500 px-2 py-1 border-b border-gray-100">Männlich</div>
+                          {teamStructure.jugend.maennlich.map((team) => (
+                            <DropdownMenuItem key={team.name} className="p-0">
+                              <Link
+                                to={team.href}
+                                className="w-full px-2 py-1 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors block"
+                              >
+                                {team.name}
+                              </Link>
+                            </DropdownMenuItem>
+                          ))}
+                          <div className="text-xs font-semibold text-gray-500 px-2 py-1 border-b border-gray-100 mt-2">Weiblich</div>
+                          {teamStructure.jugend.weiblich.map((team) => (
+                            <DropdownMenuItem key={team.name} className="p-0">
+                              <Link
+                                to={team.href}
+                                className="w-full px-2 py-1 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors block"
+                              >
+                                {team.name}
+                              </Link>
+                            </DropdownMenuItem>
+                          ))}
+                        </div>
+                      </DropdownMenuSubContent>
+                    </DropdownMenuPortal>
+                  </DropdownMenuSub>
+
+                  {/* Direct teams */}
+                  {teamStructure.minis.map((team) => (
+                    <DropdownMenuItem key={team.name} className="p-0">
+                      <Link
+                        to={team.href}
+                        className="w-full px-2 py-2 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors block"
+                      >
+                        {team.name}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                  {teamStructure.toppis.map((team) => (
+                    <DropdownMenuItem key={team.name} className="p-0">
+                      <Link
+                        to={team.href}
+                        className="w-full px-2 py-2 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors block"
+                      >
+                        {team.name}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+              
+              {/* Other Nav Items */}
+              {navItems.slice(1).map((item) => (
+                item.internal ? (
                   <Link
-                    to="/"
+                    key={item.name}
+                    to={item.href}
                     className="text-text hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-primary-accent/10"
                   >
-                    <Home size={16} />
-                    Home
+                    <item.icon size={16} />
+                    {item.name}
                   </Link>
-                </NavigationMenuItem>
-                
-                {/* Mannschaften with nested structure */}
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-text hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-primary-accent/10 bg-transparent">
-                    <Users size={16} />
-                    Mannschaften
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent className="bg-white border border-gray-200 shadow-lg rounded-md p-2 min-w-[250px]">
-                    <div className="space-y-1">
-                      {/* Erwachsene */}
-                      <div className="group relative">
-                        <div className="flex items-center justify-between px-3 py-2 text-sm font-medium text-text hover:bg-primary-accent/10 rounded cursor-pointer">
-                          <span>Erwachsene</span>
-                          <ChevronRight size={16} />
-                        </div>
-                        <div className="absolute left-full top-0 ml-1 hidden group-hover:block bg-white border border-gray-200 shadow-lg rounded-md p-2 min-w-[200px] z-50">
-                          <div className="space-y-1">
-                            <div className="px-3 py-1 text-xs font-semibold text-gray-500 border-b border-gray-100">Damen</div>
-                            {teamStructure.erwachsene.damen.map((team) => (
-                              <Link
-                                key={team.name}
-                                to={team.href}
-                                className="block px-3 py-2 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors"
-                              >
-                                {team.name}
-                              </Link>
-                            ))}
-                            <div className="px-3 py-1 text-xs font-semibold text-gray-500 border-b border-gray-100 mt-2">Herren</div>
-                            {teamStructure.erwachsene.herren.map((team) => (
-                              <Link
-                                key={team.name}
-                                to={team.href}
-                                className="block px-3 py-2 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors"
-                              >
-                                {team.name}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Jugend */}
-                      <div className="group relative">
-                        <div className="flex items-center justify-between px-3 py-2 text-sm font-medium text-text hover:bg-primary-accent/10 rounded cursor-pointer">
-                          <span>Jugend</span>
-                          <ChevronRight size={16} />
-                        </div>
-                        <div className="absolute left-full top-0 ml-1 hidden group-hover:block bg-white border border-gray-200 shadow-lg rounded-md p-2 min-w-[200px] z-50">
-                          <div className="space-y-1">
-                            <div className="px-3 py-1 text-xs font-semibold text-gray-500 border-b border-gray-100">Männlich</div>
-                            {teamStructure.jugend.maennlich.map((team) => (
-                              <Link
-                                key={team.name}
-                                to={team.href}
-                                className="block px-3 py-2 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors"
-                              >
-                                {team.name}
-                              </Link>
-                            ))}
-                            <div className="px-3 py-1 text-xs font-semibold text-gray-500 border-b border-gray-100 mt-2">Weiblich</div>
-                            {teamStructure.jugend.weiblich.map((team) => (
-                              <Link
-                                key={team.name}
-                                to={team.href}
-                                className="block px-3 py-2 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors"
-                              >
-                                {team.name}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Direct teams */}
-                      {teamStructure.minis.map((team) => (
-                        <Link
-                          key={team.name}
-                          to={team.href}
-                          className="block px-3 py-2 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors"
-                        >
-                          {team.name}
-                        </Link>
-                      ))}
-                      {teamStructure.toppis.map((team) => (
-                        <Link
-                          key={team.name}
-                          to={team.href}
-                          className="block px-3 py-2 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors"
-                        >
-                          {team.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                
-                {/* Other Nav Items */}
-                {navItems.slice(1).map((item) => (
-                  <NavigationMenuItem key={item.name}>
-                    {item.internal ? (
-                      <Link
-                        to={item.href}
-                        className="text-text hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-primary-accent/10"
-                      >
-                        <item.icon size={16} />
-                        {item.name}
-                      </Link>
-                    ) : (
-                      <a
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-text hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-primary-accent/10"
-                      >
-                        <item.icon size={16} />
-                        {item.name}
-                      </a>
-                    )}
-                  </NavigationMenuItem>
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-text hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-primary-accent/10"
+                  >
+                    <item.icon size={16} />
+                    {item.name}
+                  </a>
+                )
+              ))}
+            </div>
           </div>
 
           {/* Mobile menu button */}
