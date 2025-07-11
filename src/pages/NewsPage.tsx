@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const NewsPage = () => {
   const newsItems = [
     {
-      id: 1,
+      id: '1',
       title: "Erfolgreicher Saisonstart für die Damen 1",
       excerpt: "Mit einem überzeugenden 28:22 Sieg gegen den TV Flensburg startete unsere erste Damenmannschaft erfolgreich in die neue Saison.",
       content: "Ein grandioses Spiel zeigten unsere Damen gegen den favorisierten TV Flensburg. Von Beginn an dominierten sie das Spielgeschehen und ließen dem Gegner keine Chance. Besonders hervorzuheben ist die starke Defensive sowie die effektive Angriffsführung.",
@@ -18,17 +18,17 @@ const NewsPage = () => {
       featured: true
     },
     {
-      id: 2,
+      id: '2',
       title: "Jugendturnier am 3. Februar 2024",
       excerpt: "Unser traditionelles Jugendturnier findet am ersten Wochenende im Februar statt. Anmeldungen sind ab sofort möglich.",
-      content: "Das diesjährige Jugendturnier verspricht wieder ein Highlight zu werden. Teams aus ganz Schleswig-Holstein haben bereits ihre Teilnahme zugesagt. Für Verpflegung und ein buntes Rahmenprogramm ist gesorgt.",
+      content: "Das diesjährige Jugendturnier verspricht wieder ein Highlight zu werden. Teams aus ganz Schleswig-Holstein haben bereits ihre Teilnahme zugesagt. Für Verpflegung und ein buntes Rahmenprogram ist gesorgt.",
       date: "2024-01-10",
       category: "Event",
       image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop",
       author: "Lisa Moritz"
     },
     {
-      id: 3,
+      id: '3',
       title: "Neue Trainingszeiten ab Februar",
       excerpt: "Ab dem 1. Februar gelten neue Trainingszeiten für alle Mannschaften. Bitte beachtet die Änderungen in euren Kalender.",
       content: "Aufgrund der besseren Hallenverteilung können wir ab Februar optimierte Trainingszeiten anbieten. Alle Mannschaften profitieren von längeren Trainingseinheiten und besseren Zeiten.",
@@ -38,7 +38,7 @@ const NewsPage = () => {
       author: "Marco Bretz"
     },
     {
-      id: 4,
+      id: '4',
       title: "Herren 2 steigt in die Oberliga auf",
       excerpt: "Nach einer fantastischen Saison hat es unsere zweite Herrenmannschaft geschafft - der Aufstieg in die Oberliga ist perfekt!",
       content: "Was für eine Saison! Mit nur einer Niederlage und 22 Siegen sicherte sich unser Herren 2 Team souverän den Meistertitel und damit den Aufstieg in die Oberliga. Wir gratulieren dem gesamten Team und dem Trainerteam herzlich!",
@@ -48,7 +48,7 @@ const NewsPage = () => {
       author: "Dominik Stolz"
     },
     {
-      id: 5,
+      id: '5',
       title: "Weihnachtsfeier 2023 - Ein voller Erfolg",
       excerpt: "Unsere Vereinsweihnachtsfeier war wieder ein voller Erfolg. Über 200 Mitglieder feierten gemeinsam in der Vereinshalle.",
       content: "Bei leckerem Essen, toller Musik und vielen Gesprächen verbrachten wir einen wunderschönen Abend zusammen. Besonders die Ehrungen verdienter Vereinsmitglieder waren ein Highlight des Abends.",
@@ -58,7 +58,7 @@ const NewsPage = () => {
       author: "Julia Festersen"
     },
     {
-      id: 6,
+      id: '6',
       title: "Neue Trikots für alle Jugendmannschaften",
       excerpt: "Dank unserer Sponsoren können wir allen Jugendmannschaften neue Trikots zur Verfügung stellen.",
       content: "Ein herzliches Dankeschön an alle Sponsoren, die es möglich gemacht haben, dass unsere Jugendmannschaften mit neuen, modernen Trikots ausgestattet werden können. Die Übergabe findet am kommenden Samstag statt.",
@@ -160,10 +160,13 @@ const NewsPage = () => {
                     </p>
                     
                     <div className="flex gap-4">
-                      <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                      <Link
+                        to={`/news/${featuredNews.id}`}
+                        className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 flex items-center gap-2"
+                      >
                         Weiterlesen
                         <ArrowRight size={16} />
-                      </button>
+                      </Link>
                     </div>
                   </CardContent>
                 </div>
@@ -215,10 +218,13 @@ const NewsPage = () => {
                       
                       <div className="flex justify-between items-center">
                         <span className="text-xs text-muted-foreground">{item.author}</span>
-                        <button className="text-primary hover:text-primary/80 font-medium flex items-center transition-colors duration-200">
+                        <Link
+                          to={`/news/${item.id}`}
+                          className="text-primary hover:text-primary/80 font-medium flex items-center transition-colors duration-200"
+                        >
                           Lesen
                           <ArrowRight size={14} className="ml-1" />
-                        </button>
+                        </Link>
                       </div>
                     </CardContent>
                   </Card>

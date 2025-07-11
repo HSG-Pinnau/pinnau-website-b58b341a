@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const News = () => {
   const newsItems = [
     {
+      id: '1',
       title: "Erfolgreicher Saisonstart für die Damen 1",
       excerpt: "Mit einem überzeugenden 28:22 Sieg gegen den TV Flensburg startete unsere erste Damenmannschaft erfolgreich in die neue Saison.",
       date: "2024-01-15",
@@ -12,6 +13,7 @@ const News = () => {
       image: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=400&h=250&fit=crop"
     },
     {
+      id: '2',
       title: "Jugendturnier am 3. Februar 2024",
       excerpt: "Unser traditionelles Jugendturnier findet am ersten Wochenende im Februar statt. Anmeldungen sind ab sofort möglich.",
       date: "2024-01-10",
@@ -19,6 +21,7 @@ const News = () => {
       image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop"
     },
     {
+      id: '4',
       title: "Herren 2 steigt in die Oberliga auf",
       excerpt: "Nach einer fantastischen Saison hat es unsere zweite Herrenmannschaft geschafft - der Aufstieg in die Oberliga ist perfekt!",
       date: "2024-01-05",
@@ -79,10 +82,13 @@ const News = () => {
                   {item.excerpt}
                 </p>
                 
-                <button className="text-primary hover:text-primary/80 font-medium flex items-center transition-colors duration-200">
+                <Link
+                  to={`/news/${item.id}`}
+                  className="text-primary hover:text-primary/80 font-medium flex items-center transition-colors duration-200"
+                >
                   Weiterlesen
                   <ArrowRight size={16} className="ml-1" />
-                </button>
+                </Link>
               </div>
             </article>
           ))}
