@@ -2,6 +2,8 @@
 import { useParams } from 'react-router-dom';
 import { Calendar, Clock, Mail, Phone, MapPin, Users, Target } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 interface TeamData {
   name: string;
@@ -29,7 +31,7 @@ const TeamPage = () => {
     // This would normally fetch from an API, but for now we'll use static data
     const teams: Record<string, TeamData> = {
       'damen1': {
-        name: 'Damen 1XXX',
+        name: 'Damen 1',
         category: 'Erwachsene',
         description: 'Unser erstes Damenteam spielt in der Verbandsliga und setzt sich aus erfahrenen Spielerinnen zusammen, die mit Leidenschaft und Engagement jedes Spiel angehen.',
         goals: 'Unser Ziel ist es, in der Verbandsliga eine starke Rolle zu spielen und als Team zusammenzuwachsen. Wir möchten junge Talente fördern und gleichzeitig erfolgreichen Handball spielen.',
@@ -203,19 +205,26 @@ const TeamPage = () => {
 
   if (!teamData) {
     return (
-      <div className="min-h-screen pt-16 bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Team nicht gefunden</h1>
-          <p className="text-gray-600">Das angeforderte Team existiert nicht.</p>
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <div className="pt-16 flex items-center justify-center min-h-[80vh]">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold text-foreground mb-4">Team nicht gefunden</h1>
+            <p className="text-muted-foreground">Das angeforderte Team existiert nicht.</p>
+          </div>
         </div>
+        <Footer />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen pt-16 bg-gray-50">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-primary to-accent text-primary-foreground py-16">
+    <div className="min-h-screen bg-background">
+      <Navigation />
+      
+      <main className="pt-16">
+        {/* Hero Section */}
+        <div className="bg-gradient-to-r from-primary to-accent text-primary-foreground py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{teamData.name}</h1>
@@ -336,7 +345,10 @@ const TeamPage = () => {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      </main>
+      
+      <Footer />
     </div>
   );
 };
