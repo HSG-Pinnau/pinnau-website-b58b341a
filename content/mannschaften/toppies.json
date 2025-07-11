@@ -1,0 +1,14 @@
+{
+  "name": "Toppies",
+  "geschlecht": "Gemischt",
+  "jugend": "Toppies",
+  "liga": "Kein Spielbetrieb",
+  "trainer": "content/trainer/andrea_kurschus.json",
+  "trainingszeiten": [
+    {
+      "wochentag": "Freitag",
+      "zeit": "15:00-16:30",
+      "halle": "content/hallen/prisdorf.json"
+    }
+  ]
+}

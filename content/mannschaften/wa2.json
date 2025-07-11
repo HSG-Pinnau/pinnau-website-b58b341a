@@ -1,0 +1,20 @@
+{
+  "name": "wA2",
+  "jahrgang": "2007/2008",
+  "geschlecht": "Weiblich",
+  "jugend": "A-Jugend",
+  "liga": "Bezirksoberliga",
+  "trainer": "content/trainer/lisa_moritz.json",
+  "trainingszeiten": [
+    {
+      "wochentag": "Mittwoch",
+      "zeit": "19:00-20:30",
+      "halle": "content/hallen/fgs_quickborn.json"
+    },
+    {
+      "wochentag": "Freitag",
+      "zeit": "17:30-19:00",
+      "halle": "content/hallen/jbs.json"
+    }
+  ]
+}

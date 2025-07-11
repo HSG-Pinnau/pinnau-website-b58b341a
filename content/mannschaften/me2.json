@@ -1,0 +1,20 @@
+{
+  "name": "mE2",
+  "jahrgang": "2013/2014",
+  "geschlecht": "Männlich",
+  "jugend": "E-Jugend",
+  "liga": "Kreisliga",
+  "trainer": "content/trainer/zsuzsa_nyari.json",
+  "trainingszeiten": [
+    {
+      "wochentag": "Montag",
+      "zeit": "17:30-18:30/18:45",
+      "halle": "content/hallen/jbs.json"
+    },
+    {
+      "wochentag": "Donnerstag",
+      "zeit": "16:30-17:30",
+      "halle": "content/hallen/jbs.json"
+    }
+  ]
+}

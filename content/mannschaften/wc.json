@@ -1,0 +1,20 @@
+{
+  "name": "wC",
+  "jahrgang": "2011/2012",
+  "geschlecht": "Weiblich",
+  "jugend": "C-Jugend",
+  "liga": "Bezirksoberliga",
+  "trainer": "content/trainer/kai_dilbenz.json",
+  "trainingszeiten": [
+    {
+      "wochentag": "Mittwoch",
+      "zeit": "17:30-19:00",
+      "halle": "content/hallen/jbs.json"
+    },
+    {
+      "wochentag": "Donnerstag",
+      "zeit": "17:45-19:00",
+      "halle": "content/hallen/jbs.json"
+    }
+  ]
+}

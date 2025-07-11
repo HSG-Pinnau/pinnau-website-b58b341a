@@ -1,0 +1,20 @@
+{
+  "name": "mD1",
+  "jahrgang": "2011/2012",
+  "geschlecht": "Männlich",
+  "jugend": "D-Jugend",
+  "liga": "Landesliga",
+  "trainer": "content/trainer/christian_loeffler.json",
+  "trainingszeiten": [
+    {
+      "wochentag": "Mittwoch",
+      "zeit": "16:00-17:30",
+      "halle": "content/hallen/jbs.json"
+    },
+    {
+      "wochentag": "Freitag",
+      "zeit": "16:00-17:30",
+      "halle": "content/hallen/jbs.json"
+    }
+  ]
+}

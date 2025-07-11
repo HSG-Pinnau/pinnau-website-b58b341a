@@ -1,0 +1,20 @@
+{
+  "name": "wE",
+  "jahrgang": "2015/2016",
+  "geschlecht": "Weiblich",
+  "jugend": "E-Jugend",
+  "liga": "Kreisliga",
+  "trainer": "content/trainer/andrea_kurschus.json",
+  "trainingszeiten": [
+    {
+      "wochentag": "Montag",
+      "zeit": "16:00-17:30",
+      "halle": "content/hallen/jbs.json"
+    },
+    {
+      "wochentag": "Freitag",
+      "zeit": "16:30-18:00",
+      "halle": "content/hallen/kummerfeld.json"
+    }
+  ]
+}

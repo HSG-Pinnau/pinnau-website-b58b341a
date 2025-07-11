@@ -1,0 +1,34 @@
+{
+  "name": "mB",
+  "jahrgang": "2007/2008",
+  "geschlecht": "Männlich",
+  "jugend": "B-Jugend",
+  "liga": "Oberliga",
+  "trainer": "content/trainer/thorsten_stegmann.json",
+  "trainingszeiten": [
+    {
+      "wochentag": "Dienstag",
+      "zeit": "19:00-20:30",
+      "halle": "content/hallen/jbs.json",
+      "bemerkung": "(Saisonvorbereitung)"
+    },
+    {
+      "wochentag": "Donnerstag",
+      "zeit": "19:00-20:30",
+      "halle": "content/hallen/kummerfeld.json",
+      "bemerkung": "(Saisonvorbereitung)"
+    },
+    {
+      "wochentag": "Montag",
+      "zeit": "19:00-20:30",
+      "halle": "content/hallen/jbs.json",
+      "bemerkung": "(Saison)"
+    },
+    {
+      "wochentag": "Mittwoch",
+      "zeit": "19:00-20:30",
+      "halle": "content/hallen/kummerfeld.json",
+      "bemerkung": "(Saison)"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "3. Herren",
+  "geschlecht": "Männlich",
+  "jugend": "Erwachsene",
+  "liga": "Bezirksoberliga",
+  "trainer": "content/trainer/mirco_scheide.json",
+  "trainingszeiten": [
+    {
+      "wochentag": "Mittwoch",
+      "zeit": "20:30-22:00",
+      "halle": "content/hallen/jbs.json"
+    }
+  ]
+}

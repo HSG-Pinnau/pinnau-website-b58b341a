@@ -1,0 +1,25 @@
+{
+  "name": "wA1",
+  "jahrgang": "2007/2008",
+  "geschlecht": "Männlich",
+  "jugend": "A-Jugend",
+  "liga": "Regionalliga",
+  "trainer": "content/trainer/lisa_moritz.json",
+  "trainingszeiten": [
+    {
+      "wochentag": "Dienstag",
+      "zeit": "19:00-20:30",
+      "halle": "content/hallen/comenius.json"
+    },
+    {
+      "wochentag": "Mittwoch",
+      "zeit": "19:00-20:30",
+      "halle": "content/hallen/jbs.json"
+    },
+    {
+      "wochentag": "Freitag",
+      "zeit": "17:30-19:00",
+      "halle": "content/hallen/jbs.json"
+    }
+  ]
+}

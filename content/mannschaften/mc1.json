@@ -1,0 +1,16 @@
+{
+  "name": "mC1",
+  "jahrgang": "2009/2010",
+  "geschlecht": "Männlich",
+  "jugend": "C-Jugend",
+  "liga": "Landesliga",
+  "trainer": "content/trainer/arne_homfeldt.json",
+  "trainingszeiten": [
+    {
+      "wochentag": "Mittwoch",
+      "zeit": "17:30-19:00",
+      "halle": "content/hallen/kummerfeld.json"
+    },
+    {}
+  ]
+}
