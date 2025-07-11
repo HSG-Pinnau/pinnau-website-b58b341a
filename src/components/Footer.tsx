@@ -4,25 +4,25 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white border-t-4 border-yellow-500">
+    <footer className="bg-foreground text-primary-foreground border-t-4 border-accent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Club Info */}
           <div>
             <h3 className="text-xl font-bold mb-4">
-              <span className="text-blue-400">HSG</span> <span className="text-yellow-400">Pinnau</span>
+              <span className="text-primary">HSG</span> <span className="text-accent">Pinnau</span>
             </h3>
-            <p className="text-gray-300 mb-4">
+            <p className="text-primary-foreground/80 mb-4">
               Leidenschaft für Handball seit 2011. Spielgemeinschaft aus TSV Prisdorf und VfL Pinneberg.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+              <a href="#" className="text-primary-foreground/60 hover:text-primary transition-colors duration-200">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors duration-200">
+              <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors duration-200">
                 <Twitter size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
+              <a href="#" className="text-primary-foreground/60 hover:text-primary transition-colors duration-200">
                 <Instagram size={20} />
               </a>
             </div>
@@ -30,52 +30,52 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-yellow-400">Schnellzugriff</h3>
+            <h3 className="text-lg font-semibold mb-4 text-accent">Schnellzugriff</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/#about" className="text-gray-300 hover:text-white transition-colors duration-200">
+                <Link to="/uber-uns" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200">
                   Über uns
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#teams" className="text-gray-300 hover:text-white transition-colors duration-200">
+                <Link to="/mannschaften" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200">
                   Mannschaften
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#events" className="text-gray-300 hover:text-white transition-colors duration-200">
+                <a href="/#events" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200">
                   Termine & News
                 </a>
               </li>
               <li>
-                <a href="/#contact" className="text-gray-300 hover:text-white transition-colors duration-200">
+                <Link to="/kontakt" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200">
                   Kontakt
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Teams */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-blue-400">Unsere Teams</h3>
+            <h3 className="text-lg font-semibold mb-4 text-primary">Unsere Teams</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/teams/damen1" className="text-gray-300 hover:text-white transition-colors duration-200">
+                <Link to="/teams/damen1" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200">
                   Damen-Mannschaften
                 </Link>
               </li>
               <li>
-                <Link to="/teams/herren1" className="text-gray-300 hover:text-white transition-colors duration-200">
+                <Link to="/teams/herren1" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200">
                   Herren-Mannschaften
                 </Link>
               </li>
               <li>
-                <Link to="/teams/a-jugend" className="text-gray-300 hover:text-white transition-colors duration-200">
+                <Link to="/teams/a-jugend" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200">
                   Jugendteams
                 </Link>
               </li>
               <li>
-                <Link to="/teams/minis" className="text-gray-300 hover:text-white transition-colors duration-200">
+                <Link to="/teams/minis" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200">
                   Minis
                 </Link>
               </li>
@@ -84,25 +84,25 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-yellow-400">Kontakt</h3>
+            <h3 className="text-lg font-semibold mb-4 text-accent">Kontakt</h3>
             <div className="space-y-3">
               <div className="flex items-center">
-                <MapPin size={16} className="mr-2 text-gray-400" />
-                <span className="text-gray-300 text-sm">Prisdorf & Pinneberg</span>
+                <MapPin size={16} className="mr-2 text-primary-foreground/60" />
+                <span className="text-primary-foreground/80 text-sm">Prisdorf & Pinneberg</span>
               </div>
               <div className="flex items-center">
-                <Mail size={16} className="mr-2 text-gray-400" />
-                <span className="text-gray-300 text-sm">vorstand@hsg-pinnau.de</span>
+                <Mail size={16} className="mr-2 text-primary-foreground/60" />
+                <span className="text-primary-foreground/80 text-sm">vorstand@hsg-pinnau.de</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
+        <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
+          <p className="text-primary-foreground/60">
             © 2024 HSG Pinnau. Alle Rechte vorbehalten. | 
-            <a href="#" className="hover:text-white transition-colors duration-200 ml-1">Datenschutz</a> | 
-            <a href="#" className="hover:text-white transition-colors duration-200 ml-1">Impressum</a>
+            <a href="#" className="hover:text-primary-foreground transition-colors duration-200 ml-1">Datenschutz</a> | 
+            <a href="#" className="hover:text-primary-foreground transition-colors duration-200 ml-1">Impressum</a>
           </p>
         </div>
       </div>

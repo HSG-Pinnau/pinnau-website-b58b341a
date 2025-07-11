@@ -7,36 +7,32 @@ const About = () => {
     <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Über die HSG Pinnau
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Seit 2011 vereinen wir als Spielgemeinschaft die Handballvereine TSV Prisdorf und VfL Pinneberg
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Unsere Mission</h3>
-            <p className="text-lg text-gray-600 mb-6">
+            <h3 className="text-2xl font-bold text-foreground mb-6">Unsere Mission</h3>
+            <p className="text-lg text-muted-foreground mb-6">
               Die HSG Pinnau steht für Teamgeist, Fairplay und sportliche Exzellenz. 
               Wir bieten Handball für alle Altersklassen - von den Minis bis zu den Erwachsenen.
-            </p>
-            <p className="text-lg text-gray-600 mb-8">
-              Mit modernen Trainingsmethoden und einer starken Vereinsgemeinschaft 
-              schaffen wir optimale Bedingungen für alle Handball-Begeisterten.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/uber-uns"
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 text-center"
+                className="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors duration-200 text-center"
               >
                 Mehr über uns erfahren
               </Link>
               <Link
                 to="/mannschaften"
-                className="bg-yellow-500 text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-200 text-center"
+                className="bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold hover:bg-accent/90 transition-colors duration-200 text-center"
               >
                 Unsere Mannschaften
               </Link>
@@ -44,21 +40,21 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-6">
-            <div className="bg-blue-50 p-6 rounded-lg text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">6</div>
-              <div className="text-gray-600">Erwachsenen-teams</div>
+            <div className="bg-primary/5 p-6 rounded-lg text-center">
+              <div className="text-3xl font-bold text-primary mb-2">6</div>
+              <div className="text-muted-foreground">Erwachsenen-teams</div>
             </div>
-            <div className="bg-yellow-50 p-6 rounded-lg text-center">
-              <div className="text-3xl font-bold text-yellow-600 mb-2">12+</div>
-              <div className="text-gray-600">Jugendteams</div>
+            <div className="bg-accent/10 p-6 rounded-lg text-center">
+              <div className="text-3xl font-bold text-accent-foreground mb-2">12+</div>
+              <div className="text-muted-foreground">Jugendteams</div>
             </div>
-            <div className="bg-blue-50 p-6 rounded-lg text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">300+</div>
-              <div className="text-gray-600">Mitglieder</div>
+            <div className="bg-primary/5 p-6 rounded-lg text-center">
+              <div className="text-3xl font-bold text-primary mb-2">300+</div>
+              <div className="text-muted-foreground">Mitglieder</div>
             </div>
-            <div className="bg-yellow-50 p-6 rounded-lg text-center">
-              <div className="text-3xl font-bold text-yellow-600 mb-2">2</div>
-              <div className="text-gray-600">Stammvereine</div>
+            <div className="bg-accent/10 p-6 rounded-lg text-center">
+              <div className="text-3xl font-bold text-accent-foreground mb-2">2</div>
+              <div className="text-muted-foreground">Stammvereine</div>
             </div>
           </div>
         </div>

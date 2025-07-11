@@ -15,13 +15,13 @@ const Hero = () => {
             />
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 animate-fade-in">
-            HSG <span className="text-blue-600">Pinnau</span>
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in">
+            HSG <span className="text-primary">Pinnau</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto animate-fade-in">
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in">
             Leidenschaft für Handball seit 2011
           </p>
-          <p className="text-lg text-gray-500 mb-10 max-w-2xl mx-auto animate-fade-in">
+          <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto animate-fade-in">
             Die Spielgemeinschaft aus TSV Prisdorf und VfL Pinneberg - 
             Drei Damen- und drei Herren-Mannschaften sowie Jugendteams von A-Jugend bis zu den Minis.
           </p>
@@ -29,14 +29,14 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in">
             <Link
               to="/mannschaften"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 hover:scale-105"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2 hover:scale-105"
             >
               Mannschaften entdecken
               <ArrowRight size={20} />
             </Link>
             <Link
               to="/kontakt"
-              className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
             >
               Kontakt
             </Link>
@@ -44,34 +44,34 @@ const Hero = () => {
 
           {/* Stats Section */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-t-4 border-blue-500">
+            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-t-4 border-primary">
               <div className="flex items-center justify-center mb-4">
-                <div className="bg-blue-100 p-3 rounded-full">
-                  <Users className="text-blue-600" size={32} />
+                <div className="bg-primary/10 p-3 rounded-full">
+                  <Users className="text-primary" size={32} />
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">6</h3>
-              <p className="text-gray-600">Mannschaften</p>
+              <h3 className="text-2xl font-bold text-foreground mb-2">6</h3>
+              <p className="text-muted-foreground">Mannschaften</p>
             </div>
             
-            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-t-4 border-yellow-500">
+            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-t-4 border-accent">
               <div className="flex items-center justify-center mb-4">
-                <div className="bg-yellow-100 p-3 rounded-full">
-                  <Award className="text-yellow-600" size={32} />
+                <div className="bg-accent/10 p-3 rounded-full">
+                  <Award className="text-accent-foreground" size={32} />
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">13+</h3>
-              <p className="text-gray-600">Jahre Erfahrung</p>
+              <h3 className="text-2xl font-bold text-foreground mb-2">13+</h3>
+              <p className="text-muted-foreground">Jahre Erfahrung</p>
             </div>
             
-            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-t-4 border-blue-500">
+            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-t-4 border-primary">
               <div className="flex items-center justify-center mb-4">
-                <div className="bg-blue-100 p-3 rounded-full">
-                  <Calendar className="text-blue-600" size={32} />
+                <div className="bg-primary/10 p-3 rounded-full">
+                  <Calendar className="text-primary" size={32} />
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">2</h3>
-              <p className="text-gray-600">Stammvereine</p>
+              <h3 className="text-2xl font-bold text-foreground mb-2">2</h3>
+              <p className="text-muted-foreground">Stammvereine</p>
             </div>
           </div>
         </div>

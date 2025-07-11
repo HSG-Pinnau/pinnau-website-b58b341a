@@ -8,7 +8,7 @@ const Programs = () => {
       icon: Users,
       title: "Damen-Mannschaften",
       description: "Drei starke Damen-Teams in verschiedenen Spielklassen für alle Leistungsstufen.",
-      color: "blue",
+      color: "primary",
       teams: [
         { name: "Damen 1", href: "/teams/damen1" },
         { name: "Damen 2", href: "/teams/damen2" },
@@ -19,7 +19,7 @@ const Programs = () => {
       icon: Trophy,
       title: "Herren-Mannschaften", 
       description: "Drei Herren-Teams mit Leidenschaft und Teamgeist für spannende Spiele.",
-      color: "yellow",
+      color: "accent",
       teams: [
         { name: "Herren 1", href: "/teams/herren1" },
         { name: "Herren 2", href: "/teams/herren2" },
@@ -30,7 +30,7 @@ const Programs = () => {
       icon: Target,
       title: "A-Jugend",
       description: "Nachwuchsförderung auf höchstem Niveau für unsere ältesten Jugendlichen.",
-      color: "blue",
+      color: "primary",
       teams: [
         { name: "A-Jugend", href: "/teams/a-jugend" }
       ]
@@ -39,7 +39,7 @@ const Programs = () => {
       icon: Star,
       title: "Jugendmannschaften",
       description: "Alle Altersgruppen von B-Jugend bis E-Jugend - für jeden das passende Team.",
-      color: "yellow",
+      color: "accent",
       teams: [
         { name: "B-Jugend", href: "/teams/b-jugend" },
         { name: "C-Jugend", href: "/teams/c-jugend" },
@@ -51,7 +51,7 @@ const Programs = () => {
       icon: Heart,
       title: "Minis",
       description: "Spielerischer Einstieg in den Handball für unsere jüngsten Talente.",
-      color: "blue",
+      color: "primary",
       teams: [
         { name: "Minis", href: "/teams/minis" }
       ]
@@ -60,24 +60,24 @@ const Programs = () => {
       icon: Clock,
       title: "Training für alle",
       description: "Altersgerechtes Training mit erfahrenen Trainern in familiärer Atmosphäre.",
-      color: "yellow"
+      color: "accent"
     }
   ];
 
   const getColorClasses = (color: string) => {
     const colorMap = {
-      blue: "bg-blue-100 text-blue-600 border-blue-200",
-      yellow: "bg-yellow-100 text-yellow-600 border-yellow-200"
+      primary: "bg-primary/5 text-primary border-primary/20",
+      accent: "bg-accent/10 text-accent-foreground border-accent/20"
     };
-    return colorMap[color as keyof typeof colorMap] || "bg-gray-100 text-gray-600 border-gray-200";
+    return colorMap[color as keyof typeof colorMap] || "bg-muted text-muted-foreground border-border";
   };
 
   return (
     <section id="teams" className="py-20 bg-gradient-to-br from-blue-50 to-yellow-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Unsere Teams</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Unsere Teams</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Von den Minis bis zu den Erwachsenen - Handball für alle Altersgruppen
           </p>
         </div>
@@ -86,15 +86,15 @@ const Programs = () => {
           {programs.map((program, index) => (
             <div 
               key={index}
-              className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-t-4 ${program.color === 'blue' ? 'border-blue-500' : 'border-yellow-500'}`}
+              className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-t-4 ${program.color === 'primary' ? 'border-primary' : 'border-accent'}`}
             >
               <div className="flex items-center justify-center mb-4">
                 <div className={`w-16 h-16 rounded-full flex items-center justify-center border-2 ${getColorClasses(program.color)}`}>
                   <program.icon size={32} />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">{program.title}</h3>
-              <p className="text-gray-600 text-center leading-relaxed mb-4">{program.description}</p>
+              <h3 className="text-xl font-bold text-foreground mb-3 text-center">{program.title}</h3>
+              <p className="text-muted-foreground text-center leading-relaxed mb-4">{program.description}</p>
               
               {program.teams && (
                 <div className="flex flex-wrap gap-2 justify-center">
@@ -103,9 +103,9 @@ const Programs = () => {
                       key={team.name}
                       to={team.href}
                       className={`px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200 ${
-                        program.color === 'blue' 
-                          ? 'bg-blue-100 text-blue-700 hover:bg-blue-200' 
-                          : 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200'
+                        program.color === 'primary' 
+                          ? 'bg-primary/10 text-primary hover:bg-primary/20' 
+                          : 'bg-accent/20 text-accent-foreground hover:bg-accent/30'
                       }`}
                     >
                       {team.name}
@@ -118,10 +118,10 @@ const Programs = () => {
         </div>
 
         <div className="text-center mt-12">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 mr-4">
+          <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 mr-4">
             Training besuchen
           </button>
-          <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105">
+          <button className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105">
             Mannschaften kennenlernen
           </button>
         </div>
