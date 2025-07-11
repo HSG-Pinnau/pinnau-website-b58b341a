@@ -215,7 +215,7 @@ const TeamPage = () => {
   return (
     <div className="min-h-screen pt-16 bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-red-600 to-yellow-500 text-white py-16">
+      <div className="bg-gradient-to-r from-primary to-accent text-primary-foreground py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{teamData.name}</h1>
@@ -229,27 +229,27 @@ const TeamPage = () => {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Team Photo Placeholder */}
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Mannschaftsfoto</h2>
-              <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
+            <div className="bg-card rounded-xl p-6 shadow-lg">
+              <h2 className="text-2xl font-bold text-card-foreground mb-4">Mannschaftsfoto</h2>
+              <div className="bg-muted rounded-lg h-64 flex items-center justify-center">
                 <div className="text-center">
-                  <Users size={64} className="text-gray-400 mx-auto mb-2" />
-                  <p className="text-gray-500">Mannschaftsfoto wird bald ergänzt</p>
+                  <Users size={64} className="text-muted-foreground mx-auto mb-2" />
+                  <p className="text-muted-foreground">Mannschaftsfoto wird bald ergänzt</p>
                 </div>
               </div>
             </div>
 
             {/* Team Description */}
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Über das Team</h2>
-              <p className="text-gray-600 leading-relaxed mb-6">{teamData.description}</p>
+            <div className="bg-card rounded-xl p-6 shadow-lg">
+              <h2 className="text-2xl font-bold text-card-foreground mb-4">Über das Team</h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">{teamData.description}</p>
               
-              <div className="bg-yellow-50 rounded-lg p-4 border-l-4 border-yellow-500">
+              <div className="bg-accent/10 rounded-lg p-4 border-l-4 border-accent">
                 <div className="flex items-start">
-                  <Target className="text-yellow-600 mt-1 mr-3" size={20} />
+                  <Target className="text-accent mt-1 mr-3" size={20} />
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Unsere Ziele</h3>
-                    <p className="text-gray-700">{teamData.goals}</p>
+                    <h3 className="font-semibold text-card-foreground mb-2">Unsere Ziele</h3>
+                    <p className="text-muted-foreground">{teamData.goals}</p>
                   </div>
                 </div>
               </div>
@@ -257,10 +257,10 @@ const TeamPage = () => {
 
             {/* Instagram Feed */}
             {teamData.instagramUrl && (
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Instagram Feed</h2>
-                <div className="bg-gray-100 rounded-lg p-8 text-center">
-                  <p className="text-gray-600 mb-4">
+              <div className="bg-card rounded-xl p-6 shadow-lg">
+                <h2 className="text-2xl font-bold text-card-foreground mb-4">Instagram Feed</h2>
+                <div className="bg-muted rounded-lg p-8 text-center">
+                  <p className="text-muted-foreground mb-4">
                     Folgt uns auf Instagram für aktuelle Bilder und Updates!
                   </p>
                   <a 
@@ -282,44 +282,44 @@ const TeamPage = () => {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Contact Info */}
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Kontakt</h3>
+            <div className="bg-card rounded-xl p-6 shadow-lg">
+              <h3 className="text-xl font-bold text-card-foreground mb-4">Kontakt</h3>
               <div className="space-y-3">
                 <div className="flex items-center">
-                  <Mail className="text-red-600 mr-3" size={20} />
+                  <Mail className="text-primary mr-3" size={20} />
                   <div>
-                    <p className="font-medium text-gray-900">{teamData.contact.name}</p>
-                    <a href={`mailto:${teamData.contact.email}`} className="text-red-600 hover:underline">
+                    <p className="font-medium text-card-foreground">{teamData.contact.name}</p>
+                    <a href={`mailto:${teamData.contact.email}`} className="text-primary hover:underline">
                       {teamData.contact.email}
                     </a>
                   </div>
                 </div>
                 {teamData.contact.phone && (
                   <div className="flex items-center">
-                    <Phone className="text-red-600 mr-3" size={20} />
-                    <span className="text-gray-700">{teamData.contact.phone}</span>
+                    <Phone className="text-primary mr-3" size={20} />
+                    <span className="text-muted-foreground">{teamData.contact.phone}</span>
                   </div>
                 )}
               </div>
             </div>
 
             {/* Training Schedule */}
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Trainingszeiten</h3>
+            <div className="bg-card rounded-xl p-6 shadow-lg">
+              <h3 className="text-xl font-bold text-card-foreground mb-4">Trainingszeiten</h3>
               <div className="space-y-4">
                 {teamData.training.map((session, index) => (
-                  <div key={index} className="border-l-4 border-yellow-500 pl-4">
+                  <div key={index} className="border-l-4 border-accent pl-4">
                     <div className="flex items-center mb-1">
-                      <Calendar className="text-yellow-600 mr-2" size={16} />
-                      <span className="font-medium text-gray-900">{session.day}</span>
+                      <Calendar className="text-accent mr-2" size={16} />
+                      <span className="font-medium text-card-foreground">{session.day}</span>
                     </div>
                     <div className="flex items-center mb-1">
-                      <Clock className="text-yellow-600 mr-2" size={16} />
-                      <span className="text-gray-700">{session.time}</span>
+                      <Clock className="text-accent mr-2" size={16} />
+                      <span className="text-muted-foreground">{session.time}</span>
                     </div>
                     <div className="flex items-center">
-                      <MapPin className="text-yellow-600 mr-2" size={16} />
-                      <span className="text-gray-700">{session.location}</span>
+                      <MapPin className="text-accent mr-2" size={16} />
+                      <span className="text-muted-foreground">{session.location}</span>
                     </div>
                   </div>
                 ))}
@@ -327,11 +327,11 @@ const TeamPage = () => {
             </div>
 
             {/* Match Schedule Placeholder */}
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Spielplan</h3>
-              <div className="bg-gray-100 rounded-lg p-4 text-center">
-                <Calendar size={48} className="text-gray-400 mx-auto mb-2" />
-                <p className="text-gray-600">Spielplan wird bald verfügbar sein</p>
+            <div className="bg-card rounded-xl p-6 shadow-lg">
+              <h3 className="text-xl font-bold text-card-foreground mb-4">Spielplan</h3>
+              <div className="bg-muted rounded-lg p-4 text-center">
+                <Calendar size={48} className="text-muted-foreground mx-auto mb-2" />
+                <p className="text-muted-foreground">Spielplan wird bald verfügbar sein</p>
               </div>
             </div>
           </div>

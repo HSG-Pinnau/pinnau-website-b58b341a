@@ -56,36 +56,36 @@ const TeamsOverviewPage = () => {
       
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white py-20">
+        <section className="bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Unsere Mannschaften
               </h1>
-              <p className="text-xl md:text-2xl mb-8 text-blue-100">
+              <p className="text-xl md:text-2xl mb-8 text-primary-foreground/80">
                 Von den Minis bis zu den Erwachsenen - Handball für alle
               </p>
               <div className="grid md:grid-cols-3 gap-8 mt-12">
                 <div className="text-center">
-                  <div className="bg-white/10 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <div className="bg-primary-foreground/10 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                     <Users className="h-8 w-8" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">20+ Teams</h3>
-                  <p className="text-blue-100">Von Minis bis Erwachsene</p>
+                  <p className="text-primary-foreground/80">Von Minis bis Erwachsene</p>
                 </div>
                 <div className="text-center">
-                  <div className="bg-white/10 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <div className="bg-primary-foreground/10 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                     <Trophy className="h-8 w-8" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">Alle Ligen</h3>
-                  <p className="text-blue-100">Von Bezirks- bis Regionalliga</p>
+                  <p className="text-primary-foreground/80">Von Bezirks- bis Regionalliga</p>
                 </div>
                 <div className="text-center">
-                  <div className="bg-white/10 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <div className="bg-primary-foreground/10 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                     <Target className="h-8 w-8" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">Inklusion</h3>
-                  <p className="text-blue-100">Handball für alle</p>
+                  <p className="text-primary-foreground/80">Handball für alle</p>
                 </div>
               </div>
             </div>
@@ -97,10 +97,10 @@ const TeamsOverviewPage = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="space-y-16">
               {teamCategories.map((category, index) => (
-                <div key={category.title} className={`${index % 2 === 1 ? 'bg-gray-50' : ''} rounded-xl p-8`}>
+                <div key={category.title} className={`${index % 2 === 1 ? 'bg-muted' : ''} rounded-xl p-8`}>
                   <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">{category.title}</h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">{category.description}</p>
+                    <h2 className="text-3xl font-bold text-foreground mb-4">{category.title}</h2>
+                    <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{category.description}</p>
                   </div>
                   
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -108,19 +108,19 @@ const TeamsOverviewPage = () => {
                       <Link
                         key={team.name}
                         to={team.href}
-                        className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden group"
+                        className="bg-card rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden group"
                       >
                         <div className="p-6">
                           <div className="flex items-center justify-between mb-3">
-                            <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                            <h3 className="text-xl font-semibold text-card-foreground group-hover:text-primary transition-colors">
                               {team.name}
                             </h3>
-                            <span className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                            <span className="bg-accent text-accent-foreground text-xs font-medium px-2.5 py-0.5 rounded">
                               {team.level}
                             </span>
                           </div>
-                          <p className="text-gray-600 mb-4">{team.description}</p>
-                          <div className="flex items-center text-blue-600 text-sm font-medium">
+                          <p className="text-muted-foreground mb-4">{team.description}</p>
+                          <div className="flex items-center text-primary text-sm font-medium">
                             <span>Team Details</span>
                             <svg className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -137,24 +137,24 @@ const TeamsOverviewPage = () => {
         </section>
 
         {/* Call to Action */}
-        <section className="bg-blue-600 text-white py-16">
+        <section className="bg-primary text-primary-foreground py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h2 className="text-3xl font-bold mb-4">Interesse geweckt?</h2>
-              <p className="text-xl mb-8 text-blue-100">
+              <p className="text-xl mb-8 text-primary-foreground/80">
                 Kommen Sie zu einem Schnuppertraining oder kontaktieren Sie uns für weitere Informationen.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/kontakt"
-                  className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 inline-flex items-center justify-center"
+                  className="bg-primary-foreground text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary-foreground/90 transition-colors duration-200 inline-flex items-center justify-center"
                 >
                   <Calendar className="mr-2 h-5 w-5" />
                   Termin vereinbaren
                 </Link>
                 <a
                   href="mailto:info@hsg-pinnau.de"
-                  className="bg-yellow-500 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-200 inline-flex items-center justify-center"
+                  className="bg-accent text-accent-foreground px-8 py-3 rounded-lg font-semibold hover:bg-accent/90 transition-colors duration-200 inline-flex items-center justify-center"
                 >
                   Jetzt kontaktieren
                 </a>
