@@ -1,15 +1,16 @@
 
 import { useState } from 'react';
-import { Menu, X, Home, Info, Users, Calendar, Phone, Trophy } from 'lucide-react';
+import { Menu, X, Home, Info, Users, Calendar, Phone, Trophy, ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: 'Home', href: '/', icon: Home },
-    { name: 'Über uns', href: '/#about', icon: Info },
-    { name: 'Kontakt', href: '/#contact', icon: Phone },
+    { name: 'Home', href: '/', icon: Home, internal: true },
+    { name: 'Über uns', href: '/#about', icon: Info, internal: true },
+    { name: 'Kontakt', href: '/#contact', icon: Phone, internal: true },
+    { name: 'Shop', href: 'https://hsg-pinnau.nordsport.store/vereinskollektion.html?p=2', icon: ShoppingBag, internal: false },
   ];
 
   const teamStructure = {
@@ -70,16 +71,14 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-yellow-50"
-                >
-                  <item.icon size={16} />
-                  {item.name}
-                </a>
-              ))}
+              {/* Home Link */}
+              <a
+                href="/"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-yellow-50"
+              >
+                <Home size={16} />
+                Home
+              </a>
               
               {/* Mannschaften Dropdown */}
               <div className="relative group">
@@ -178,6 +177,31 @@ const Navigation = () => {
                   </div>
                 </div>
               </div>
+              
+              {/* Other Nav Items */}
+              {navItems.slice(1).map((item) => (
+                item.internal ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-yellow-50"
+                  >
+                    <item.icon size={16} />
+                    {item.name}
+                  </a>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 hover:bg-yellow-50"
+                  >
+                    <item.icon size={16} />
+                    {item.name}
+                  </a>
+                )
+              ))}
             </div>
           </div>
 
@@ -198,15 +222,29 @@ const Navigation = () => {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg border-t border-yellow-200">
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 flex items-center gap-2 hover:bg-yellow-50"
-                onClick={() => setIsOpen(false)}
-              >
-                <item.icon size={20} />
-                {item.name}
-              </a>
+              item.internal ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 flex items-center gap-2 hover:bg-yellow-50"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <item.icon size={20} />
+                  {item.name}
+                </a>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 flex items-center gap-2 hover:bg-yellow-50"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <item.icon size={20} />
+                  {item.name}
+                </a>
+              )
             ))}
             <div className="border-t border-gray-200 pt-2">
               <p className="px-3 py-1 text-sm font-medium text-gray-500">Mannschaften</p>
