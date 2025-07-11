@@ -1,4 +1,4 @@
-import { Home, Info, Phone, ShoppingBag } from 'lucide-react';
+import { Home, Info, Phone, ShoppingBag, Newspaper } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import TeamDropdown from './TeamDropdown';
 import { navItems } from './NavigationData';
@@ -8,6 +8,7 @@ const iconMap = {
   Info,
   Phone,
   ShoppingBag,
+  Newspaper,
 };
 
 const DesktopNavigation = () => {

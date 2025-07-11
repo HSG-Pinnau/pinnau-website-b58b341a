@@ -1,5 +1,5 @@
 
-import { Home, Info, Phone, ShoppingBag } from 'lucide-react';
+import { Home, Info, Phone, ShoppingBag, Newspaper } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { navItems, teamStructure } from './NavigationData';
 
@@ -13,6 +13,7 @@ const iconMap = {
   Info,
   Phone,
   ShoppingBag,
+  Newspaper,
 };
 
 const MobileNavigation = ({ isOpen, setIsOpen }: MobileNavigationProps) => {

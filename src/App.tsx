@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import TeamPage from "./pages/TeamPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import NewsPage from "./pages/NewsPage";
 import TeamsOverviewPage from "./pages/TeamsOverviewPage";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
@@ -24,6 +25,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/uber-uns" element={<AboutPage />} />
+          <Route path="/news" element={<NewsPage />} />
           <Route path="/kontakt" element={<ContactPage />} />
           <Route path="/mannschaften" element={<TeamsOverviewPage />} />
           <Route path="/teams/:teamId" element={<TeamPage />} />
