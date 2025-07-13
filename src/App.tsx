@@ -12,6 +12,8 @@ import ContactPage from "./pages/ContactPage";
 import NewsPage from "./pages/NewsPage";
 import NewsArticlePage from "./pages/NewsArticlePage";
 import TeamsOverviewPage from "./pages/TeamsOverviewPage";
+import ImpressumPage from "./pages/ImpressumPage";
+import DatenschutzPage from "./pages/DatenschutzPage";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 
@@ -31,6 +33,8 @@ const App = () => (
           <Route path="/kontakt" element={<ContactPage />} />
           <Route path="/mannschaften" element={<TeamsOverviewPage />} />
           <Route path="/teams/:teamId" element={<TeamPage />} />
+          <Route path="/impressum" element={<ImpressumPage />} />
+          <Route path="/datenschutz" element={<DatenschutzPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

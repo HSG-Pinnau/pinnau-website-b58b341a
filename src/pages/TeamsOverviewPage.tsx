@@ -110,7 +110,7 @@ const TeamsOverviewPage = () => {
         },
         {
           icon: Heart,
-          number: '300+', // Placeholder, unless player count is available
+          number: '200+', // Placeholder, unless player count is available
           label: 'Spieler',
           description: 'Aktive Mitglieder in allen Teams',
         },

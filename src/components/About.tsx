@@ -66,7 +66,7 @@ const About = () => {
               <div className="text-muted-foreground">Jugendteams</div>
             </div>
             <div className="bg-primary/5 p-6 rounded-lg text-center">
-              <div className="text-3xl font-bold text-primary mb-2">300+</div>
+              <div className="text-3xl font-bold text-primary mb-2">200+</div>
               <div className="text-muted-foreground">Mitglieder</div>
             </div>
             <div className="bg-accent/10 p-6 rounded-lg text-center">
