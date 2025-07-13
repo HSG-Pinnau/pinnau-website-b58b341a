@@ -216,6 +216,90 @@ export default defineConfig({
             description: "Ist diese Person im Hauptvorstand?",
           }
         ]
+      },
+      {
+        name: "blog",
+        label: "Blog",
+        path: "content/blog",
+        format: "md",
+        fields: [
+          {
+            type: "string",
+            name: "titel",
+            label: "Titel",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "kurzbeschreibung",
+            label: "Kurzbeschreibung",
+            description: "Kurze Zusammenfassung des Artikels für die Übersicht",
+            required: true,
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "datetime",
+            name: "datum",
+            label: "Datum",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "kategorie",
+            label: "Kategorie",
+            options: [
+              "Spielbericht",
+              "Event",
+              "Training", 
+              "Erfolg",
+              "Vereinsleben",
+              "Ausrüstung"
+            ],
+            required: true,
+          },
+          {
+            type: "string",
+            name: "autor",
+            label: "Autor",
+            required: true,
+          },
+          {
+            type: "image",
+            name: "bild",
+            label: "Bild",
+            description: "Hauptbild für den Artikel",
+          },
+          {
+            type: "boolean",
+            name: "featured",
+            label: "Featured",
+            description: "Soll dieser Artikel als Highlight angezeigt werden?",
+          },
+          {
+            type: "rich-text",
+            name: "inhalt",
+            label: "Inhalt",
+            isBody: true,
+            templates: [
+              {
+                name: "DateTime",
+                label: "Date & Time",
+                inline: true,
+                fields: [
+                  {
+                    name: "format",
+                    label: "Format",
+                    type: "string",
+                    options: ["utc", "iso", "local"],
+                  },
+                ],
+              },
+            ],
+          }
+        ]
       }
     ],
   },
