@@ -4,12 +4,27 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { Users, Trophy, Target, Calendar, Heart, Star, Award, ArrowRight, Mail } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { client } from '../../tina/__generated__/client';
 
 const TeamsOverviewPage = () => {
   const [teamCategories, setTeamCategories] = useState<any[]>([]);
   const [achievements, setAchievements] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
+  // Scroll to anchor if hash is present in URL after navigation
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      // Timeout to ensure DOM is rendered
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, [location.hash, loading]);
 
   useEffect(() => {
     const fetchTeams = async () => {
@@ -190,8 +205,18 @@ const TeamsOverviewPage = () => {
             <div className="space-y-20">
               {teamCategories.map((category, categoryIndex) => {
                 const CategoryIcon = category.icon;
+                // Map category title to anchor id
+                let anchorId = undefined;
+                if (category.title === 'Erwachsene') anchorId = 'erwachsene';
+                else if (category.title === 'Jugend Weiblich') anchorId = 'weiblich';
+                else if (category.title === 'Jugend Männlich') anchorId = 'maennlich';
+                else if (category.title === 'Besondere Teams') anchorId = 'minis-toppies';
                 return (
-                  <div key={category.title} className={`${categoryIndex % 2 === 1 ? 'bg-gradient-to-br from-accent/5 to-primary/5' : 'bg-white'} rounded-xl p-8`}>
+                  <div
+                    key={category.title}
+                    id={anchorId}
+                    className={`${categoryIndex % 2 === 1 ? 'bg-gradient-to-br from-accent/5 to-primary/5' : 'bg-white'} rounded-xl p-8`}
+                  >
                     <div className="text-center mb-12">
                       <div className="flex justify-center mb-6">
                         <div className={`p-4 rounded-full ${category.color === 'primary' ? 'bg-primary/10' : 'bg-accent/10'}`}>
@@ -277,7 +302,7 @@ const TeamsOverviewPage = () => {
                     Schnuppertraining vereinbaren
                   </Link>
                   <a
-                    href="mailto:info@hsg-pinnau.de"
+                    href="mailto:vorstand@hsg-pinnau.de"
                     className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-4 rounded-lg font-semibold transition-all duration-200 hover:scale-105 inline-flex items-center justify-center gap-2 shadow-lg"
                   >
                     <Mail size={20} />

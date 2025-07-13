@@ -16,13 +16,20 @@ const Footer = () => {
               Leidenschaft für Handball seit 2011. Spielgemeinschaft aus TSV Prisdorf und VfL Pinneberg.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors duration-200">
+              <a
+                href="https://www.facebook.com/hsgpinnau"
+                className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors duration-200">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors duration-200">
+              <a
+                href="https://www.instagram.com/hsgpinnau"
+                className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Instagram size={20} />
               </a>
             </div>
@@ -60,22 +67,22 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4 text-primary">Unsere Teams</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/teams/damen1" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
-                  Damen-Mannschaften
+                <Link to="/mannschaften#erwachsene" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  Erwachsene Mannschaften
                 </Link>
               </li>
               <li>
-                <Link to="/teams/herren1" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
-                  Herren-Mannschaften
+                <Link to="/mannschaften#maennlich" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  Männliche Jugendteams
                 </Link>
               </li>
               <li>
-                <Link to="/teams/a-jugend-m1" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
-                  Jugendteams
+                <Link to="/mannschaften#weiblich" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  Weibliche Jugendteams
                 </Link>
               </li>
               <li>
-                <Link to="/teams/minis" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                <Link to="/mannschaften#minis-toppies" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
                   Minis & Toppies
                 </Link>
               </li>

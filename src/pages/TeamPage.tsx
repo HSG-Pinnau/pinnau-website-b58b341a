@@ -161,7 +161,10 @@ const TeamPage = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">{teamData.name}</h1>
-              <p className="text-xl opacity-90">{teamData.category} ({teamData.jahrgang})</p>
+              <p className="text-xl opacity-90">
+                {teamData.category}
+                {teamData.jahrgang ? ` (${teamData.jahrgang})` : ''}
+              </p>
             </div>
           </div>
         </div>
