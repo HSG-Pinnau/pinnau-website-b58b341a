@@ -34,20 +34,6 @@ Mit unserem neuen News-Bereich bleibt ihr immer auf dem Laufenden. Spielberichte
 
 Lernt unseren Vorstand kennen, erfahrt mehr über unsere Trainingszeiten und findet alle wichtigen Kontaktdaten auf einen Blick.
 
-## Technische Highlights
-
-### Content Management System
-
-Im Hintergrund arbeitet ein modernes Content Management System (Tina CMS), das es uns ermöglicht, Inhalte schnell und einfach zu aktualisieren. So sind News, Teaminfos und Termine immer brandaktuell.
-
-### Optimierte Performance
-
-Die Website lädt blitzschnell und bietet eine hervorragende Benutzererfahrung. Dank intelligenter Caching-Mechanismen sind alle Inhalte in Sekundenschnelle verfügbar.
-
-### Mobile First
-
-Da die meisten von euch die Website am Smartphone besuchen, haben wir sie von Grund auf für mobile Geräte optimiert. Navigation, Lesbarkeit und Funktionen sind auf allen Bildschirmgrößen perfekt.
-
 ## Ein Dankeschön an alle Beteiligten
 
 Diese Website wäre nicht möglich gewesen ohne die Unterstützung vieler fleißiger Helfer:
@@ -56,15 +42,6 @@ Diese Website wäre nicht möglich gewesen ohne die Unterstützung vieler fleiß
 * **Den Trainern und Mannschaftsverantwortlichen** für die Bereitstellung aller Teaminformationen
 * **Den Fotografen** für die tollen Bilder unserer Mannschaften
 * **Allen Vereinsmitgliedern**, die Feedback und Anregungen gegeben haben
-
-## Was kommt als Nächstes?
-
-Die Website ist natürlich nicht statisch - wir arbeiten kontinuierlich an Verbesserungen und neuen Features:
-
-* **Live-Spielstände** direkt auf den Teamseiten
-* **Erweiterte Bildergalerien** von Spielen und Events
-* **Vereinskalender** mit allen wichtigen Terminen
-* **Newsletter-Anmeldung** für regelmäßige Updates
 
 ## Feedback willkommen!
 
