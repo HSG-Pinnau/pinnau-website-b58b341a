@@ -40,7 +40,7 @@ export const teamStructure = {
   minis: [
     { name: 'Minis', href: '/teams/minis' }
   ],
-  toppies: [
-    { name: 'Toppies', href: '/teams/toppies' }
+  toppis: [
+    { name: 'Toppis', href: '/teams/toppis' }
   ]
 };

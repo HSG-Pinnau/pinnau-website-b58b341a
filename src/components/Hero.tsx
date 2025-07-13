@@ -18,7 +18,7 @@ const Hero = () => {
         + (structure.jugend.maennlich.length || 0)
         + (structure.jugend.weiblich.length || 0)
         + (structure.minis.length || 0)
-        + (structure.toppies.length || 0);
+        + (structure.toppis.length || 0);
       setTeamCount(count);
       setLoading(false);
     });

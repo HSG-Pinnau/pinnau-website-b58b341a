@@ -85,7 +85,7 @@ const TeamsOverviewPage = () => {
           description: 'Handball für alle - von den Kleinsten bis zu besonderen Bedürfnissen.',
           icon: Star,
           color: 'accent',
-          teams: addHref(highlightFirstPerJahrgang(teams.filter((t: any) => t.jugend === 'Minis' || t.jugend === 'Toppies' || t.level === 'Inklusion' || t.level === 'Spielgruppe'))),
+          teams: addHref(highlightFirstPerJahrgang(teams.filter((t: any) => t.jugend === 'Minis' || t.jugend === 'Toppis' || t.level === 'Inklusion' || t.level === 'Spielgruppe'))),
         },
       ];
 
@@ -210,7 +210,7 @@ const TeamsOverviewPage = () => {
                 if (category.title === 'Erwachsene') anchorId = 'erwachsene';
                 else if (category.title === 'Jugend Weiblich') anchorId = 'weiblich';
                 else if (category.title === 'Jugend Männlich') anchorId = 'maennlich';
-                else if (category.title === 'Besondere Teams') anchorId = 'minis-toppies';
+                else if (category.title === 'Besondere Teams') anchorId = 'minis-toppis';
                 return (
                   <div
                     key={category.title}

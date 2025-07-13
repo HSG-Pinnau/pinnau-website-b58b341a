@@ -141,7 +141,7 @@ const MobileNavigation = ({ isOpen, setIsOpen }: MobileNavigationProps) => {
                       {team.name}
                     </Link>
                   ))}
-                  {teamStructure.toppies.map((team: any) => (
+                  {teamStructure.toppis.map((team: any) => (
                     <Link
                       key={team.name}
                       to={team.href}

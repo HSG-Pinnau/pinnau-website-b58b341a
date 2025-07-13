@@ -46,10 +46,10 @@ const Programs = () => {
         },
         {
           icon: Clock,
-          title: 'Toppies',
+          title: 'Toppis',
           description: 'Handball-Sport für Kinder mit Handicap jeglicher Art im Alter von 5-10.',
           color: 'accent',
-          teams: structure.toppies || []
+          teams: structure.toppis || []
         }
       ];
       setPrograms(prog);

@@ -82,8 +82,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/mannschaften#minis-toppies" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
-                  Minis & Toppies
+                <Link to="/mannschaften#minis-toppis" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  Minis & Toppis
                 </Link>
               </li>
             </ul>

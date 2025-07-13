@@ -130,7 +130,7 @@ const TeamDropdown = () => {
                 </Link>
               </DropdownMenuItem>
             ))}
-            {teamStructure.toppies.map((team: any) => (
+            {teamStructure.toppis.map((team: any) => (
               <DropdownMenuItem key={team.name} className="p-0">
                 <Link
                   to={team.href}

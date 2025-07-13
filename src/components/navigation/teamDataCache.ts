@@ -26,7 +26,7 @@ export async function getTeamsCached() {
       weiblich: [],
     },
     minis: [],
-    toppies: [],
+    toppis: [],
   };
 
   teams.forEach((team: any) => {
@@ -50,8 +50,8 @@ export async function getTeamsCached() {
       structure.jugend[genderKey].push({ name, href });
     } else if (jugend === 'minis') {
       structure.minis.push({ name: name, href });
-    } else if (jugend === 'toppiees' || jugend === 'toppies') {
-      structure.toppies.push({ name: 'Toppies', href });
+    } else if (jugend === 'toppis') {
+      structure.toppis.push({ name: 'Toppis', href });
     }
   });
 

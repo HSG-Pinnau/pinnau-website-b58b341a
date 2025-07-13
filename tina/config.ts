@@ -106,7 +106,7 @@ export default defineConfig({
               "D-Jugend",
               "E-Jugend",
               "Minis",
-              "Toppies",
+              "Toppis",
             ]
           },
           {

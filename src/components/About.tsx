@@ -15,7 +15,7 @@ const About = () => {
     getTeamsCached()
       .then((structure) => {
         const erwachsene = (structure.erwachsene.damen.length || 0) + (structure.erwachsene.herren.length || 0);
-        const jugend = (structure.jugend.maennlich.length || 0) + (structure.jugend.weiblich.length || 0) + (structure.minis.length || 0) + (structure.toppies.length || 0);
+        const jugend = (structure.jugend.maennlich.length || 0) + (structure.jugend.weiblich.length || 0) + (structure.minis.length || 0) + (structure.toppis.length || 0);
         setTeamStats({ erwachsene, jugend });
         setLoading(false);
       });
