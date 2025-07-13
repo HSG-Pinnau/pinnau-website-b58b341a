@@ -34,7 +34,7 @@ const MobileNavigation = ({ isOpen, setIsOpen }: MobileNavigationProps) => {
 
   return (
     <div className="md:hidden">
-      <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg border-t border-primary-accent/20">
+      <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg border-t border-primary-accent/20 max-h-[80vh] overflow-y-auto">
         {navItems.map((item) => {
           const IconComponent = iconMap[item.icon as keyof typeof iconMap];
           return item.internal ? (
