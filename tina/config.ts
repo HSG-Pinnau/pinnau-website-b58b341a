@@ -175,7 +175,7 @@ export default defineConfig({
             type: "string",
             name: "instagramUrl",
             label: "Instagram URL",
-            description: "Optionaler Link zum Instagram-Profil der Mannschaft"
+            description: "Optionaler Link zum Instagram-Profil der Mannschaft (instagram.com/INSAGRAM_ACCOUNT_NAME)"
           },
           {
             type: "string",
