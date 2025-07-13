@@ -1,7 +1,8 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mail, Phone, MapPin, Clock, Send, Facebook, Instagram, CheckCircle } from 'lucide-react';
+
+import { Mail, Phone, MapPin, Clock, Send, Facebook, Instagram } from 'lucide-react';
 
 const ContactPage = () => {
   const contactMethods = [
@@ -9,7 +10,6 @@ const ContactPage = () => {
       icon: Mail,
       title: "E-Mail",
       items: [
-        { label: "Allgemeine Anfragen", value: "info@hsg-pinnau.de", link: "mailto:info@hsg-pinnau.de" },
         { label: "Vorstand", value: "vorstand@hsg-pinnau.de", link: "mailto:vorstand@hsg-pinnau.de" }
       ]
     },
@@ -27,8 +27,8 @@ const ContactPage = () => {
   ];
 
   const socialMedia = [
-    { name: "Facebook", icon: Facebook, href: "#", color: "primary" },
-    { name: "Instagram", icon: Instagram, href: "#", color: "accent" }
+    { name: "Facebook", icon: Facebook, href: "https://facebook.com/hsgpinnau", color: "primary" },
+    { name: "Instagram", icon: Instagram, href: "https://instagram.com/hsgpinnau", color: "accent" }
   ];
 
   const formSubjects = [
@@ -40,6 +40,8 @@ const ContactPage = () => {
     { value: "other", label: "Sonstiges" }
   ];
 
+  // Formspree endpoint (replace with your own if needed)
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xyzpgepd';
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -136,7 +138,9 @@ const ContactPage = () => {
                         return (
                           <a 
                             key={index}
-                            href={social.href} 
+                            href={social.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className={`${social.color === 'primary' ? 'bg-primary hover:bg-primary/90' : 'bg-accent hover:bg-accent/90'} text-white p-4 rounded-lg transition-all duration-200 hover:scale-105 shadow-lg flex items-center gap-2`}
                           >
                             <IconComponent size={20} />
@@ -162,7 +166,7 @@ const ContactPage = () => {
                 
                 <Card className="border-t-4 border-primary">
                   <CardContent className="p-8">
-                    <form className="space-y-6">
+                    <form className="space-y-6" action={FORMSPREE_ENDPOINT} method="POST" autoComplete="on">
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
                           <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -171,12 +175,12 @@ const ContactPage = () => {
                           <input
                             type="text"
                             id="name"
+                            name="name"
                             required
                             className="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-background text-foreground transition-all duration-200"
                             placeholder="Ihr vollständiger Name"
                           />
                         </div>
-                        
                         <div>
                           <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                             E-Mail *
@@ -184,13 +188,13 @@ const ContactPage = () => {
                           <input
                             type="email"
                             id="email"
+                            name="email"
                             required
                             className="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-background text-foreground transition-all duration-200"
                             placeholder="ihre.email@beispiel.de"
                           />
                         </div>
                       </div>
-                      
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
                           <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
@@ -199,17 +203,18 @@ const ContactPage = () => {
                           <input
                             type="tel"
                             id="phone"
+                            name="phone"
                             className="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-background text-foreground transition-all duration-200"
                             placeholder="Ihre Telefonnummer"
                           />
                         </div>
-                        
                         <div>
                           <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
                             Betreff *
                           </label>
                           <select
                             id="subject"
+                            name="subject"
                             required
                             className="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-background text-foreground transition-all duration-200"
                           >
@@ -221,24 +226,24 @@ const ContactPage = () => {
                           </select>
                         </div>
                       </div>
-                      
                       <div>
                         <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                           Nachricht *
                         </label>
                         <textarea
                           id="message"
+                          name="message"
                           required
                           rows={6}
                           className="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent bg-background text-foreground transition-all duration-200 resize-none"
                           placeholder="Ihre Nachricht an uns..."
                         ></textarea>
                       </div>
-                      
                       <div className="flex items-start space-x-3">
                         <input
                           type="checkbox"
                           id="privacy"
+                          name="privacy"
                           required
                           className="h-4 w-4 text-primary focus:ring-ring border-input rounded mt-1 flex-shrink-0"
                         />
@@ -250,7 +255,8 @@ const ContactPage = () => {
                           zu. *
                         </label>
                       </div>
-                      
+                      <input type="hidden" name="_subject" value="Kontaktanfrage über Website" />
+                      <input type="hidden" name="_next" value={typeof window !== 'undefined' ? window.location.href : ''} />
                       <button
                         type="submit"
                         className="w-full bg-primary text-primary-foreground py-4 px-6 rounded-lg font-semibold hover:bg-primary/90 transition-all duration-200 hover:scale-105 shadow-lg flex items-center justify-center gap-2"
@@ -270,6 +276,6 @@ const ContactPage = () => {
       <Footer />
     </div>
   );
-};
+}
 
 export default ContactPage;
