@@ -1,8 +1,26 @@
 
+
 import { Target, Eye, Heart, Star, Users, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { getTeamsCached } from './navigation/teamDataCache';
+
+
 
 const About = () => {
+  const [teamStats, setTeamStats] = useState<{ erwachsene: number; jugend: number }>({ erwachsene: 0, jugend: 0 });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getTeamsCached()
+      .then((structure) => {
+        const erwachsene = (structure.erwachsene.damen.length || 0) + (structure.erwachsene.herren.length || 0);
+        const jugend = (structure.jugend.maennlich.length || 0) + (structure.jugend.weiblich.length || 0) + (structure.minis.length || 0) + (structure.toppies.length || 0);
+        setTeamStats({ erwachsene, jugend });
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,7 +40,6 @@ const About = () => {
               Die HSG Pinnau steht für Teamgeist, Fairplay und sportliche Exzellenz. 
               Wir bieten Handball für alle Altersklassen - von den Minis bis zu den Erwachsenen.
             </p>
-            
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/uber-uns"
@@ -41,11 +58,11 @@ const About = () => {
 
           <div className="grid grid-cols-2 gap-6">
             <div className="bg-primary/5 p-6 rounded-lg text-center">
-              <div className="text-3xl font-bold text-primary mb-2">6</div>
+              <div className="text-3xl font-bold text-primary mb-2">{loading ? '...' : teamStats.erwachsene}</div>
               <div className="text-muted-foreground">Erwachsenen-teams</div>
             </div>
             <div className="bg-accent/10 p-6 rounded-lg text-center">
-              <div className="text-3xl font-bold text-accent-foreground mb-2">12+</div>
+              <div className="text-3xl font-bold text-accent-foreground mb-2">{loading ? '...' : teamStats.jugend}</div>
               <div className="text-muted-foreground">Jugendteams</div>
             </div>
             <div className="bg-primary/5 p-6 rounded-lg text-center">

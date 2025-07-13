@@ -11,6 +11,10 @@
       "zeit": "17:30-19:00",
       "halle": "content/hallen/kummerfeld.json"
     },
-    {}
+    {
+      "wochentag": "Freitag",
+      "zeit": "17:30-19:00",
+      "halle": "content/hallen/kummerfeld.json"
+    }
   ]
 }

@@ -3,92 +3,113 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { Users, Trophy, Target, Calendar, Heart, Star, Award, ArrowRight, Mail } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { client } from '../../tina/__generated__/client';
 
 const TeamsOverviewPage = () => {
-  const teamCategories = [
-    {
-      title: "Erwachsene",
-      subtitle: "Herren & Damen",
-      description: "Unsere Herren- und Damenmannschaften im Erwachsenenbereich kämpfen in verschiedenen Spielklassen um Punkte und Erfolge.",
-      icon: Trophy,
-      color: "primary",
-      teams: [
-        { name: "Damen 1", href: "/teams/damen1", level: "Oberliga", description: "Unsere erste Damenmannschaft spielt in der Oberliga und strebt nach dem Aufstieg", highlight: true },
-        { name: "Damen 2", href: "/teams/damen2", level: "Landesliga", description: "Zweite Damenmannschaft mit starkem Teamgeist in der Landesliga" },
-        { name: "Damen 3", href: "/teams/damen3", level: "Bezirksliga", description: "Dritte Damenmannschaft als perfekter Einstieg in den Erwachsenenhandball" },
-        { name: "Herren 1", href: "/teams/herren1", level: "Regionalliga", description: "Unsere erste Herrenmannschaft in der Regionalliga - die Speerspitze des Vereins", highlight: true },
-        { name: "Herren 2", href: "/teams/herren2", level: "Oberliga", description: "Zweite Herrenmannschaft frisch aufgestiegen in die Oberliga" },
-        { name: "Herren 3", href: "/teams/herren3", level: "Landesliga", description: "Dritte Herrenmannschaft für Handball mit Spaß und Leidenschaft" },
-      ]
-    },
-    {
-      title: "Jugend Männlich",
-      subtitle: "Nachwuchs Boys",
-      description: "Unsere männlichen Jugendteams werden systematisch gefördert und auf den Erwachsenenhandball vorbereitet.",
-      icon: Users,
-      color: "accent",
-      teams: [
-        { name: "A-Jugend 1", href: "/teams/a-jugend-m1", level: "Oberliga", description: "Männliche A-Jugend in der Oberliga - unsere zukünftigen Leistungsträger" },
-        { name: "A-Jugend 2", href: "/teams/a-jugend-m2", level: "Landesliga", description: "Zweite männliche A-Jugend mit großem Potenzial" },
-        { name: "B-Jugend 1", href: "/teams/b-jugend-m1", level: "Oberliga", description: "Männliche B-Jugend mit starker Trainingsgruppe" },
-        { name: "C-Jugend 1", href: "/teams/c-jugend-m1", level: "Bezirksliga", description: "Männliche C-Jugend - hier wird Handball-Leidenschaft geweckt" },
-        { name: "D-Jugend 1", href: "/teams/d-jugend-m1", level: "Bezirksliga", description: "Männliche D-Jugend für die ersten Wettkampferfahrungen" },
-        { name: "E-Jugend 1", href: "/teams/e-jugend-m1", level: "Bezirksliga", description: "Männliche E-Jugend - spielerisch Handball lernen" },
-      ]
-    },
-    {
-      title: "Jugend Weiblich",
-      subtitle: "Nachwuchs Girls",
-      description: "Unsere weiblichen Jugendteams zeigen, dass Handball ein Sport für starke Mädchen ist.",
-      icon: Heart,
-      color: "primary",
-      teams: [
-        { name: "A-Jugend 1", href: "/teams/a-jugend-w1", level: "Oberliga", description: "Weibliche A-Jugend in der Oberliga - technisch stark und taktisch clever" },
-        { name: "B-Jugend 1", href: "/teams/b-jugend-w1", level: "Landesliga", description: "Weibliche B-Jugend mit großen Ambitionen" },
-        { name: "C-Jugend 1", href: "/teams/c-jugend-w1", level: "Bezirksliga", description: "Weibliche C-Jugend - hier entstehen die Handballtalente von morgen" },
-        { name: "D-Jugend 1", href: "/teams/d-jugend-w1", level: "Bezirksliga", description: "Weibliche D-Jugend für den Einstieg in den Wettkampfsport" },
-        { name: "E-Jugend 1", href: "/teams/e-jugend-w1", level: "Bezirksliga", description: "Weibliche E-Jugend - Spaß am Handball von Anfang an" },
-      ]
-    },
-    {
-      title: "Besondere Teams",
-      subtitle: "Inklusion & Integration",
-      description: "Handball für alle - von den Kleinsten bis zu besonderen Bedürfnissen.",
-      icon: Star,
-      color: "accent",
-      teams: [
-        { name: "Minis", href: "/teams/minis", level: "Spielgruppe", description: "Handball für die Kleinsten (4-8 Jahre) - erste Ballgewöhnung und Bewegungsspaß", special: true },
-        { name: "Toppis", href: "/teams/toppis", level: "Inklusion", description: "Handball für Kinder mit Handicap - gemeinsam stark und inklusiv", special: true },
-      ]
-    }
-  ];
+  const [teamCategories, setTeamCategories] = useState<any[]>([]);
+  const [achievements, setAchievements] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const achievements = [
-    {
-      icon: Trophy,
-      number: "20+",
-      label: "Mannschaften",
-      description: "Aktive Teams aller Altersklassen"
-    },
-    {
-      icon: Award,
-      number: "5",
-      label: "Spielklassen",
-      description: "Von Bezirks- bis Regionalliga"
-    },
-    {
-      icon: Heart,
-      number: "300+",
-      label: "Spieler",
-      description: "Aktive Mitglieder in allen Teams"
-    },
-    {
-      icon: Target,
-      number: "100%",
-      label: "Inklusion",
-      description: "Handball für alle Menschen"
-    }
-  ];
+  useEffect(() => {
+    const fetchTeams = async () => {
+      setLoading(true);
+      // Fetch all mannschaften from Tina CMS
+      const res = await client.queries.mannschaftenConnection();
+      const teams = res.data.mannschaftenConnection.edges.map((edge: any) => edge.node);
+
+      // Highlight the first team per Jahrgang in each category
+      function highlightFirstPerJahrgang(teams: any[]) {
+        const grouped: { [jahrgang: string]: boolean } = {};
+        return teams.map((team: any) => {
+          if (team.jahrgang && !grouped[team.jahrgang]) {
+            grouped[team.jahrgang] = true;
+            return { ...team, highlight: false };
+          }
+          return { ...team, highlight: false };
+        });
+      }
+
+      // Add href for navigation to each team
+      function addHref(teams: any[]) {
+        return teams.map((team: any) => {
+          // Try to get a unique id for the team, fallback to name
+          let teamId = team._sys && team._sys.filename ? team._sys.filename : (team.name || '').toLowerCase().replace(/\s+/g, '');
+          return { ...team, href: `/teams/${teamId}` };
+        });
+      }
+
+      const categories = [
+        {
+          title: 'Erwachsene',
+          subtitle: 'Herren & Damen',
+          description: 'Unsere Herren- und Damenmannschaften im Erwachsenenbereich kämpfen in verschiedenen Spielklassen um Punkte und Erfolge.',
+          icon: Trophy,
+          color: 'primary',
+          teams: addHref(highlightFirstPerJahrgang(teams.filter((t: any) => t.jugend === 'Erwachsene'))),
+        },
+        {
+          title: 'Jugend Männlich',
+          subtitle: 'Nachwuchs Boys',
+          description: 'Unsere männlichen Jugendteams werden systematisch gefördert und auf den Erwachsenenhandball vorbereitet.',
+          icon: Users,
+          color: 'accent',
+          teams: addHref(highlightFirstPerJahrgang(teams.filter((t: any) => t.geschlecht === 'Männlich' && t.jugend !== 'Erwachsene'))),
+        },
+        {
+          title: 'Jugend Weiblich',
+          subtitle: 'Nachwuchs Girls',
+          description: 'Unsere weiblichen Jugendteams zeigen, dass Handball ein Sport für starke Mädchen ist.',
+          icon: Heart,
+          color: 'primary',
+          teams: addHref(highlightFirstPerJahrgang(teams.filter((t: any) => t.geschlecht === 'Weiblich' && t.jugend !== 'Erwachsene'))),
+        },
+        {
+          title: 'Besondere Teams',
+          subtitle: 'Inklusion & Integration',
+          description: 'Handball für alle - von den Kleinsten bis zu besonderen Bedürfnissen.',
+          icon: Star,
+          color: 'accent',
+          teams: addHref(highlightFirstPerJahrgang(teams.filter((t: any) => t.jugend === 'Minis' || t.jugend === 'Toppies' || t.level === 'Inklusion' || t.level === 'Spielgruppe'))),
+        },
+      ];
+
+      // Remove empty categories
+      const filteredCategories = categories.map(cat => ({ ...cat, teams: cat.teams || [] })).filter(cat => cat.teams.length > 0);
+
+      // Achievements: count teams, unique leagues, players (if available), inclusion, exclude 'Keine Liga' and 'Kein Spielbetrieb'
+      const uniqueLeagues = Array.from(new Set(teams.map((t: any) => t.liga).filter((liga: string) => liga !== 'Keine Liga' && liga !== 'Kein Spielbetrieb')));
+      setTeamCategories(filteredCategories);
+      setAchievements([
+        {
+          icon: Trophy,
+          number: teams.length,
+          label: 'Mannschaften',
+          description: 'Aktive Teams aller Altersklassen',
+        },
+        {
+          icon: Award,
+          number: uniqueLeagues.length.toString(),
+          label: 'Spielklassen',
+          description: 'Von Bezirks- bis Regionalliga',
+        },
+        {
+          icon: Heart,
+          number: '300+', // Placeholder, unless player count is available
+          label: 'Spieler',
+          description: 'Aktive Mitglieder in allen Teams',
+        },
+        {
+          icon: Target,
+          number: '100%',
+          label: 'Inklusion',
+          description: 'Handball für alle Menschen',
+        },
+      ]);
+      setLoading(false);
+    };
+    fetchTeams();
+  }, []);
 
   const getLevelColor = (level: string) => {
     switch (level) {
@@ -101,6 +122,14 @@ const TeamsOverviewPage = () => {
       default: return 'bg-muted text-muted-foreground border-border';
     }
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <span className="text-xl text-muted-foreground">Lade Teams ...</span>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -197,12 +226,22 @@ const TeamsOverviewPage = () => {
                                   </div>
                                 )}
                               </div>
-                              <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getLevelColor(team.level)}`}>
-                                {team.level}
+                              <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getLevelColor(team.liga)}`}>
+                                {team.liga}
                               </span>
                             </CardHeader>
                             <CardContent className="pt-0">
-                              <p className="text-muted-foreground mb-4 leading-relaxed text-sm">{team.description}</p>
+                              <div className="mb-2 grid grid-cols-2 gap-x-2 gap-y-1 text-xs text-muted-foreground">
+                                <div className="font-semibold">Jahrgang:</div>
+                                <div>{team.jahrgang || '-'}</div>
+                                <div className="font-semibold">Geschlecht:</div>
+                                <div>{team.geschlecht || '-'}</div>
+                                <div className="font-semibold">Jugend:</div>
+                                <div>{team.jugend || '-'}</div>
+                              </div>
+                              {team.description && (
+                                <p className="text-muted-foreground mb-4 leading-relaxed text-sm">{team.description}</p>
+                              )}
                               <div className="flex items-center text-primary text-sm font-medium group-hover:text-primary/80 transition-colors">
                                 <span>Team Details</span>
                                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

@@ -76,7 +76,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/teams/minis" className="text-muted-foreground hover:text-foreground transition-colors duration-200">
-                  Minis & Toppis
+                  Minis & Toppies
                 </Link>
               </li>
             </ul>
@@ -105,7 +105,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-muted-foreground">
-            © 2024 HSG Pinnau. Alle Rechte vorbehalten. | 
+            © 2025 HSG Pinnau. Alle Rechte vorbehalten. | 
             <a href="#" className="hover:text-primary transition-colors duration-200 ml-1">Datenschutz</a> | 
             <a href="#" className="hover:text-primary transition-colors duration-200 ml-1">Impressum</a>
           </p>
