@@ -85,6 +85,11 @@ export default defineConfig({
           },
           {
             type: "string",
+            name: "beschreibung",
+            label: "Beschreibung",
+          },
+          {
+            type: "string",
             name: "jahrgang",
             label: "Jahrgang",
             description: "Jahrgang der Mannschaft, z.B. '2008/2009'",},

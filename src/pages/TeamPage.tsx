@@ -66,7 +66,7 @@ const TeamPage = () => {
         setTeamData({
           name: team.name,
           category: team.jugend || '',
-          description: typeof (team as any).description === 'string' ? (team as any).description : '',
+          description: team.beschreibung || '',
           goals: typeof (team as any).goals === 'string' ? (team as any).goals : '',
           contact: trainer
             ? {
@@ -161,10 +161,15 @@ const TeamPage = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">{teamData.name}</h1>
-              <p className="text-xl opacity-90">
+              <p className="text-xl opacity-90 mb-4">
                 {teamData.category}
                 {teamData.jahrgang ? ` (${teamData.jahrgang})` : ''}
               </p>
+              {teamData.description && (
+                <p className="text-lg opacity-80 max-w-4xl mx-auto">
+                  {teamData.description}
+                </p>
+              )}
             </div>
           </div>
         </div>
