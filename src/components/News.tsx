@@ -1,34 +1,29 @@
 
-import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, Trophy, Users, Target, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { getNewsCached } from './navigation/newsDataCache';
 
 const News = () => {
-  const newsItems = [
-    {
-      id: '1',
-      title: "Erfolgreicher Saisonstart für die Damen 1",
-      excerpt: "Mit einem überzeugenden 28:22 Sieg gegen den TV Flensburg startete unsere erste Damenmannschaft erfolgreich in die neue Saison.",
-      date: "2024-01-15",
-      category: "Spielbericht",
-      image: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=400&h=250&fit=crop"
-    },
-    {
-      id: '2',
-      title: "Jugendturnier am 3. Februar 2024",
-      excerpt: "Unser traditionelles Jugendturnier findet am ersten Wochenende im Februar statt. Anmeldungen sind ab sofort möglich.",
-      date: "2024-01-10",
-      category: "Event",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop"
-    },
-    {
-      id: '4',
-      title: "Herren 2 steigt in die Oberliga auf",
-      excerpt: "Nach einer fantastischen Saison hat es unsere zweite Herrenmannschaft geschafft - der Aufstieg in die Oberliga ist perfekt!",
-      date: "2024-01-05",
-      category: "Erfolg",
-      image: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=250&fit=crop"
-    }
-  ];
+  const [newsItems, setNewsItems] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      setLoading(true);
+      try {
+        const news = await getNewsCached();
+        // Only show the first 3 news items for the homepage section
+        setNewsItems(news.slice(0, 3));
+      } catch (error) {
+        console.error('Error loading news:', error);
+        setNewsItems([]);
+      }
+      setLoading(false);
+    };
+
+    fetchNews();
+  }, []);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -38,6 +33,42 @@ const News = () => {
       day: 'numeric' 
     });
   };
+
+  const getCategoryIcon = (kategorie: string) => {
+    switch (kategorie) {
+      case 'Spielbericht': return Trophy;
+      case 'Event': return Calendar;
+      case 'Training': return Target;
+      case 'Erfolg': return Trophy;
+      case 'Vereinsleben': return Heart;
+      case 'Ausrüstung': return Users;
+      default: return Calendar;
+    }
+  };
+
+  const getCategoryColor = (kategorie: string) => {
+    switch (kategorie) {
+      case 'Spielbericht': return 'bg-primary/10 text-primary border-primary/20';
+      case 'Event': return 'bg-accent/10 text-accent-foreground border-accent/20';
+      case 'Training': return 'bg-primary/10 text-primary border-primary/20';
+      case 'Erfolg': return 'bg-green-100 text-green-800 border-green-200';
+      case 'Vereinsleben': return 'bg-purple-100 text-purple-800 border-purple-200';
+      case 'Ausrüstung': return 'bg-blue-100 text-blue-800 border-blue-200';
+      default: return 'bg-muted text-muted-foreground border-border';
+    }
+  };
+
+  if (loading) {
+    return (
+      <section id="events" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <span className="text-xl text-muted-foreground">Lade News ...</span>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="events" className="py-20 bg-white">
@@ -50,48 +81,52 @@ const News = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {newsItems.map((item, index) => (
-            <article 
-              key={index}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 border-t-4 border-primary"
-            >
-              <div className="relative">
-                <img 
-                  src={item.image} 
-                  alt={item.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
-                    {item.category}
-                  </span>
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <div className="flex items-center text-muted-foreground text-sm mb-3">
-                  <Calendar size={16} className="mr-2" />
-                  <span>{formatDate(item.date)}</span>
+          {newsItems.map((item) => {
+            const CategoryIcon = getCategoryIcon(item.kategorie);
+            return (
+              <article 
+                key={item.id}
+                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 border-t-4 border-primary"
+              >
+                <div className="relative">
+                  <img 
+                    src={item.bild} 
+                    alt={item.titel}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className={`px-3 py-1 rounded-full text-sm font-medium border ${getCategoryColor(item.kategorie)}`}>
+                      <CategoryIcon size={12} className="inline mr-1" />
+                      {item.kategorie}
+                    </span>
+                  </div>
                 </div>
                 
-                <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
-                  {item.title}
-                </h3>
-                
-                <p className="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">
-                  {item.excerpt}
-                </p>
-                
-                <Link
-                  to={`/news/${item.id}`}
-                  className="text-primary hover:text-primary/80 font-medium flex items-center transition-colors duration-200"
-                >
-                  Weiterlesen
-                  <ArrowRight size={16} className="ml-1" />
-                </Link>
-              </div>
-            </article>
-          ))}
+                <div className="p-6">
+                  <div className="flex items-center text-muted-foreground text-sm mb-3">
+                    <Calendar size={16} className="mr-2" />
+                    <span>{formatDate(item.datum)}</span>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-foreground mb-3 line-clamp-2">
+                    {item.titel}
+                  </h3>
+                  
+                  <p className="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">
+                    {item.kurzbeschreibung}
+                  </p>
+                  
+                  <Link
+                    to={`/news/${item.id}`}
+                    className="text-primary hover:text-primary/80 font-medium flex items-center transition-colors duration-200"
+                  >
+                    Weiterlesen
+                    <ArrowRight size={16} className="ml-1" />
+                  </Link>
+                </div>
+              </article>
+            );
+          })}
         </div>
 
         <div className="text-center mt-12">
