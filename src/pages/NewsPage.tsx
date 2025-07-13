@@ -4,26 +4,26 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, Clock, ArrowRight, Trophy, Users, Target, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getBlogsCached } from '@/components/navigation/blogDataCache';
+import { getNewsCached } from '@/components/navigation/newsDataCache';
 
 const NewsPage = () => {
   const [newsItems, setNewsItems] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchBlogs = async () => {
+    const fetchNews = async () => {
       setLoading(true);
       try {
-        const blogs = await getBlogsCached();
-        setNewsItems(blogs);
+        const news = await getNewsCached();
+        setNewsItems(news);
       } catch (error) {
-        console.error('Error loading blogs:', error);
+        console.error('Error loading news:', error);
         setNewsItems([]);
       }
       setLoading(false);
     };
 
-    fetchBlogs();
+    fetchNews();
   }, []);
 
   const formatDate = (dateString: string) => {

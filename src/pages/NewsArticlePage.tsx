@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Calendar, ArrowLeft, Trophy, Users, Target, Heart, Clock, User } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getBlogByIdCached } from '@/components/navigation/blogDataCache';
+import { getNewsArticleByIdCached } from '@/components/navigation/newsDataCache';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 
 const NewsArticlePage = () => {
@@ -17,8 +17,8 @@ const NewsArticlePage = () => {
       setLoading(true);
       try {
         if (articleId) {
-          const blogData = await getBlogByIdCached(articleId);
-          setArticle(blogData);
+          const newsData = await getNewsArticleByIdCached(articleId);
+          setArticle(newsData);
         }
       } catch (error) {
         console.error('Error loading article:', error);

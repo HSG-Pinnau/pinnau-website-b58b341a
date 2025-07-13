@@ -218,9 +218,9 @@ export default defineConfig({
         ]
       },
       {
-        name: "blog",
-        label: "Blog",
-        path: "content/blog",
+        name: "news",
+        label: "News",
+        path: "content/News",
         format: "md",
         fields: [
           {
