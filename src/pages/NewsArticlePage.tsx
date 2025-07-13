@@ -164,8 +164,30 @@ const NewsArticlePage = () => {
                 </div>
                 
                 {/* Article Content */}
-                <div className="prose prose-lg max-w-none">
-                  <TinaMarkdown content={article.inhalt} />
+                <div className="prose prose-lg max-w-none 
+                  prose-headings:text-foreground prose-headings:font-bold
+                  prose-h1:text-3xl prose-h1:mb-6 prose-h1:mt-8
+                  prose-h2:text-2xl prose-h2:mb-4 prose-h2:mt-6 prose-h2:text-primary
+                  prose-h3:text-xl prose-h3:mb-3 prose-h3:mt-4
+                  prose-p:text-foreground prose-p:leading-relaxed prose-p:mb-4
+                  prose-strong:text-foreground prose-strong:font-semibold
+                  prose-em:text-foreground
+                  prose-a:text-primary prose-a:no-underline hover:prose-a:text-primary/80 hover:prose-a:underline
+                  prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-foreground/80
+                  prose-code:text-foreground prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded
+                  prose-pre:bg-muted prose-pre:text-foreground
+                  prose-ul:text-foreground prose-ul:mb-4 prose-ul:pl-6
+                  prose-ol:text-foreground prose-ol:mb-4 prose-ol:pl-6
+                  prose-li:text-foreground prose-li:mb-1
+                  prose-li:marker:text-primary
+                  prose-hr:border-border prose-hr:my-8
+                  [&>*:first-child]:mt-0 [&>*:last-child]:mb-0
+                ">
+                  {article.inhalt ? (
+                    <TinaMarkdown content={article.inhalt} />
+                  ) : (
+                    <p className="text-muted-foreground italic">Kein Inhalt verfügbar.</p>
+                  )}
                 </div>
               </CardContent>
             </Card>
