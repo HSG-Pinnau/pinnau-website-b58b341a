@@ -170,6 +170,18 @@ export default defineConfig({
                 description: "Optionale Bemerkung zur Trainingszeit",
               }
             ]
+          },
+          {
+            type: "string",
+            name: "instagramUrl",
+            label: "Instagram URL",
+            description: "Optionaler Link zum Instagram-Profil der Mannschaft"
+          },
+          {
+            type: "string",
+            name: "handball4AllTeamId",
+            label: "Handball.net Team Id",
+            description: "Optionales Team Id für Handball.net, zum einbinden des Spielplans",
           }
         ]
       },
