@@ -220,7 +220,7 @@ export default defineConfig({
       {
         name: "news",
         label: "News",
-        path: "content/News",
+        path: "content/news",
         format: "md",
         fields: [
           {
