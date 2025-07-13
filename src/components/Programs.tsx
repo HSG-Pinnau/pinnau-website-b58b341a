@@ -112,12 +112,14 @@ const Programs = () => {
         </div>
         )}
         <div className="text-center mt-12">
-          <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 mr-4">
-            Training besuchen
-          </button>
-          <button className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105">
-            Mannschaften kennenlernen
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto">
+              Training besuchen
+            </button>
+            <button className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 w-full sm:w-auto">
+              Mannschaften kennenlernen
+            </button>
+          </div>
         </div>
       </div>
     </section>

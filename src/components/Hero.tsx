@@ -91,12 +91,22 @@ const Hero = () => {
             </div>
           </div>
           {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:flex">
             <div className="flex flex-col items-center">
               <span className="text-muted-foreground text-sm mb-2 opacity-70">Erfahre mehr</span>
               <ChevronDown 
                 className="text-primary animate-pulse" 
                 size={32}
+              />
+            </div>
+          </div>
+          {/* Mobile Scroll Indicator - Better positioned */}
+          <div className="flex md:hidden justify-center mt-12 mb-8">
+            <div className="flex flex-col items-center">
+              <span className="text-muted-foreground text-sm mb-2 opacity-70">Erfahre mehr</span>
+              <ChevronDown 
+                className="text-primary animate-pulse" 
+                size={28}
               />
             </div>
           </div>
