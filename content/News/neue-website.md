@@ -6,6 +6,7 @@ kurzbeschreibung: >-
 datum: 2025-07-12T22:00:00.000Z
 kategorie: Vereinsleben
 autor: Webteam HSG Pinnau
+bild: /photo-1467232004584-a241de8bcf5d.jpg
 featured: true
 ---
 
