@@ -3,7 +3,7 @@ titel: Neue Website der HSG Pinnau ist online!
 kurzbeschreibung: >-
   Nach wochenlanger Entwicklungsarbeit präsentieren wir stolz unsere brandneue
   Website mit modernem Design und verbesserter Benutzerfreundlichkeit.
-datum: 2025-07-12T22:00:00.000Z
+datum: 2025-07-31T22:00:00.000Z
 kategorie: Vereinsleben
 autor: Webteam HSG Pinnau
 bild: /photo-1467232004584-a241de8bcf5d.jpg
