@@ -57,32 +57,32 @@ const TeamsOverviewPage = () => {
       const categories = [
         {
           title: 'Erwachsene',
-          subtitle: 'Herren & Damen',
-          description: 'Unsere Herren- und Damenmannschaften im Erwachsenenbereich kämpfen in verschiedenen Spielklassen um Punkte und Erfolge.',
+          subtitle: 'Die Großen spielen groß auf',
+          description: 'Hier wird Handball auf höchstem Niveau gespielt! Unsere Damen und Herren zeigen, was jahrelange Erfahrung und Leidenschaft für den Sport bedeuten. Von der Oberliga bis zur Bezirksoberliga - jeder findet sein Level.',
           icon: Trophy,
           color: 'primary',
           teams: addHref(highlightFirstPerJahrgang(teams.filter((t: any) => t.jugend === 'Erwachsene'))),
         },
         {
-          title: 'Jugend Männlich',
-          subtitle: 'Nachwuchs Boys',
-          description: 'Unsere männlichen Jugendteams werden systematisch gefördert und auf den Erwachsenenhandball vorbereitet.',
-          icon: Users,
-          color: 'accent',
-          teams: addHref(highlightFirstPerJahrgang(teams.filter((t: any) => t.geschlecht === 'Männlich' && t.jugend !== 'Erwachsene'))),
-        },
-        {
           title: 'Jugend Weiblich',
-          subtitle: 'Nachwuchs Girls',
-          description: 'Unsere weiblichen Jugendteams zeigen, dass Handball ein Sport für starke Mädchen ist.',
+          subtitle: 'Mädchen mit Power und Präzision',
+          description: 'Starke Mädchen, starke Teams! Unsere weiblichen Jugendteams beweisen, dass Handball nicht nur ein Jungssport ist. Hier wird mit Köpfchen, Technik und jeder Menge Spaß gespielt.',
           icon: Heart,
           color: 'primary',
           teams: addHref(highlightFirstPerJahrgang(teams.filter((t: any) => t.geschlecht === 'Weiblich' && t.jugend !== 'Erwachsene'))),
         },
         {
+          title: 'Jugend Männlich',
+          subtitle: 'Jungs mit Biss und Ballgefühl',
+          description: 'Unsere männlichen Nachwuchstalente lernen hier, was echte Teamarbeit bedeutet. Von den ersten Würfen bis zur taktischen Meisterschaft - hier wird der Grundstein für die Handballstars von morgen gelegt.',
+          icon: Users,
+          color: 'accent',
+          teams: addHref(highlightFirstPerJahrgang(teams.filter((t: any) => t.geschlecht === 'Männlich' && t.jugend !== 'Erwachsene'))),
+        },
+        {
           title: 'Besondere Teams',
-          subtitle: 'Inklusion & Integration',
-          description: 'Handball für alle - von den Kleinsten bis zu besonderen Bedürfnissen.',
+          subtitle: 'Handball für alle - wirklich alle!',
+          description: 'Hier ist jeder willkommen! Von den kleinsten Handballzwerge bis zu unseren inklusiven Teams. Spiel, Spaß und Gemeinschaft stehen im Mittelpunkt. Denn Handball verbindet - egal wie, egal wo!',
           icon: Star,
           color: 'accent',
           teams: addHref(highlightFirstPerJahrgang(teams.filter((t: any) => t.jugend === 'Minis' || t.jugend === 'Toppis' || t.level === 'Inklusion' || t.level === 'Spielgruppe'))),
@@ -118,7 +118,7 @@ const TeamsOverviewPage = () => {
           icon: Target,
           number: '100%',
           label: 'Inklusion',
-          description: 'Handball für alle Menschen',
+          description: 'Handball für alle!',
         },
       ]);
       setLoading(false);
@@ -128,13 +128,16 @@ const TeamsOverviewPage = () => {
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case 'Regionalliga': return 'bg-primary/20 text-primary border-primary/30';
-      case 'Oberliga': return 'bg-primary/15 text-primary border-primary/25';
-      case 'Landesliga': return 'bg-accent/20 text-accent-foreground border-accent/30';
-      case 'Bezirksliga': return 'bg-accent/15 text-accent-foreground border-accent/25';
-      case 'Spielgruppe': return 'bg-muted/60 text-muted-foreground border-muted-foreground/30';
-      case 'Inklusion': return 'bg-primary/10 text-primary border-primary/20';
-      default: return 'bg-muted text-muted-foreground border-border';
+      case 'Regionalliga': return 'bg-gradient-to-r from-purple-100 to-purple-50 text-purple-800 border-purple-300 shadow-sm';
+      case 'Oberliga': return 'bg-gradient-to-r from-blue-100 to-blue-50 text-blue-800 border-blue-300 shadow-sm';
+      case 'Landesliga': return 'bg-gradient-to-r from-green-100 to-green-50 text-green-800 border-green-300 shadow-sm';
+      case 'Bezirksoberliga': return 'bg-gradient-to-r from-yellow-100 to-yellow-50 text-yellow-800 border-yellow-300 shadow-sm';
+      case 'Kreisliga': return 'bg-gradient-to-r from-orange-100 to-orange-50 text-orange-800 border-orange-300 shadow-sm';
+      case 'Spielgruppe': return 'bg-gradient-to-r from-gray-100 to-gray-50 text-gray-700 border-gray-300 shadow-sm';
+      case 'Inklusion': return 'bg-gradient-to-r from-pink-100 to-pink-50 text-pink-800 border-pink-300 shadow-sm';
+      case 'Keine Liga': return 'bg-gradient-to-r from-gray-100 to-gray-50 text-gray-600 border-gray-200 shadow-sm';
+      case 'Kein Spielbetrieb': return 'bg-gradient-to-r from-gray-100 to-gray-50 text-gray-600 border-gray-200 shadow-sm';
+      default: return 'bg-gradient-to-r from-gray-100 to-gray-50 text-gray-700 border-gray-300 shadow-sm';
     }
   };
 
@@ -157,7 +160,7 @@ const TeamsOverviewPage = () => {
             <div className="text-center">
               <div className="flex justify-center mb-8">
                 <img 
-                  src="/lovable-uploads/bf51c967-183e-4af8-a13d-0f2057a13892.png" 
+                  src="/hsg-pinnau.png" 
                   alt="HSG Pinnau Logo" 
                   className="h-24 w-auto animate-fade-in"
                 />
@@ -215,12 +218,13 @@ const TeamsOverviewPage = () => {
                   <div
                     key={category.title}
                     id={anchorId}
-                    className={`${categoryIndex % 2 === 1 ? 'bg-gradient-to-br from-accent/5 to-primary/5' : 'bg-white'} rounded-xl p-8`}
+                    className={`${categoryIndex % 2 === 1 ? 'bg-gradient-to-br from-accent/5 to-primary/5' : 'bg-white'} rounded-xl p-6 animate-fade-in`}
+                    style={{ animationDelay: `${categoryIndex * 200}ms` }}
                   >
-                    <div className="text-center mb-12">
+                    <div className="text-center mb-8">
                       <div className="flex justify-center mb-6">
-                        <div className={`p-4 rounded-full ${category.color === 'primary' ? 'bg-primary/10' : 'bg-accent/10'}`}>
-                          <CategoryIcon className={`${category.color === 'primary' ? 'text-primary' : 'text-accent-foreground'}`} size={32} />
+                        <div className={`p-4 rounded-full transition-all duration-300 hover:scale-110 ${category.color === 'primary' ? 'bg-primary/10 hover:bg-primary/20' : 'bg-accent/10 hover:bg-accent/20'}`}>
+                          <CategoryIcon className={`${category.color === 'primary' ? 'text-primary' : 'text-accent-foreground'} transition-all duration-300`} size={32} />
                         </div>
                       </div>
                       <h2 className="text-3xl font-bold text-foreground mb-2">{category.title}</h2>
@@ -233,43 +237,64 @@ const TeamsOverviewPage = () => {
                         <Link
                           key={team.name}
                           to={team.href}
-                          className="block group"
+                          className="block group animate-slide-up"
+                          style={{ animationDelay: `${teamIndex * 100}ms` }}
                         >
-                          <Card className={`h-full transition-all duration-300 hover:scale-105 hover:shadow-xl border-t-4 ${
-                            team.highlight ? 'border-primary bg-primary/5' : 
-                            team.special ? 'border-accent bg-accent/5' : 
-                            'border-primary/50'
+                          <Card className={`h-full bg-white/80 backdrop-blur-sm rounded-xl shadow-lg team-card-hover border-t-4 overflow-hidden ${
+                            team.highlight ? 'border-primary bg-gradient-to-br from-primary/5 to-primary/10' : 
+                            team.special ? 'border-accent bg-gradient-to-br from-accent/5 to-accent/10' : 
+                            'border-primary/30 bg-gradient-to-br from-white/90 to-white/70'
                           }`}>
-                            <CardHeader className="pb-4">
+                            {/* Header with gradient background */}
+                            <div className={`relative p-4 ${team.highlight ? 'bg-gradient-to-r from-primary/10 to-primary/5' : 
+                              team.special ? 'bg-gradient-to-r from-accent/10 to-accent/5' : 
+                              'bg-gradient-to-r from-gray-50 to-gray-100'}`}>
                               <div className="flex items-center justify-between mb-3">
-                                <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                                <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
                                   {team.name}
                                 </CardTitle>
                                 {(team.highlight || team.special) && (
-                                  <div className="flex">
-                                    <Star className={`${team.highlight ? 'text-primary' : 'text-accent-foreground'} fill-current`} size={16} />
+                                  <div className="flex items-center">
+                                    <div className={`p-2 rounded-full ${team.highlight ? 'bg-primary/20' : 'bg-accent/20'}`}>
+                                      <Star className={`${team.highlight ? 'text-primary' : 'text-accent-foreground'} fill-current`} size={18} />
+                                    </div>
                                   </div>
                                 )}
                               </div>
-                              <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getLevelColor(team.liga)}`}>
+                              <span className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold border-2 shadow-sm ${getLevelColor(team.liga)}`}>
                                 {team.liga}
                               </span>
-                            </CardHeader>
-                            <CardContent className="pt-0">
-                              <div className="mb-2 grid grid-cols-2 gap-x-2 gap-y-1 text-xs text-muted-foreground">
-                                <div className="font-semibold">Jahrgang:</div>
-                                <div>{team.jahrgang || '-'}</div>
-                                <div className="font-semibold">Geschlecht:</div>
-                                <div>{team.geschlecht || '-'}</div>
-                                <div className="font-semibold">Jugend:</div>
-                                <div>{team.jugend || '-'}</div>
+                            </div>
+                            
+                            <CardContent className="p-4 pt-3">
+                              {/* Team info grid with better styling */}
+                              <div className="mb-3 space-y-2">
+                                <div className="flex items-center justify-between py-2 px-3 bg-gray-50 rounded-lg">
+                                  <span className="text-sm font-semibold text-gray-600">Jahrgang</span>
+                                  <span className="text-sm font-medium text-gray-800">{team.jahrgang || '-'}</span>
+                                </div>
+                                <div className="flex items-center justify-between py-2 px-3 bg-gray-50 rounded-lg">
+                                  <span className="text-sm font-semibold text-gray-600">Geschlecht</span>
+                                  <span className="text-sm font-medium text-gray-800">{team.geschlecht || '-'}</span>
+                                </div>
+                                <div className="flex items-center justify-between py-2 px-3 bg-gray-50 rounded-lg">
+                                  <span className="text-sm font-semibold text-gray-600">Jugend</span>
+                                  <span className="text-sm font-medium text-gray-800">{team.jugend || '-'}</span>
+                                </div>
                               </div>
+                              
                               {team.description && (
-                                <p className="text-muted-foreground mb-4 leading-relaxed text-sm">{team.description}</p>
+                                <div className="mb-4 p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-primary/30">
+                                  <p className="text-sm text-gray-700 leading-relaxed italic">"{team.description}"</p>
+                                </div>
                               )}
-                              <div className="flex items-center text-primary text-sm font-medium group-hover:text-primary/80 transition-colors">
-                                <span>Team Details</span>
-                                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                              
+                              {/* Call to action with better styling */}
+                              <div className="flex items-center justify-between p-3 bg-gradient-to-r from-primary/5 to-primary/10 rounded-lg border border-primary/20 group-hover:border-primary/40 transition-all duration-300">
+                                <span className="text-sm font-semibold text-primary">Team Details</span>
+                                <div className="flex items-center justify-center w-8 h-8 bg-primary/20 rounded-full group-hover:bg-primary/30 transition-all duration-300">
+                                  <ArrowRight className="h-4 w-4 text-primary group-hover:translate-x-0.5 transition-transform duration-300" />
+                                </div>
                               </div>
                             </CardContent>
                           </Card>

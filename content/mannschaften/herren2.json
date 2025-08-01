@@ -1,5 +1,6 @@
 {
   "name": "2. Herren",
+  "kurzname": "2. Herren",
   "geschlecht": "Männlich",
   "jugend": "Erwachsene",
   "liga": "Bezirksoberliga",
@@ -35,5 +36,7 @@
       "halle": "content/hallen/jbs.json",
       "bemerkung": "(Saison)"
     }
-  ]
+  ],
+  "instagramUrl": "instagram.com/hsgpinnaumaenner",
+  "handball4AllTeamId": ""
 }

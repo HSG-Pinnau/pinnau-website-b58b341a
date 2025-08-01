@@ -132,7 +132,7 @@ const ContactPage = () => {
             <div className="text-center">
               <div className="flex justify-center mb-8">
                 <img 
-                  src="/lovable-uploads/bf51c967-183e-4af8-a13d-0f2057a13892.png" 
+                  src="/hsg-pinnau.png" 
                   alt="HSG Pinnau Logo" 
                   className="h-24 w-auto animate-fade-in"
                 />

@@ -1,5 +1,6 @@
 {
-  "name": "mE2",
+  "name": "Männliche E-Jugend 2",
+  "kurzname": "mE2",
   "jahrgang": "2013/2014",
   "geschlecht": "Männlich",
   "jugend": "E-Jugend",
@@ -16,5 +17,6 @@
       "zeit": "16:30-17:30",
       "halle": "content/hallen/jbs.json"
     }
-  ]
+  ],
+  "handball4AllTeamId": ""
 }

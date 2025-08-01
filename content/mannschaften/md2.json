@@ -1,5 +1,6 @@
 {
-  "name": "mD2",
+  "name": "Männliche D-Jugend 2",
+  "kurzname": "mD2",
   "jahrgang": "2011/2012",
   "geschlecht": "Männlich",
   "jugend": "D-Jugend",
@@ -16,5 +17,6 @@
       "zeit": "16:00-17:30",
       "halle": "content/hallen/jbs.json"
     }
-  ]
+  ],
+  "handball4AllTeamId": ""
 }

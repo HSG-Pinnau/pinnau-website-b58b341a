@@ -64,7 +64,7 @@ const TeamDropdown = () => {
                           to={team.href}
                           className="w-full px-2 py-1 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors block"
                         >
-                          {team.name}
+                          {team.kurzname}
                         </Link>
                       </DropdownMenuItem>
                     ))}
@@ -75,7 +75,7 @@ const TeamDropdown = () => {
                           to={team.href}
                           className="w-full px-2 py-1 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors block"
                         >
-                          {team.name}
+                          {team.kurzname}
                         </Link>
                       </DropdownMenuItem>
                     ))}
@@ -92,25 +92,25 @@ const TeamDropdown = () => {
               <DropdownMenuPortal>
                 <DropdownMenuSubContent className="w-48 bg-white border border-gray-200 shadow-lg">
                   <div className="p-2">
-                    <div className="text-xs font-semibold text-gray-500 px-2 py-1 border-b border-gray-100">Männlich</div>
-                    {teamStructure.jugend.maennlich.map((team: any) => (
-                      <DropdownMenuItem key={team.name} className="p-0">
-                        <Link
-                          to={team.href}
-                          className="w-full px-2 py-1 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors block"
-                        >
-                          {team.name}
-                        </Link>
-                      </DropdownMenuItem>
-                    ))}
-                    <div className="text-xs font-semibold text-gray-500 px-2 py-1 border-b border-gray-100 mt-2">Weiblich</div>
+                    <div className="text-xs font-semibold text-gray-500 px-2 py-1 border-b border-gray-100">Weiblich</div>
                     {teamStructure.jugend.weiblich.map((team: any) => (
                       <DropdownMenuItem key={team.name} className="p-0">
                         <Link
                           to={team.href}
                           className="w-full px-2 py-1 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors block"
                         >
-                          {team.name}
+                          {team.kurzname}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                    <div className="text-xs font-semibold text-gray-500 px-2 py-1 border-b border-gray-100 mt-2">Männlich</div>
+                    {teamStructure.jugend.maennlich.map((team: any) => (
+                      <DropdownMenuItem key={team.name} className="p-0">
+                        <Link
+                          to={team.href}
+                          className="w-full px-2 py-1 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors block"
+                        >
+                          {team.kurzname}
                         </Link>
                       </DropdownMenuItem>
                     ))}
@@ -126,7 +126,7 @@ const TeamDropdown = () => {
                   to={team.href}
                   className="w-full px-2 py-2 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors block"
                 >
-                  {team.name}
+                  {team.kurzname}
                 </Link>
               </DropdownMenuItem>
             ))}
@@ -136,7 +136,7 @@ const TeamDropdown = () => {
                   to={team.href}
                   className="w-full px-2 py-2 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors block"
                 >
-                  {team.name}
+                  {team.kurzname}
                 </Link>
               </DropdownMenuItem>
             ))}

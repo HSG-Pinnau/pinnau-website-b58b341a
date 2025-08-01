@@ -1,5 +1,6 @@
 {
-  "name": "wB",
+  "name": "Weibliche B-Jugend",
+  "kurzname": "wB",
   "jahrgang": "2009/2010",
   "geschlecht": "Weiblich",
   "jugend": "B-Jugend",
@@ -16,5 +17,7 @@
       "zeit": "17:30-19:00",
       "halle": "content/hallen/jbs.json"
     }
-  ]
+  ],
+  "instagramUrl": "instagram.com/wb__hsgpinnau",
+  "handball4AllTeamId": ""
 }

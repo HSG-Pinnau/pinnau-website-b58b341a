@@ -1,5 +1,7 @@
 {
-  "name": "wA1",
+  "name": "Weibliche A-Jugend 1",
+  "kurzname": "wA1",
+  "beschreibung": "Spielgemeinschaft HSG Pinnau und HC Quickborn",
   "jahrgang": "2007/2008",
   "geschlecht": "Weiblich",
   "jugend": "A-Jugend",
@@ -21,5 +23,7 @@
       "zeit": "17:30-19:00",
       "halle": "content/hallen/jbs.json"
     }
-  ]
+  ],
+  "instagramUrl": "instagram.com/sg.pinnauquickborn_wa",
+  "handball4AllTeamId": ""
 }

@@ -15,7 +15,7 @@ const Navigation = () => {
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center">
               <img 
-                src="/lovable-uploads/bf51c967-183e-4af8-a13d-0f2057a13892.png" 
+                src="/hsg-pinnau.png" 
                 alt="HSG Pinnau Logo" 
                 className="h-10 w-auto mr-3"
               />

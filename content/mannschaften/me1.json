@@ -1,5 +1,6 @@
 {
-  "name": "mE1",
+  "name": "Männliche E-Jugend 1",
+  "kurzname": "mE1",
   "jahrgang": "2015/2016",
   "geschlecht": "Männlich",
   "jugend": "E-Jugend",
@@ -16,5 +17,6 @@
       "zeit": "16:30-17:45",
       "halle": "content/hallen/jbs.json"
     }
-  ]
+  ],
+  "handball4AllTeamId": ""
 }

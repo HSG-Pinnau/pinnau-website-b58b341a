@@ -1,5 +1,6 @@
 {
   "name": "1. Damen",
+  "kurzname": "1. Damen",
   "geschlecht": "Weiblich",
   "jugend": "Erwachsene",
   "liga": "Oberliga",
@@ -29,5 +30,7 @@
       "halle": "content/hallen/jbs.json",
       "bemerkung": "(Saison)"
     }
-  ]
+  ],
+  "instagramUrl": "instagram.com/1damenpinnau",
+  "handball4AllTeamId": ""
 }

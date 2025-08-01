@@ -84,7 +84,7 @@ const AboutPage = () => {
             <div className="text-center">
               <div className="flex justify-center mb-8">
                 <img 
-                  src="/lovable-uploads/bf51c967-183e-4af8-a13d-0f2057a13892.png" 
+                  src="/hsg-pinnau.png" 
                   alt="HSG Pinnau Logo" 
                   className="h-24 w-auto animate-fade-in"
                 />
@@ -146,6 +146,106 @@ const AboutPage = () => {
                     </CardContent>
                   </Card>
                 ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* HSG Pinnau Cup Section */}
+        <section className="py-20 bg-gradient-to-br from-primary/5 to-accent/5">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Der HSG Pinnau Cup
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+                Das jährliche Handball-Highlight für Jugendmannschaften aus ganz Deutschland
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <div className="space-y-6">
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Unser Turnier findet traditionell in Pinneberg bei Hamburg zwischen dem Ende der Sommerferien 
+                    und dem Saisonstart statt. Über 80 Teams messen sich in fünf Sporthallen, um sich optimal 
+                    auf die neue Spielzeit vorzubereiten, neue Taktiken zu testen und den Teamgeist zu stärken.
+                  </p>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Ganz gleich, ob A- bis E-Jugend, bei uns sind alle willkommen – im fairen Wettbewerbsmodus, 
+                    abgestimmt nach Spielstärke. Neben spannenden Spielen bieten wir Übernachtungsmöglichkeiten, 
+                    ein tolles Verpflegungsangebot und Cup-Shirts an.
+                  </p>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Im Mittelpunkt steht immer der Spaß am Handball, das Miteinander und die Vorfreude auf eine neue Saison.
+                  </p>
+                </div>
+                
+                <div className="mt-8">
+                  <a 
+                    href="https://www.hsg-pinnau-cup.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg font-semibold transition-all duration-200 hover:scale-105 shadow-lg"
+                  >
+                    <Calendar size={20} />
+                    Mehr erfahren
+                  </a>
+                </div>
+              </div>
+
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl relative overflow-hidden">
+                {/* Background Logo */}
+                <div className="absolute inset-0 flex items-center justify-end opacity-80 pointer-events-none pr-8">
+                  <img 
+                    src="/hsg-pinnau-cup.png" 
+                    alt="" 
+                    className="h-48 w-auto"
+                  />
+                </div>
+                
+                {/* Content */}
+                <div className="relative z-10">
+                  <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Turnier-Highlights</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-primary/10 p-2 rounded-full">
+                        <Users className="text-primary" size={20} />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground">Über 80 Teams</h4>
+                        <p className="text-sm text-muted-foreground">Jugendmannschaften aus ganz Deutschland</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="bg-primary/10 p-2 rounded-full">
+                        <Target className="text-primary" size={20} />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground">Faire Wettbewerbe</h4>
+                        <p className="text-sm text-muted-foreground">Abgestimmt nach Spielstärke</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="bg-primary/10 p-2 rounded-full">
+                        <Award className="text-primary" size={20} />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground">Volles Programm</h4>
+                        <p className="text-sm text-muted-foreground">Übernachtung, Verpflegung & Cup-Shirts</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="bg-primary/10 p-2 rounded-full">
+                        <Heart className="text-primary" size={20} />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground">Spaß & Gemeinschaft</h4>
+                        <p className="text-sm text-muted-foreground">Im Mittelpunkt steht der Teamgeist</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

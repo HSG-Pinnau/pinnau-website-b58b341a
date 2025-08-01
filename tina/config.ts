@@ -81,7 +81,14 @@ export default defineConfig({
           {
             type: "string",
             name: "name",
-            label: "Name",
+            label: "Langer Name",
+            description: "Der lange Name der Mannschaft, z.B. 'Männliche D-Jugend 1'",
+          },
+          {
+            type: "string",
+            name: "kurzname",
+            label: "Kurzer Name",
+            description: "Der kurze Name der Mannschaft, z.B. 'mD1'",
           },
           {
             type: "string",

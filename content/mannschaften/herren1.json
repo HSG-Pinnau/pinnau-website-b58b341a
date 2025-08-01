@@ -1,5 +1,6 @@
 {
   "name": "1. Herren",
+  "kurzname": "1. Herren",
   "geschlecht": "Männlich",
   "jugend": "Erwachsene",
   "liga": "Landesliga",
@@ -36,5 +37,6 @@
       "bemerkung": "(Saison)"
     }
   ],
-  "instagramUrl": "instagram.com/hsgpinnaumaenner"
+  "instagramUrl": "instagram.com/hsgpinnaumaenner",
+  "handball4AllTeamId": ""
 }

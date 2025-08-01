@@ -40,7 +40,6 @@ Diese Website wäre nicht möglich gewesen ohne die Unterstützung vieler fleiß
 
 * **Dem Vorstand** für die Freigabe und Unterstützung des Projekts
 * **Den Trainern und Mannschaftsverantwortlichen** für die Bereitstellung aller Teaminformationen
-* **Den Fotografen** für die tollen Bilder unserer Mannschaften
 * **Allen Vereinsmitgliedern**, die Feedback und Anregungen gegeben haben
 
 ## Feedback willkommen!

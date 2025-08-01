@@ -31,6 +31,7 @@ export async function getTeamsCached() {
 
   teams.forEach((team: any) => {
     const name = team.name || '';
+    const kurzname = team.kurzname || '';
     const geschlecht = (team.geschlecht || '').toLowerCase();
     const jugend = (team.jugend || '').toLowerCase();
     // Build href: try to match the hardcoded pattern
@@ -38,20 +39,20 @@ export async function getTeamsCached() {
         let href= `/teams/${teamId}`;
     if (jugend === 'erwachsene') {
       if (geschlecht === 'weiblich') {
-        structure.erwachsene.damen.push({ name, href });
+        structure.erwachsene.damen.push({ name, kurzname, href });
       } else if (geschlecht === 'männlich' || geschlecht === 'maennlich') {
-        structure.erwachsene.herren.push({ name, href });
+        structure.erwachsene.herren.push({ name, kurzname, href });
       }
     } else if ([
       'a-jugend', 'b-jugend', 'c-jugend', 'd-jugend', 'e-jugend'
     ].includes(jugend)) {
       // Jugend
       let genderKey = (geschlecht === 'weiblich') ? 'weiblich' : 'maennlich';
-      structure.jugend[genderKey].push({ name, href });
+      structure.jugend[genderKey].push({ name, kurzname, href });
     } else if (jugend === 'minis') {
-      structure.minis.push({ name: name, href });
+      structure.minis.push({ name: name, kurzname, href });
     } else if (jugend === 'toppis') {
-      structure.toppis.push({ name: 'Toppis', href });
+      structure.toppis.push({ name: 'Toppis', kurzname, href });
     }
   });
 

@@ -1,5 +1,6 @@
 {
-  "name": "mD1",
+  "name": "Männliche D-Jugend 1",
+  "kurzname": "mD1",
   "jahrgang": "2011/2012",
   "geschlecht": "Männlich",
   "jugend": "D-Jugend",
@@ -16,5 +17,6 @@
       "zeit": "16:00-17:30",
       "halle": "content/hallen/jbs.json"
     }
-  ]
+  ],
+  "handball4AllTeamId": ""
 }

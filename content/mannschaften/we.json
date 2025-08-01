@@ -1,5 +1,6 @@
 {
-  "name": "wE",
+  "name": "Weibliche E-Jugend",
+  "kurzname": "wE",
   "jahrgang": "2015/2016",
   "geschlecht": "Weiblich",
   "jugend": "E-Jugend",
@@ -16,5 +17,6 @@
       "zeit": "16:30-18:00",
       "halle": "content/hallen/kummerfeld.json"
     }
-  ]
+  ],
+  "handball4AllTeamId": ""
 }

@@ -1,5 +1,7 @@
 {
-  "name": "mB",
+  "name": "Männliche B-Jugend",
+  "kurzname": "mB",
+  "beschreibung": "Spielgemeinschaft HSG Pinnau und TSV Ellerbek",
   "jahrgang": "2007/2008",
   "geschlecht": "Männlich",
   "jugend": "B-Jugend",
@@ -30,5 +32,7 @@
       "halle": "content/hallen/kummerfeld.json",
       "bemerkung": "(Saison)"
     }
-  ]
+  ],
+  "instagramUrl": "instagram.com/hsgpinnau_mb",
+  "handball4AllTeamId": ""
 }

@@ -1,5 +1,6 @@
 {
   "name": "2. Damen",
+  "kurzname": "2. Damen",
   "geschlecht": "Weiblich",
   "jugend": "Erwachsene",
   "liga": "Bezirksoberliga",
@@ -29,5 +30,7 @@
       "halle": "content/hallen/jbs.json",
       "bemerkung": "(Saison)"
     }
-  ]
+  ],
+  "instagramUrl": "instagram.com/2damenpinnau",
+  "handball4AllTeamId": ""
 }

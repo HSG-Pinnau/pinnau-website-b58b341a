@@ -1,5 +1,6 @@
 {
-  "name": "mC2",
+  "name": "Männliche C-Jugend 2",
+  "kurzname": "mC2",
   "jahrgang": "2009/2010",
   "geschlecht": "Männlich",
   "jugend": "C-Jugend",
@@ -16,5 +17,6 @@
       "zeit": "17:30-19:00",
       "halle": "content/hallen/jbs.json"
     }
-  ]
+  ],
+  "handball4AllTeamId": ""
 }
