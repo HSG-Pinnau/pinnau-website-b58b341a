@@ -63,8 +63,8 @@ const AboutPage = () => {
     },
     {
       icon: Award,
-      title: "Exzellenz",
-      description: "Wir streben nach sportlicher und persönlicher Bestleistung"
+      title: "Weiterentwicklung",
+      description: "Wir streben nach sportlicher und persönlicher Weiterentwicklung"
     },
     {
       icon: Users,
@@ -121,7 +121,7 @@ const AboutPage = () => {
                     und bieten Handball für alle Altersklassen - von den Minis bis zu den Erwachsenen.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    Unser Verein steht für Teamgeist, Fairplay und sportliche Exzellenz. Wir fördern nicht nur 
+                    Unser Verein steht für Teamgeist, Fairplay und sportliche Weiterentwicklung. Wir fördern nicht nur 
                     die sportliche Entwicklung unserer Mitglieder, sondern auch ihre persönliche Entwicklung 
                     und den Zusammenhalt in der Gemeinschaft.
                   </p>

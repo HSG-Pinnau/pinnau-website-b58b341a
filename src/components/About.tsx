@@ -37,7 +37,7 @@ const About = () => {
           <div>
             <h3 className="text-2xl font-bold text-foreground mb-6">Unsere Mission</h3>
             <p className="text-lg text-muted-foreground mb-6">
-              Die HSG Pinnau steht für Teamgeist, Fairplay und sportliche Exzellenz. 
+              Die HSG Pinnau steht für Teamgeist, Fairplay und sportliche Weiterentwicklung. 
               Wir bieten Handball für alle Altersklassen - von den Minis bis zu den Erwachsenen.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
