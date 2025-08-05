@@ -9,6 +9,11 @@
   "trainer": "content/trainer/lisa_moritz.json",
   "trainingszeiten": [
     {
+      "wochentag": "Dienstag",
+      "zeit": "19:00-20:30",
+      "halle": "content/hallen/comenius.json"
+    },
+    {
       "wochentag": "Mittwoch",
       "zeit": "19:00-20:30",
       "halle": "content/hallen/jbs.json"
