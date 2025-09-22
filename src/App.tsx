@@ -13,6 +13,7 @@ import ContactPage from "./pages/ContactPage";
 import NewsPage from "./pages/NewsPage";
 import NewsArticlePage from "./pages/NewsArticlePage";
 import TeamsOverviewPage from "./pages/TeamsOverviewPage";
+import HallenheftePage from "./pages/HallenheftePage";
 import ImpressumPage from "./pages/ImpressumPage";
 import DatenschutzPage from "./pages/DatenschutzPage";
 import Navigation from "./components/Navigation";
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/news" element={<NewsPage />} />
           <Route path="/news/:articleId" element={<NewsArticlePage />} />
           <Route path="/kontakt" element={<ContactPage />} />
+          <Route path="/hallenhefte" element={<HallenheftePage />} />
           <Route path="/mannschaften" element={<TeamsOverviewPage />} />
           <Route path="/teams/:teamId" element={<TeamPage />} />
           <Route path="/impressum" element={<ImpressumPage />} />

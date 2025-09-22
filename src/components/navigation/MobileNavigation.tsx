@@ -1,5 +1,5 @@
 
-import { Home, Info, Phone, ShoppingBag, Newspaper } from 'lucide-react';
+import { Home, Info, Phone, ShoppingBag, Newspaper, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { navItems } from './NavigationData';
 import { useEffect, useState } from 'react';
@@ -16,6 +16,7 @@ const iconMap = {
   Phone,
   ShoppingBag,
   Newspaper,
+  FileText,
 };
 
 

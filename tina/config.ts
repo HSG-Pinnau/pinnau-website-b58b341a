@@ -225,6 +225,40 @@ export default defineConfig({
         ]
       },
       {
+        name: "hallenhefte",
+        label: "Hallenhefte",
+        path: "content/hallenhefte",
+        format: "json",
+        fields: [
+          {
+            type: "string",
+            name: "titel",
+            label: "Titel",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "datetime",
+            name: "ausgabe",
+            label: "Ausgabe (Monat)",
+            description: "Datum der Ausgabe (z. B. 2025-09-01 für September 2025)",
+            required: true,
+          },
+          {
+            type: "image",
+            name: "pdf",
+            label: "PDF Datei",
+            description: "Hochgeladene PDF im public-Ordner",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "beschreibung",
+            label: "Kurzbeschreibung",
+          }
+        ]
+      },
+      {
         name: "news",
         label: "News",
         path: "content/news",
