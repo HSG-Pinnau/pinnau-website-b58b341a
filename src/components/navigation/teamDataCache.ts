@@ -27,6 +27,7 @@ export async function getTeamsCached() {
     },
     minis: [],
     toppis: [],
+    extra: [],
   };
 
   teams.forEach((team: any) => {
@@ -53,6 +54,8 @@ export async function getTeamsCached() {
       structure.minis.push({ name: name, kurzname, href });
     } else if (jugend === 'toppis') {
       structure.toppis.push({ name: 'Toppis', kurzname, href });
+    } else if (jugend === 'jugend') {
+      structure.extra.push({ name: name, kurzname, href });
     }
   });
 

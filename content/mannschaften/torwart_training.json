@@ -1,0 +1,23 @@
+{
+  "name": "Torwarttraining",
+  "kurzname": "Torwarttraining",
+  "beschreibung": "Altersgerechtes, individuelles Torwarttraining (E- bis A-Jugend): Technik, Athletik und Spielintelligenz in Kleingruppen - für sichere, schnellere, souveräne Keeper:innen.",
+  "geschlecht": "Divers",
+  "jugend": "Jugend",
+  "liga": "",
+  "trainer": "content/trainer/laura_schneider.json",
+  "trainingszeiten": [
+    {
+      "wochentag": "Donnerstag",
+      "zeit": "17:40-18:20",
+      "halle": "content/hallen/jbs.json",
+      "bemerkung": "E- und D-Jugend"
+    },
+    {
+      "wochentag": "Donnerstag",
+      "zeit": "18:20-19:00",
+      "halle": "content/hallen/jbs.json",
+      "bemerkung": "C- bis A-Jugend"
+    }
+  ]
+}

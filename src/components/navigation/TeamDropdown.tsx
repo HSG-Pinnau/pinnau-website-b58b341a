@@ -140,6 +140,16 @@ const TeamDropdown = () => {
                 </Link>
               </DropdownMenuItem>
             ))}
+            {teamStructure.extra.map((team: any) => (
+              <DropdownMenuItem key={team.name} className="p-0">
+                <Link
+                  to={team.href}
+                  className="w-full px-2 py-2 text-sm text-text hover:bg-primary-accent/10 hover:text-primary rounded transition-colors block"
+                >
+                  {team.kurzname}
+                </Link>
+              </DropdownMenuItem>
+            ))}
           </>
         )}
       </DropdownMenuContent>

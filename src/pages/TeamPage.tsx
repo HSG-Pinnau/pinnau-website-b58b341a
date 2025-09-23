@@ -151,6 +151,13 @@ const TeamPage = () => {
     );
   }
 
+  const isSpecialTeam = [
+    'Torwarttraining',
+    'Minis Prisdorf',
+    'Minis Pinneberg',
+    'Toppis',
+  ].includes(teamData.name);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -245,31 +252,114 @@ const TeamPage = () => {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className={`grid grid-cols-1 ${isSpecialTeam ? 'lg:grid-cols-1' : 'lg:grid-cols-3'} gap-8`}>
             {/* Main Content */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className={`${isSpecialTeam ? 'lg:col-span-1 max-w-3xl mx-auto' : 'lg:col-span-2'} space-y-8`}>
               {/* Team Photo Placeholder */}
-              <div className="bg-card rounded-xl p-6 shadow-lg">
-                <h2 className="text-2xl font-bold text-card-foreground mb-4">Mannschaftsfoto</h2>
-                <div className="bg-muted rounded-lg h-64 flex items-center justify-center">
-                  <div className="text-center">
-                    <Users size={64} className="text-muted-foreground mx-auto mb-2" />
-                    <p className="text-muted-foreground">Mannschaftsfoto wird bald ergänzt</p>
+              {!isSpecialTeam && (
+                <div className="bg-card rounded-xl p-6 shadow-lg">
+                  <h2 className="text-2xl font-bold text-card-foreground mb-4">Mannschaftsfoto</h2>
+                  <div className="bg-muted rounded-lg h-64 flex items-center justify-center">
+                    <div className="text-center">
+                      <Users size={64} className="text-muted-foreground mx-auto mb-2" />
+                      <p className="text-muted-foreground">Mannschaftsfoto wird bald ergänzt</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
 
               {/* Spielplan Widget */}
-              <div className="bg-card rounded-xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-card-foreground mb-4">Spielplan</h3>
-                {teamData.handball4AllTeamId ? (
-                  <div id="handball-spielplan" className="bg-muted rounded-lg p-4 min-h-[400px]" />
-                ) : (
-                  <div className="bg-muted rounded-lg p-4 min-h-[400px] flex items-center justify-center text-muted-foreground">
-                    <span>Der Spielplan wird in Kürze veröffentlicht.</span>
+              {!isSpecialTeam && (
+                <div className="bg-card rounded-xl p-6 shadow-lg">
+                  <h3 className="text-xl font-bold text-card-foreground mb-4">Spielplan</h3>
+                  {teamData.handball4AllTeamId ? (
+                    <div id="handball-spielplan" className="bg-muted rounded-lg p-4 min-h-[400px]" />
+                  ) : (
+                    <div className="bg-muted rounded-lg p-4 min-h-[400px] flex items-center justify-center text-muted-foreground">
+                      <span>Der Spielplan wird in Kürze veröffentlicht.</span>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {isSpecialTeam && (
+                <div className="bg-card rounded-xl p-6 shadow-lg">
+                  <h3 className="text-xl font-bold text-card-foreground mb-4">Kontakt</h3>
+                  <div className="space-y-3">
+                    {teamData.contact ? (
+                      <>
+                        <div className="flex items-center">
+                          <Mail className="text-primary mr-3" size={20} />
+                          <div>
+                            <p className="font-medium text-card-foreground">{teamData.contact.name}</p>
+                            {teamData.contact.email && (
+                              <a
+                                href={`mailto:${teamData.contact.email}`}
+                                className="text-primary hover:underline"
+                              >
+                                {teamData.contact.email}
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                        {teamData.contact.phone && (
+                          <div className="flex items-center mt-2">
+                            <Phone className="text-primary mr-3" size={20} />
+                            <span className="text-muted-foreground">{teamData.contact.phone}</span>
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <p className="text-muted-foreground">Kein Kontakt hinterlegt</p>
+                    )}
                   </div>
-                )}
-              </div>
+                </div>
+              )}
+
+              {isSpecialTeam && (
+                <div className="bg-card rounded-xl p-6 shadow-lg">
+                  <h3 className="text-xl font-bold text-card-foreground mb-4">Trainingszeiten</h3>
+                  <div className="space-y-4">
+                    {Array.isArray(teamData.training) && teamData.training.length > 0 ? (
+                      teamData.training.map((session, index) => (
+                        <div key={index} className="border-l-4 border-accent pl-4 mb-6">
+                          {session.bemerkung && (
+                            <div className="flex items-center mb-2">
+                              <span className="text-xs text-muted-foreground italic">{session.bemerkung}</span>
+                            </div>
+                          )}
+                          <div className="flex items-center mb-1">
+                            <Calendar className="text-accent mr-2" size={16} />
+                            <span className="font-medium text-card-foreground">{session.day}</span>
+                          </div>
+                          <div className="flex items-center mb-1">
+                            <Clock className="text-accent mr-2" size={16} />
+                            <span className="text-muted-foreground">{session.time}</span>
+                          </div>
+                          <div className="flex items-center mb-1">
+                            <MapPin className="text-accent mr-2" size={16} />
+                            <span className="text-muted-foreground">{session.location}</span>
+                          </div>
+                          {session.location && session.halleGoogleMapsUrl && (
+                            <div className="mt-2">
+                              <a
+                                href={session.halleGoogleMapsUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-primary underline text-sm"
+                              >
+                                Standort auf Google Maps öffnen
+                              </a>
+                            </div>
+                          )}
+                        </div>
+                      ))
+                    ) : (
+                      <p className="text-muted-foreground">Keine Trainingszeiten hinterlegt</p>
+                    )}
+                  </div>
+                </div>
+              )}
 
             </div>
 
@@ -277,37 +367,39 @@ const TeamPage = () => {
             <div className="space-y-6">
 
               {/* Contact Info */}
-              <div className="bg-card rounded-xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-card-foreground mb-4">Kontakt</h3>
-                <div className="space-y-3">
-                  {teamData.contact ? (
-                    <>
-                      <div className="flex items-center">
-                        <Mail className="text-primary mr-3" size={20} />
-                        <div>
-                          <p className="font-medium text-card-foreground">{teamData.contact.name}</p>
-                          {teamData.contact.email && (
-                            <a
-                              href={`mailto:${teamData.contact.email}`}
-                              className="text-primary hover:underline"
-                            >
-                              {teamData.contact.email}
-                            </a>
-                          )}
+              {!isSpecialTeam && (
+                <div className="bg-card rounded-xl p-6 shadow-lg">
+                  <h3 className="text-xl font-bold text-card-foreground mb-4">Kontakt</h3>
+                  <div className="space-y-3">
+                    {teamData.contact ? (
+                      <>
+                        <div className="flex items-center">
+                          <Mail className="text-primary mr-3" size={20} />
+                          <div>
+                            <p className="font-medium text-card-foreground">{teamData.contact.name}</p>
+                            {teamData.contact.email && (
+                              <a
+                                href={`mailto:${teamData.contact.email}`}
+                                className="text-primary hover:underline"
+                              >
+                                {teamData.contact.email}
+                              </a>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                      {teamData.contact.phone && (
-                        <div className="flex items-center mt-2">
-                          <Phone className="text-primary mr-3" size={20} />
-                          <span className="text-muted-foreground">{teamData.contact.phone}</span>
-                        </div>
-                      )}
-                    </>
-                  ) : (
-                    <p className="text-muted-foreground">Kein Kontakt hinterlegt</p>
-                  )}
+                        {teamData.contact.phone && (
+                          <div className="flex items-center mt-2">
+                            <Phone className="text-primary mr-3" size={20} />
+                            <span className="text-muted-foreground">{teamData.contact.phone}</span>
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <p className="text-muted-foreground">Kein Kontakt hinterlegt</p>
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Social Media */}
               {teamData.instagramUrl && (
@@ -343,49 +435,51 @@ const TeamPage = () => {
               )}
 
               {/* Training Schedule */}
-              <div className="bg-card rounded-xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-card-foreground mb-4">Trainingszeiten</h3>
-                <div className="space-y-4">
-                  {Array.isArray(teamData.training) && teamData.training.length > 0 ? (
-                    teamData.training.map((session, index) => (
-                      <div key={index} className="border-l-4 border-accent pl-4 mb-6">
-                        {session.bemerkung && (
-                          <div className="flex items-center mb-2">
-                            <span className="text-xs text-muted-foreground italic">{session.bemerkung}</span>
+              {!isSpecialTeam && (
+                <div className="bg-card rounded-xl p-6 shadow-lg">
+                  <h3 className="text-xl font-bold text-card-foreground mb-4">Trainingszeiten</h3>
+                  <div className="space-y-4">
+                    {Array.isArray(teamData.training) && teamData.training.length > 0 ? (
+                      teamData.training.map((session, index) => (
+                        <div key={index} className="border-l-4 border-accent pl-4 mb-6">
+                          {session.bemerkung && (
+                            <div className="flex items-center mb-2">
+                              <span className="text-xs text-muted-foreground italic">{session.bemerkung}</span>
+                            </div>
+                          )}
+                          <div className="flex items-center mb-1">
+                            <Calendar className="text-accent mr-2" size={16} />
+                            <span className="font-medium text-card-foreground">{session.day}</span>
                           </div>
-                        )}
-                        <div className="flex items-center mb-1">
-                          <Calendar className="text-accent mr-2" size={16} />
-                          <span className="font-medium text-card-foreground">{session.day}</span>
-                        </div>
-                        <div className="flex items-center mb-1">
-                          <Clock className="text-accent mr-2" size={16} />
-                          <span className="text-muted-foreground">{session.time}</span>
-                        </div>
-                        <div className="flex items-center mb-1">
-                          <MapPin className="text-accent mr-2" size={16} />
-                          <span className="text-muted-foreground">{session.location}</span>
-                        </div>
-                        {/* Google Maps Link and Embedded Map */}
-                        {session.location && session.halleGoogleMapsUrl && (
-                          <div className="mt-2">
-                            <a
-                              href={session.halleGoogleMapsUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-primary underline text-sm"
-                            >
-                              Standort auf Google Maps öffnen
-                            </a>
+                          <div className="flex items-center mb-1">
+                            <Clock className="text-accent mr-2" size={16} />
+                            <span className="text-muted-foreground">{session.time}</span>
                           </div>
-                        )}
-                      </div>
-                    ))
-                  ) : (
-                    <p className="text-muted-foreground">Keine Trainingszeiten hinterlegt</p>
-                  )}
+                          <div className="flex items-center mb-1">
+                            <MapPin className="text-accent mr-2" size={16} />
+                            <span className="text-muted-foreground">{session.location}</span>
+                          </div>
+                          {/* Google Maps Link and Embedded Map */}
+                          {session.location && session.halleGoogleMapsUrl && (
+                            <div className="mt-2">
+                              <a
+                                href={session.halleGoogleMapsUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-primary underline text-sm"
+                              >
+                                Standort auf Google Maps öffnen
+                              </a>
+                            </div>
+                          )}
+                        </div>
+                      ))
+                    ) : (
+                      <p className="text-muted-foreground">Keine Trainingszeiten hinterlegt</p>
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
 
               
             </div>

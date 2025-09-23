@@ -152,6 +152,16 @@ const MobileNavigation = ({ isOpen, setIsOpen }: MobileNavigationProps) => {
                       {team.name}
                     </Link>
                   ))}
+                  {teamStructure.extra.map((team: any) => (
+                    <Link
+                      key={team.name}
+                      to={team.href}
+                      className="text-text hover:text-primary block px-6 py-1 rounded-md text-sm transition-colors duration-200 hover:bg-primary-accent/10"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {team.name}
+                    </Link>
+                  ))}
                 </div>
               </div>
             </>
