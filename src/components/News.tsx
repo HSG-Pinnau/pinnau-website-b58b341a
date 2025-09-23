@@ -1,11 +1,12 @@
 
-import { Calendar, Clock, ArrowRight, Trophy, Users, Target, Heart } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, Trophy, Users, Target, Heart, Pin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getNewsCached } from './navigation/newsDataCache';
 
 const News = () => {
   const [newsItems, setNewsItems] = useState<any[]>([]);
+  const [featuredId, setFeaturedId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -13,8 +14,28 @@ const News = () => {
       setLoading(true);
       try {
         const news = await getNewsCached();
+
+        // Determine the single featured item (latest by date if multiple)
+        const featuredCandidates = news.filter((n: any) => n.featured);
+        let selectedFeatured: any | null = null;
+        if (featuredCandidates.length > 0) {
+          featuredCandidates.sort(
+            (a: any, b: any) => new Date(b.datum).getTime() - new Date(a.datum).getTime()
+          );
+          selectedFeatured = featuredCandidates[0];
+        }
+
+        // Build homepage list: featured first (if any), then newest others
+        const others = selectedFeatured
+          ? news.filter((n: any) => n.id !== selectedFeatured.id)
+          : news;
+        const homepageItems = selectedFeatured
+          ? [selectedFeatured, ...others]
+          : others;
+
+        setFeaturedId(selectedFeatured ? selectedFeatured.id : null);
         // Only show the first 3 news items for the homepage section
-        setNewsItems(news.slice(0, 3));
+        setNewsItems(homepageItems.slice(0, 3));
       } catch (error) {
         console.error('Error loading news:', error);
         setNewsItems([]);
@@ -100,6 +121,14 @@ const News = () => {
                       {item.kategorie}
                     </span>
                   </div>
+                  {featuredId === item.id && (
+                    <div className="absolute top-4 right-4">
+                      <span className="px-3 py-1 rounded-full text-sm font-medium border bg-amber-100 text-amber-800 border-amber-200 inline-flex items-center gap-1" aria-label="Gepinnt">
+                        <Pin size={12} />
+                        Gepinnt
+                      </span>
+                    </div>
+                  )}
                 </div>
                 
                 <div className="p-6">

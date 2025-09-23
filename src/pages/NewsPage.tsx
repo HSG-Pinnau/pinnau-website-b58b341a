@@ -59,8 +59,13 @@ const NewsPage = () => {
     }
   };
 
-  const featuredNews = newsItems.find(item => item.featured) || null;
-  const regularNews = newsItems.filter(item => !item.featured);
+  const featuredCandidates = newsItems.filter(item => item.featured);
+  const featuredNews = featuredCandidates.length > 0
+    ? [...featuredCandidates].sort((a, b) => new Date(b.datum).getTime() - new Date(a.datum).getTime())[0]
+    : null;
+  const regularNews = featuredNews
+    ? newsItems.filter(item => item.id !== featuredNews.id)
+    : newsItems;
 
   if (loading) {
     return (
