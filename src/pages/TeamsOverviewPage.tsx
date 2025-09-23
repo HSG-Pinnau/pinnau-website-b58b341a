@@ -3,7 +3,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { Users, Trophy, Target, Calendar, Heart, Star, Award, ArrowRight, Mail } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { client } from '../../tina/__generated__/client';
 
@@ -11,6 +11,7 @@ const TeamsOverviewPage = () => {
   const [teamCategories, setTeamCategories] = useState<any[]>([]);
   const [achievements, setAchievements] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const clubWidgetInitializedRef = useRef(false);
   const location = useLocation();
   // Scroll to anchor if hash is present in URL after navigation
   useEffect(() => {
@@ -126,6 +127,47 @@ const TeamsOverviewPage = () => {
     fetchTeams();
   }, []);
 
+  // Load handball.net widget script once per page
+  useEffect(() => {
+    if (!document.getElementById('handball-widget-script')) {
+      const script = document.createElement('script');
+      script.id = 'handball-widget-script';
+      script.async = true;
+      script.src = 'https://www.handball.net/widgets/embed/v1.js';
+      document.body.appendChild(script);
+    }
+  }, []);
+
+  // Initialize club Spielplan widget once when section and script are ready
+  useEffect(() => {
+    let retryCount = 0;
+    const maxRetries = 40;
+    const tryInit = () => {
+      const container = document.getElementById('handball-spielplan');
+      if (!container || !(window as any)._hb) {
+        if (retryCount < maxRetries) {
+          retryCount++;
+          setTimeout(tryInit, 150);
+        }
+        return;
+      }
+      if (clubWidgetInitializedRef.current) return;
+      container.innerHTML = '';
+      (window as any)._hb({
+        widget: 'spielplan',
+        clubId: 'handball4all.hamburg.1406',
+        container: 'handball-spielplan',
+      });
+      clubWidgetInitializedRef.current = true;
+    };
+    tryInit();
+    return () => {
+      const container = document.getElementById('handball-spielplan');
+      if (container) container.innerHTML = '';
+      clubWidgetInitializedRef.current = false;
+    };
+  }, []);
+
   const getLevelColor = (level: string) => {
     switch (level) {
       case 'Regionalliga': return 'bg-gradient-to-r from-purple-100 to-purple-50 text-purple-800 border-purple-300 shadow-sm';
@@ -189,9 +231,22 @@ const TeamsOverviewPage = () => {
                   </Card>
                 ))}
               </div>
+
+              {/* CTA to scroll to club-wide Spielplan */}
+              <div className="mt-10">
+                <a
+                  href="#vereins-spielplan"
+                  className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 shadow-md"
+                >
+                  <Calendar size={20} />
+                  Vereins-Spielplan anzeigen
+                </a>
+              </div>
             </div>
           </div>
         </section>
+
+        
 
         {/* Teams Categories */}
         <section className="py-20">
@@ -307,6 +362,23 @@ const TeamsOverviewPage = () => {
             </div>
           </div>
         </section>
+
+      {/* Vereins-Spielplan (bottom of page) */}
+      <section id="vereins-spielplan" className="pt-8 pb-24">
+        <div className="px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border-t-4 border-primary p-6">
+            <div className="mb-4 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">Vereins-Spielplan</h2>
+              <p className="text-muted-foreground">Chronologischer Überblick über alle Spiele unserer Teams.</p>
+            </div>
+            <div className="flex justify-center">
+              <div className="w-full">
+                <div id="handball-spielplan" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
         {/* Call to Action */}
         <section className="py-20 bg-gradient-to-br from-primary/5 via-primary/10 to-accent/5">
