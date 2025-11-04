@@ -4,7 +4,7 @@
   "geschlecht": "Männlich",
   "jugend": "Erwachsene",
   "liga": "Landesliga",
-  "trainer": "content/trainer/zsuzsa_nyari.json",
+  "trainer": "content/trainer/david_amil.json",
   "trainingszeiten": [
     {
       "wochentag": "Montag",
