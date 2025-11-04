@@ -5,7 +5,7 @@
   "geschlecht": "Männlich",
   "jugend": "E-Jugend",
   "liga": "Kreisliga",
-  "trainer": "content/trainer/zsuzsa_nyari.json",
+  "trainer": "content/trainer/lisa_moritz.json",
   "trainingszeiten": [
     {
       "wochentag": "Montag",
