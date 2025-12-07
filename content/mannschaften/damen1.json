@@ -7,18 +7,6 @@
   "trainer": "content/trainer/ivo_kolbe.json",
   "trainingszeiten": [
     {
-      "wochentag": "Montag",
-      "zeit": "19:00-20:30",
-      "halle": "content/hallen/jbs.json",
-      "bemerkung": "(Saisonvorbereitung)"
-    },
-    {
-      "wochentag": "Donnerstag",
-      "zeit": "19:00-20:30",
-      "halle": "content/hallen/jbs.json",
-      "bemerkung": "(Saisonvorbereitung)"
-    },
-    {
       "wochentag": "Dienstag",
       "zeit": "19:00-20:30",
       "halle": "content/hallen/jbs.json",

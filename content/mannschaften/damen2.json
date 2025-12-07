@@ -8,18 +8,6 @@
   "trainingszeiten": [
     {
       "wochentag": "Montag",
-      "zeit": "20:30-22:00",
-      "halle": "content/hallen/jbs.json",
-      "bemerkung": "(Saisonvorbereitung)"
-    },
-    {
-      "wochentag": "Donnerstag",
-      "zeit": "20:30-22:00",
-      "halle": "content/hallen/jbs.json",
-      "bemerkung": "(Saisonvorbereitung)"
-    },
-    {
-      "wochentag": "Montag",
       "zeit": "19:00-20:30",
       "halle": "content/hallen/jbs.json",
       "bemerkung": "(Saison)"

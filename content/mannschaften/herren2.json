@@ -10,24 +10,6 @@
       "wochentag": "Montag",
       "zeit": "20:30-22:00",
       "halle": "content/hallen/jbs.json",
-      "bemerkung": "(Saisonvorbereitung)"
-    },
-    {
-      "wochentag": "Dienstag",
-      "zeit": "20:30-22:00",
-      "halle": "content/hallen/jbs.json",
-      "bemerkung": "(Saisonvorbereitung)"
-    },
-    {
-      "wochentag": "Donnerstag",
-      "zeit": "20:30-22:00",
-      "halle": "content/hallen/jbs.json",
-      "bemerkung": "(Saisonvorbereitung)"
-    },
-    {
-      "wochentag": "Montag",
-      "zeit": "20:30-22:00",
-      "halle": "content/hallen/jbs.json",
       "bemerkung": "(Saison)"
     },
     {
