@@ -1,13 +1,35 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Users, Heart, Target, Award, Mail, Phone, Calendar, Shield } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from '@/components/ui/carousel';
+import { Users, Heart, Target, Award, Mail, Phone, Calendar, Shield, Download } from 'lucide-react';
 import { client } from '../../tina/__generated__/client';
 import React, { useEffect, useState } from 'react';
+
+const SAISONABSCHLUSS_IMAGES = [
+  "Saisonabschluss_2026_Logo.jpeg",
+  "Saisonabschluss_2026_Foto1.jpeg",
+  "Saisonabschluss_2026_Foto2.jpeg",
+  "Saisonabschluss_2026_Foto3.jpeg",
+];
+const TINA_BASE_URL = "https://assets.tina.io/152df7c9-baaf-4d7e-8eee-26409701be22";
 
 const AboutPage = () => {
   const [boardMembers, setBoardMembers] = useState([]);
   const [supportTeam, setSupportTeam] = useState([]);
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+
+  useEffect(() => {
+    if (!carouselApi) return;
+    const interval = setInterval(() => {
+      if (carouselApi.canScrollNext()) {
+        carouselApi.scrollNext();
+      } else {
+        carouselApi.scrollTo(0);
+      }
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [carouselApi]);
 
   // dictionary for rolle to icon mapping
   const roleIcons = {
@@ -245,6 +267,64 @@ const AboutPage = () => {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Saisonabschlussturnier 2026 Section */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Saisonabschlussturnier 2026
+              </h2>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* LEFT: Auto-scrolling image carousel */}
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <Carousel opts={{ loop: true }} setApi={setCarouselApi} className="w-full">
+                  <CarouselContent>
+                    {SAISONABSCHLUSS_IMAGES.map((img) => (
+                      <CarouselItem key={img}>
+                        <img
+                          src={`${TINA_BASE_URL}/${img}`}
+                          alt={img.replace(/_/g, " ").replace(".jpeg", "")}
+                          className="w-full aspect-video object-cover"
+                        />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                </Carousel>
+              </div>
+
+              {/* RIGHT: Text + download button */}
+              <div>
+                <div className="space-y-6">
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Das HSG Pinnau Saisonabschlussturnier findet 2026 bereits zum dritten Mal statt und ist ein fester Bestandteil unseres Vereinsjahres. Jedes Jahr im Mai – direkt nach Saisonende – erleben rund 200 Kinder ein Turnier voller Spaß und Gemeinschaft.
+                  </p>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Teilnehmen können ausschließlich männliche und weibliche E-Jugend-Teams. Das Besondere: Es darf sowohl mit dem Kader der alten Saison als auch mit dem neuen Team gespielt werden.
+                  </p>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    So entsteht ein einzigartiges Event – als letzter gemeinsamer Auftritt oder als erster Schritt in die E-Jugend auf dem großen Feld.
+                  </p>
+                </div>
+
+                <div className="mt-8">
+                  <a
+                    href={`${TINA_BASE_URL}/HSG%20Pinnau%20Saisonabschlussturnier%202026.pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download
+                    className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg font-semibold transition-all duration-200 hover:scale-105 shadow-lg"
+                  >
+                    <Download size={20} />
+                    Turnierbestimmungen herunterladen
+                  </a>
                 </div>
               </div>
             </div>
