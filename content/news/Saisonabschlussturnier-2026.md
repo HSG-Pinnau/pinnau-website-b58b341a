@@ -5,7 +5,7 @@ datum: 2026-03-25T23:00:00.000Z
 kategorie: Event
 autor: Mads Börjesson
 bild: /Saisonabschluss_2026_News.jpeg
-featured: true
+featured: false
 ---
 
 # HSG Pinnau Saisonabschlussturnier: Ein Event für die ganze Familie!
