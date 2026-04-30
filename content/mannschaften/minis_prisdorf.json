@@ -8,7 +8,7 @@
   "trainer": "content/trainer/zsuzsa_nyari.json",
   "trainingszeiten": [
     {
-      "wochentag": "Donnerstag",
+      "wochentag": "Mittwoch",
       "zeit": "15:45-16:30",
       "halle": "content/hallen/prisdorf.json",
       "bemerkung": "Gruppe 1 (2020-2022)"
