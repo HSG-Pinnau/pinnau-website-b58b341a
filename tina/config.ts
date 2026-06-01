@@ -314,6 +314,29 @@ export default defineConfig({
             description: "Hauptbild für den Artikel",
           },
           {
+            type: "object",
+            name: "bilder",
+            label: "Bildergalerie",
+            description: "Mehrere Bilder für die Bildergalerie im Artikel (optional)",
+            list: true,
+            ui: {
+              itemProps: (item) => ({ label: item?.alt || "Bild" }),
+            },
+            fields: [
+              {
+                type: "image",
+                name: "src",
+                label: "Bild",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "alt",
+                label: "Bildbeschreibung (Alt-Text)",
+              },
+            ],
+          },
+          {
             type: "boolean",
             name: "featured",
             label: "Featured",

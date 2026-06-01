@@ -1,7 +1,7 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
-import { Calendar, ArrowLeft, Trophy, Users, Target, Heart, Clock, User } from 'lucide-react';
+import { Calendar, ArrowLeft, ChevronLeft, ChevronRight, Trophy, Users, Target, Heart, Clock, User } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getNewsArticleByIdCached } from '@/components/navigation/newsDataCache';
@@ -11,6 +11,29 @@ const NewsArticlePage = () => {
   const { articleId } = useParams();
   const [article, setArticle] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
+  const [galleryIdx, setGalleryIdx] = useState(0);
+  const [fadeIn, setFadeIn] = useState(true);
+
+  const navigateGallery = (newIdx: number) => {
+    setFadeIn(false);
+    setTimeout(() => {
+      setGalleryIdx(newIdx);
+      setFadeIn(true);
+    }, 150);
+  };
+
+  useEffect(() => {
+    setGalleryIdx(0);
+    setFadeIn(true);
+  }, [article]);
+
+  useEffect(() => {
+    if (!article?.bilder?.length || article.bilder.length <= 1) return;
+    const interval = setInterval(() => {
+      navigateGallery((galleryIdx + 1) % article.bilder.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [galleryIdx, article]);
 
   useEffect(() => {
     const fetchArticle = async () => {
@@ -146,16 +169,55 @@ const NewsArticlePage = () => {
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <Card className="overflow-hidden shadow-lg">
-              {/* Featured Image */}
-              {article.bild && (
+              {/* Image Gallery / Featured Image */}
+              {article.bilder && article.bilder.length > 0 ? (
+                <div className="relative group overflow-hidden">
+                  <img
+                    src={article.bilder[galleryIdx].src}
+                    alt={article.bilder[galleryIdx].alt || article.titel}
+                    className={`w-full h-64 md:h-96 object-cover transition-opacity duration-300 ${fadeIn ? 'opacity-100' : 'opacity-0'}`}
+                  />
+                  {article.bilder.length > 1 && (
+                    <>
+                      <button
+                        onClick={() => navigateGallery((galleryIdx - 1 + article.bilder.length) % article.bilder.length)}
+                        className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/55 backdrop-blur-sm text-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-200"
+                        aria-label="Vorheriges Bild"
+                      >
+                        <ChevronLeft className="h-5 w-5" />
+                      </button>
+                      <button
+                        onClick={() => navigateGallery((galleryIdx + 1) % article.bilder.length)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/55 backdrop-blur-sm text-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-200"
+                        aria-label="Nächstes Bild"
+                      >
+                        <ChevronRight className="h-5 w-5" />
+                      </button>
+                      <div className="absolute top-3 right-3 bg-black/30 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full">
+                        {galleryIdx + 1} / {article.bilder.length}
+                      </div>
+                      <div className="absolute bottom-4 left-0 right-0 flex justify-center items-center gap-1.5">
+                        {article.bilder.map((_: any, i: number) => (
+                          <button
+                            key={i}
+                            onClick={() => navigateGallery(i)}
+                            className={`h-1.5 rounded-full transition-all duration-300 ${i === galleryIdx ? 'w-6 bg-white' : 'w-1.5 bg-white/50 hover:bg-white/75'}`}
+                            aria-label={`Bild ${i + 1}`}
+                          />
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
+              ) : article.bild ? (
                 <div className="relative">
-                  <img 
+                  <img
                     src={article.bild}
                     alt={article.titel}
                     className="w-full h-64 md:h-80 object-cover"
                   />
                 </div>
-              )}
+              ) : null}
               
               <CardContent className="p-8 md:p-12">
                 {/* Excerpt */}

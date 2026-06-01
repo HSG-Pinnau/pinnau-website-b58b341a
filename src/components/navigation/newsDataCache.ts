@@ -24,6 +24,7 @@ export async function getNewsCached() {
         kategorie: newsArticle.kategorie || '',
         autor: newsArticle.autor || '',
         bild: newsArticle.bild || '',
+        bilder: newsArticle.bilder || [],
         featured: newsArticle.featured || false,
         inhalt: newsArticle.inhalt || '',
         _sys: newsArticle._sys

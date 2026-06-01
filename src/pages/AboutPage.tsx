@@ -18,7 +18,6 @@ const AboutPage = () => {
   const [boardMembers, setBoardMembers] = useState([]);
   const [supportTeam, setSupportTeam] = useState([]);
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
-
   useEffect(() => {
     if (!carouselApi) return;
     const interval = setInterval(() => {
