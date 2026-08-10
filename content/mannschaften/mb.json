@@ -6,7 +6,7 @@
   "geschlecht": "Männlich",
   "jugend": "B-Jugend",
   "liga": "Oberliga",
-  "trainer": "content/trainer/thorsten_stegmann.json",
+  "trainer": "content/trainer/ivo_kolbe.json",
   "trainingszeiten": [
     {
       "wochentag": "Montag",
