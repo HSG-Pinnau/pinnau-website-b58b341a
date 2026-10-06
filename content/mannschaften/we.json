@@ -4,8 +4,8 @@
   "jahrgang": "2015/2016",
   "geschlecht": "Weiblich",
   "jugend": "E-Jugend",
-  "liga": "Kreisliga",
-  "trainer": "content/trainer/andrea_kurschus.json",
+  "liga": "Bezirksoberliga",
+  "trainer": "content/trainer/sebastian_wippich.json",
   "trainingszeiten": [
     {
       "wochentag": "Montag",
