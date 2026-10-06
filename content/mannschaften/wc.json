@@ -8,8 +8,8 @@
   "trainer": "content/trainer/kai_dilbenz.json",
   "trainingszeiten": [
     {
-      "wochentag": "Mittwoch",
-      "zeit": "17:30-19:00",
+      "wochentag": "Montag",
+      "zeit": "17:00-18:30",
       "halle": "content/hallen/kbs.json"
     },
     {
