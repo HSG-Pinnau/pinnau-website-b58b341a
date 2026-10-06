@@ -5,11 +5,11 @@
   "geschlecht": "Männlich",
   "jugend": "E-Jugend",
   "liga": "Bezirksoberliga",
-  "trainer": "content/trainer/lisa_moritz.json",
+  "trainer": "content/trainer/alexia_werner.json",
   "trainingszeiten": [
     {
       "wochentag": "Montag",
-      "zeit": "17:20-19:00",
+      "zeit": "17:30-19:00",
       "halle": "content/hallen/jbs.json"
     },
     {
