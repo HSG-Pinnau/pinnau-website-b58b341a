@@ -5,12 +5,12 @@
   "geschlecht": "Weiblich",
   "jugend": "B-Jugend",
   "liga": "Landesliga",
-  "trainer": "content/trainer/kai_dilbenz.json",
+  "trainer": "content/trainer/robin_hinnrichs.json",
   "trainingszeiten": [
     {
-      "wochentag": "Mittwoch",
-      "zeit": "19:00-20:30",
-      "halle": "content/hallen/jbs.json"
+      "wochentag": "Montag",
+      "zeit": "18:30-20:00",
+      "halle": "content/hallen/kbs.json"
     },
     {
       "wochentag": "Freitag",
