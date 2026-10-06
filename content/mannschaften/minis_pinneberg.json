@@ -9,7 +9,7 @@
   "trainingszeiten": [
     {
       "wochentag": "Donnerstag",
-      "zeit": "15:45-16:30",
+      "zeit": "16:30-17:15",
       "halle": "content/hallen/jbs.json"
     }
   ]
