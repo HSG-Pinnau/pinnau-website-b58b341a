@@ -4,8 +4,8 @@
   "jahrgang": "2011/2012",
   "geschlecht": "Weiblich",
   "jugend": "C-Jugend",
-  "liga": "Bezirksoberliga",
-  "trainer": "content/trainer/kai_dilbenz.json",
+  "liga": "Landesliga",
+  "trainer": "content/trainer/joelina_woitek.json",
   "trainingszeiten": [
     {
       "wochentag": "Montag",
