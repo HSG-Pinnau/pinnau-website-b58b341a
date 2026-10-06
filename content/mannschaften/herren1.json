@@ -3,7 +3,7 @@
   "kurzname": "1. Herren",
   "geschlecht": "Männlich",
   "jugend": "Erwachsene",
-  "liga": "Landesliga",
+  "liga": "Oberliga",
   "trainer": "content/trainer/dominik_stolz.json",
   "trainingszeiten": [
     {
