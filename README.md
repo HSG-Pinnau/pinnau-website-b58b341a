@@ -1,48 +1,18 @@
-# Welcome to your Lovable project
+# HSG Pinnau Website
 
-## Project info
+Website der Handball-Spielgemeinschaft HSG Pinnau (TSV Prisdorf & VfL Pinneberg).
 
-**URL**: https://lovable.dev/projects/a1e8bb80-ebd9-4ac9-bd9b-3fb87137fd7b
+Gebaut mit Vite, React, TypeScript, Tailwind CSS und shadcn/ui. Inhalte werden über [TinaCMS](https://tina.io) gepflegt (Admin unter `/admin`) und liegen als JSON/Markdown in `content/`. Gehostet auf Vercel.
 
-## How can I edit this code?
+## Lokal entwickeln
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/a1e8bb80-ebd9-4ac9-bd9b-3fb87137fd7b) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Voraussetzungen: Node.js 24 und pnpm.
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-pnpm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-pnpm run dev
+pnpm install
+pnpm dev        # TinaCMS + Vite auf http://localhost:8080
+pnpm build      # Produktions-Build
+pnpm lint
 ```
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
+Weitere Hinweise zur Struktur stehen in `CLAUDE.md`.
