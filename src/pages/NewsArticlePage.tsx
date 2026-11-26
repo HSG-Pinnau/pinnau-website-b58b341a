@@ -171,11 +171,18 @@ const NewsArticlePage = () => {
             <Card className="overflow-hidden shadow-lg">
               {/* Image Gallery / Featured Image */}
               {article.bilder && article.bilder.length > 0 ? (
-                <div className="relative group overflow-hidden">
+                <div className="relative group overflow-hidden h-80 md:h-[32rem] bg-muted">
+                  {/* Unscharfer Hintergrund füllt die Ränder bei Hochformat-Bildern */}
+                  <img
+                    src={article.bilder[galleryIdx].src}
+                    alt=""
+                    aria-hidden="true"
+                    className={`absolute inset-0 w-full h-full object-cover scale-110 blur-2xl transition-opacity duration-300 ${fadeIn ? 'opacity-60' : 'opacity-0'}`}
+                  />
                   <img
                     src={article.bilder[galleryIdx].src}
                     alt={article.bilder[galleryIdx].alt || article.titel}
-                    className={`w-full h-64 md:h-96 object-cover transition-opacity duration-300 ${fadeIn ? 'opacity-100' : 'opacity-0'}`}
+                    className={`relative w-full h-full object-contain transition-opacity duration-300 ${fadeIn ? 'opacity-100' : 'opacity-0'}`}
                   />
                   {article.bilder.length > 1 && (
                     <>
@@ -210,11 +217,17 @@ const NewsArticlePage = () => {
                   )}
                 </div>
               ) : article.bild ? (
-                <div className="relative">
+                <div className="relative overflow-hidden h-80 md:h-[32rem] bg-muted">
+                  <img
+                    src={article.bild}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-60"
+                  />
                   <img
                     src={article.bild}
                     alt={article.titel}
-                    className="w-full h-64 md:h-80 object-cover"
+                    className="relative w-full h-full object-contain"
                   />
                 </div>
               ) : null}

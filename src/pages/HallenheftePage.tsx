@@ -39,7 +39,7 @@ const HallenheftePage = () => {
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold tracking-tight mb-3">Hallenhefte</h1>
             <p className="text-muted-foreground text-lg">
-              Unsere monatlich erscheinenden Hallenhefte mit Spieltagen, Artikeln und Informationen
+              Unsere regelmäßig erscheinenden Hallenhefte mit Spieltagen, Artikeln und Informationen
               rund um die HSG Pinnau. Alle Ausgaben stehen dir hier zum Download bereit.
             </p>
           </div>

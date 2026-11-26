@@ -43,7 +43,7 @@ const DatenschutzPage: React.FC = () => (
 
             <h4 className="text-lg font-semibold text-foreground mt-6 mb-3">Wie erfassen wir Ihre Daten?</h4>
             <p className="mb-4 text-muted-foreground leading-relaxed">
-              Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben.
+              Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie uns per E-Mail zusenden.
             </p>
             <p className="mb-4 text-muted-foreground leading-relaxed">
               Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.
@@ -161,17 +161,6 @@ const DatenschutzPage: React.FC = () => (
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">3. Datenerfassung auf dieser Website</h2>
             
-            <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Kontaktformular</h3>
-            <p className="mb-4 text-muted-foreground leading-relaxed">
-              Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
-            </p>
-            <p className="mb-4 text-muted-foreground leading-relaxed">
-              Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sofern diese abgefragt wurde; die Einwilligung ist jederzeit widerrufbar.
-            </p>
-            <p className="mb-6 text-muted-foreground leading-relaxed">
-              Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.
-            </p>
-
             <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Anfrage per E-Mail, Telefon oder Telefax</h3>
             <p className="mb-4 text-muted-foreground leading-relaxed">
               Wenn Sie uns per E-Mail, Telefon oder Telefax kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, Anfrage) zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
@@ -181,39 +170,6 @@ const DatenschutzPage: React.FC = () => (
             </p>
             <p className="mb-6 text-muted-foreground leading-relaxed">
               Die von Ihnen an uns per Kontaktanfragen übersandten Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihres Anliegens). Zwingende gesetzliche Bestimmungen – insbesondere gesetzliche Aufbewahrungsfristen – bleiben unberührt.
-            </p>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">4. Plugins und Tools</h2>
-            
-            <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Google reCAPTCHA</h3>
-            <p className="mb-4 text-muted-foreground leading-relaxed">
-              Wir nutzen „Google reCAPTCHA" (im Folgenden „reCAPTCHA") auf dieser Website. Anbieter ist die Google Ireland Limited („Google"), Gordon House, Barrow Street, Dublin 4, Irland.
-            </p>
-            <p className="mb-4 text-muted-foreground leading-relaxed">
-              Mit reCAPTCHA soll überprüft werden, ob die Dateneingabe auf dieser Website (z. B. in einem Kontaktformular) durch einen Menschen oder durch ein automatisiertes Programm erfolgt. Hierzu analysiert reCAPTCHA das Verhalten des Websitebesuchers anhand verschiedener Merkmale. Diese Analyse beginnt automatisch, sobald der Websitebesucher die Website betritt. Zur Analyse wertet reCAPTCHA verschiedene Informationen aus (z. B. IP-Adresse, Verweildauer des Websitebesuchers auf der Website oder vom Nutzer getätigte Mausbewegungen). Die bei der Analyse erfassten Daten werden an Google weitergeleitet.
-            </p>
-            <p className="mb-4 text-muted-foreground leading-relaxed">
-              Die reCAPTCHA-Analysen laufen vollständig im Hintergrund. Websitebesucher werden nicht darauf hingewiesen, dass eine Analyse stattfindet.
-            </p>
-            <p className="mb-4 text-muted-foreground leading-relaxed">
-              Die Speicherung und Analyse der Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse daran, seine Webangebote vor missbräuchlicher automatisierter Ausspähung und vor SPAM zu schützen. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B. Device-Fingerprinting) im Sinne des TDDDG umfasst. Die Einwilligung ist jederzeit widerrufbar.
-            </p>
-            <p className="mb-4 text-muted-foreground leading-relaxed">
-              Weitere Informationen zu Google reCAPTCHA entnehmen Sie den Google-Datenschutzbestimmungen und den Google Nutzungsbedingungen unter folgenden Links: 
-              <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                https://policies.google.com/privacy?hl=de
-              </a> und 
-              <a href="https://policies.google.com/terms?hl=de" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                https://policies.google.com/terms?hl=de
-              </a>.
-            </p>
-            <p className="mb-6 text-muted-foreground leading-relaxed">
-              Das Unternehmen verfügt über eine Zertifizierung nach dem „EU-US Data Privacy Framework" (DPF). Der DPF ist ein Übereinkommen zwischen der Europäischen Union und den USA, der die Einhaltung europäischer Datenschutzstandards bei Datenverarbeitungen in den USA gewährleisten soll. Jedes nach dem DPF zertifizierte Unternehmen verpflichtet sich, diese Datenschutzstandards einzuhalten. Weitere Informationen hierzu erhalten Sie vom Anbieter unter folgendem Link: 
-              <a href="https://www.dataprivacyframework.gov/participant/5780" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">
-                https://www.dataprivacyframework.gov/participant/5780
-              </a>.
             </p>
           </section>
 

@@ -96,6 +96,12 @@ export default defineConfig({
             label: "Beschreibung",
           },
           {
+            type: "image",
+            name: "mannschaftsfoto",
+            label: "Mannschaftsfoto",
+            description: "Optionales Mannschaftsfoto, das auf der Teamseite angezeigt wird",
+          },
+          {
             type: "string",
             name: "jahrgang",
             label: "Jahrgang",

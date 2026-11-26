@@ -81,6 +81,7 @@ const TeamPage = () => {
           jahrgang: team.jahrgang || '',
           geschlecht: team.geschlecht || '',
           handball4AllTeamId: team.handball4AllTeamId || '',
+          mannschaftsfoto: team.mannschaftsfoto || '',
         });
       } catch (e) {
         setTeamData(null);
@@ -255,16 +256,24 @@ const TeamPage = () => {
           <div className={`grid grid-cols-1 ${isSpecialTeam ? 'lg:grid-cols-1' : 'lg:grid-cols-3'} gap-8`}>
             {/* Main Content */}
             <div className={`${isSpecialTeam ? 'lg:col-span-1 max-w-3xl mx-auto' : 'lg:col-span-2'} space-y-8`}>
-              {/* Team Photo Placeholder */}
-              {!isSpecialTeam && (
+              {/* Team Photo */}
+              {(teamData.mannschaftsfoto || !isSpecialTeam) && (
                 <div className="bg-card rounded-xl p-6 shadow-lg">
                   <h2 className="text-2xl font-bold text-card-foreground mb-4">Mannschaftsfoto</h2>
-                  <div className="bg-muted rounded-lg h-64 flex items-center justify-center">
-                    <div className="text-center">
-                      <Users size={64} className="text-muted-foreground mx-auto mb-2" />
-                      <p className="text-muted-foreground">Mannschaftsfoto wird bald ergänzt</p>
+                  {teamData.mannschaftsfoto ? (
+                    <img
+                      src={teamData.mannschaftsfoto}
+                      alt={`Mannschaftsfoto ${teamData.name}`}
+                      className="w-full h-auto rounded-lg"
+                    />
+                  ) : (
+                    <div className="bg-muted rounded-lg h-64 flex items-center justify-center">
+                      <div className="text-center">
+                        <Users size={64} className="text-muted-foreground mx-auto mb-2" />
+                        <p className="text-muted-foreground">Mannschaftsfoto wird bald ergänzt</p>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               )}
 
