@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getTeamsCached } from './navigation/teamDataCache';
 
+const FOUNDING_YEAR = 2011;
 
 const Hero = () => {
   const [teamCount, setTeamCount] = useState<number | null>(null);
@@ -77,7 +78,7 @@ const Hero = () => {
                   <Award className="text-accent-foreground" size={32} />
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-2">13+</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-2">{new Date().getFullYear() - FOUNDING_YEAR}</h3>
               <p className="text-muted-foreground">Jahre Erfahrung</p>
             </div>
             <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-t-4 border-primary">
